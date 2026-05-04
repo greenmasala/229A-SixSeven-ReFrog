@@ -11,21 +11,32 @@ public class Transition : MonoBehaviour
     public TextMeshProUGUI LevelText;
     Sequence sequence;
 
-    private void OnEnable() => SceneManager.activeSceneChanged += SceneChanged;
-    private void OnDisable() => SceneManager.activeSceneChanged -= SceneChanged;
-
-    private void SceneChanged(Scene oldScene, Scene newScene)
+    private void OnEnable()
     {
-        if (oldScene.buildIndex != newScene.buildIndex)
+        SceneManager.sceneLoaded += SceneChanged;
+    }
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= SceneChanged;
+    }
+    private void SceneChanged(Scene scene, LoadSceneMode mode)
+    {
+        if (scene.buildIndex == 0)
         {
+            return;
+        }
+        else
+        {
+            TransitionImage.localScale = new Vector3(1, 1, 1);
+            LevelText.text = $"LEVEL_{SceneManager.GetActiveScene().buildIndex}";
+            LevelText.maxVisibleCharacters = 0;
             RunTransition();
         }
     }
+
     void RunTransition()
     {
         sequence.Restart();
-        LevelText.text = $"LEVEL_{SceneManager.GetActiveScene().buildIndex}";
-        LevelText.maxVisibleCharacters = 0;
         sequence = DOTween.Sequence();
         sequence.Append(TransitionImage.DOScaleY(0.15f, 0.6f));
         sequence.InsertCallback(0.4f, () => StartCoroutine(TypeText()));

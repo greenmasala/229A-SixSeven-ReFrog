@@ -1,10 +1,11 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.Tilemaps;
-using DG.Tweening;
 
 public class Refresh : MonoBehaviour
 {
@@ -24,31 +25,72 @@ public class Refresh : MonoBehaviour
     Coroutine CoFadeInLayout;
     public Animator RefreshUI;
 
-    public static Refresh Instance { get; private set; }
-    private void Awake()
-    {
-        RefreshCount = FindFirstObjectByType<Player>().RefreshCount;
-        RefreshCountText = PersistentOverlay.Instance.GetComponentInChildren<TextMeshProUGUI>();
-        if (Instance == null)
-        {
-            Instance = this;
-            DontDestroyOnLoad(gameObject);
+    //public static Refresh Instance { get; private set; }
 
-        }
-        else if (Instance != this)
-        {
-            Destroy(Instance.gameObject);
-            Instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-    }
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    //private void OnEnable()
+    //{
+    //    SceneManager.sceneLoaded += SceneChanged;
+    //}
+    //private void OnDisable()
+    //{
+    //    SceneManager.sceneLoaded -= SceneChanged;
+    //}
+    //private void SceneChanged(Scene scene, LoadSceneMode mode)
+    //{
+    //    if (scene.buildIndex == 0)
+    //    {
+    //        return;
+    //    }
+    //    else
+    //    {
+    //        gameObject.SetActive(true);
+    //        RefreshCount = FindFirstObjectByType<Player>().RefreshCount;
+    //        RefreshCountText = PersistentOverlay.Instance.GetComponentInChildren<TextMeshProUGUI>();
+    //        Layout1 = GameObject.FindGameObjectWithTag("Layout1").GetComponent<Tilemap>();
+    //        Layout2 = GameObject.FindGameObjectWithTag("Layout2").GetComponent<Tilemap>();
+
+    //        Columns = GameObject.FindGameObjectsWithTag("Column").OrderByDescending(o =>
+    //        {
+    //            var numberPart = new string(o.name.Where(char.IsDigit).ToArray());
+    //            return int.Parse(numberPart);
+    //        }).ToArray();
+
+    //        Columns2 = GameObject.FindGameObjectsWithTag("Column2").OrderByDescending(o =>
+    //        {
+    //            var numberPart = new string(o.name.Where(char.IsDigit).ToArray());
+    //            return int.Parse(numberPart);
+    //        }).ToArray();
+
+    //        RefreshCountText.text = RefreshCount.ToString();
+
+    //        foreach (GameObject column2 in Columns2)
+    //        {
+    //            column2.SetActive(false);
+    //        }
+    //    }
+    //}
+    //private void Awake()
+    //{
+    //    if (Instance == null)
+    //    {
+    //        Instance = this;
+    //        DontDestroyOnLoad(gameObject);
+
+    //    }
+    //    else if (Instance != this)
+    //    {
+    //        Destroy(Instance.gameObject);
+    //        Instance = this;
+    //        DontDestroyOnLoad(gameObject);
+    //    }
+    //}
+    //Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         Layout1 = GameObject.FindGameObjectWithTag("Layout1").GetComponent<Tilemap>();
         Layout2 = GameObject.FindGameObjectWithTag("Layout2").GetComponent<Tilemap>();
 
-        Columns = GameObject.FindGameObjectsWithTag("Column").OrderByDescending(o => 
+        Columns = GameObject.FindGameObjectsWithTag("Column").OrderByDescending(o =>
         {
             var numberPart = new string(o.name.Where(char.IsDigit).ToArray());
             return int.Parse(numberPart);
@@ -58,7 +100,7 @@ public class Refresh : MonoBehaviour
         {
             var numberPart = new string(o.name.Where(char.IsDigit).ToArray());
             return int.Parse(numberPart);
-        }).ToArray(); 
+        }).ToArray();
 
         RefreshCountText.text = RefreshCount.ToString();
 
@@ -71,61 +113,66 @@ public class Refresh : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E) & RefreshCount > 0)
+        if (!GameManager.Instance.Win & !GameManager.Instance.Paused)
         {
-           RefreshCount--;
-           HasRefreshed = !HasRefreshed;
-
-           RefreshUI.SetBool("HasRefreshed", HasRefreshed);
-
-           RefreshCountText.text = RefreshCount.ToString();
-           Debug.Log("hasRefreshed" + HasRefreshed);
-           
-           if (refreshCoroutine != null)
-           {
-               StopCoroutine(refreshCoroutine);
-               Debug.Log("Stopped midway");
-           }
-           refreshCoroutine = StartCoroutine(Refreshing());
-        }
-
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            if (HasRefreshed)
+            if (Input.GetKeyDown(KeyCode.E) & RefreshCount > 0)
             {
-                if (CoFadeInLayout != null)
+                RefreshCount--;
+                HasRefreshed = !HasRefreshed;
+
+                RefreshUI.SetBool("HasRefreshed", HasRefreshed);
+
+                RefreshCountText.text = RefreshCount.ToString();
+                Debug.Log("hasRefreshed" + HasRefreshed);
+
+                if (refreshCoroutine != null)
                 {
-                    StopCoroutine(CoFadeInLayout);
+                    StopCoroutine(refreshCoroutine);
+                    Debug.Log("Stopped midway");
                 }
-                CoFadeInLayout = StartCoroutine(FadeInLayout(0.3f, 0.5f, Layout1));
+                refreshCoroutine = StartCoroutine(Refreshing());
             }
-            else
-            {
-                if (CoFadeInLayout != null)
-                {
-                    StopCoroutine(CoFadeInLayout);
-                }
-                CoFadeInLayout = StartCoroutine(FadeInLayout(0.3f, 0.5f, Layout2));
-            }
-        }
 
-        if (Input.GetKeyUp(KeyCode.Q))
-        {
-            if (HasRefreshed)
+            if (Input.GetKeyDown(KeyCode.Q))
             {
-                if (CoFadeInLayout != null)
+                if (HasRefreshed)
                 {
-                    StopCoroutine(CoFadeInLayout);
+                    if (CoFadeInLayout != null)
+                    {
+                        StopCoroutine(CoFadeInLayout);
+                    }
+                    CoFadeInLayout = StartCoroutine(FadeInLayout(0.3f, 0.5f, Layout1));
                 }
+                else
+                {
+                    if (CoFadeInLayout != null)
+                    {
+                        StopCoroutine(CoFadeInLayout);
+                    }
+                    CoFadeInLayout = StartCoroutine(FadeInLayout(0.3f, 0.5f, Layout2));
+                }
+            }
+
+            if (Input.GetKeyUp(KeyCode.Q))
+            {
                 CoFadeInLayout = StartCoroutine(FadeInLayout(0.3f, 0f, Layout1));
-            }
-            else
-            {
-                if (CoFadeInLayout != null)
-                {
-                    StopCoroutine(CoFadeInLayout);
-                }
                 CoFadeInLayout = StartCoroutine(FadeInLayout(0.3f, 0f, Layout2));
+                //if (HasRefreshed)
+                //{
+                //    if (CoFadeInLayout != null)
+                //    {
+                //        StopCoroutine(CoFadeInLayout);
+                //    }
+                //    CoFadeInLayout = StartCoroutine(FadeInLayout(0.3f, 0f, Layout1));
+                //}
+                //else
+                //{
+                //    if (CoFadeInLayout != null)
+                //    {
+                //        StopCoroutine(CoFadeInLayout);
+                //    }
+                //    CoFadeInLayout = StartCoroutine(FadeInLayout(0.3f, 0f, Layout2));
+                //}
             }
         }
     }

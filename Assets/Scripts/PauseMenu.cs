@@ -4,19 +4,19 @@ using UnityEngine.SceneManagement;
 public class PauseMenu : MonoBehaviour
 {
     //public GameObject SettingsMenu;
-    GameManager gameManager;
+    //GameManager gameManager;
 
-    private void Start()
-    {
-        gameManager = FindFirstObjectByType<GameManager>();
-    }
+    //private void Start()
+    //{
+    //    gameManager = FindFirstObjectByType<GameManager>();
+    //}
     public void Resume()
     {
-        gameManager.Unpause();
+        GameManager.Instance.Unpause();
     }
     public void Restart()
     {
-        gameManager.Restart();
+        GameManager.Instance.Restart();
     }
     public void ReturnToMenu()
     {

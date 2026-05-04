@@ -9,18 +9,36 @@ public class GameManager : MonoBehaviour
 
     int levelID;
     int nextLevelID;
-    bool win;
-    bool paused;
+    public bool Paused;
+    public bool Win;
 
     public static GameManager Instance { get; private set; }
 
+    private void OnEnable()
+    {
+        SceneManager.sceneLoaded += SceneChanged;
+    }
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= SceneChanged;
+    }
+    private void SceneChanged(Scene scene, LoadSceneMode mode)
+    {
+        if (scene.buildIndex == 0)
+        {
+            return;
+        }
+        else
+        {
+            Win = false;
+            Debug.Log(PauseMenu);
+            levelID = SceneManager.GetActiveScene().buildIndex;
+            nextLevelID = levelID + 1;
+            Debug.Log("LevelID" + levelID);
+        }
+    }
     private void Awake()
     {
-        Debug.Log(PauseMenu);
-        levelID = SceneManager.GetActiveScene().buildIndex;
-        nextLevelID = levelID + 1;
-        Debug.Log("LevelID" + levelID);
-
         if (Instance == null)
         {
             Instance = this;
@@ -43,9 +61,9 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape) & !win)
+        if (Input.GetKeyDown(KeyCode.Escape) & !Win)
         {
-            if (paused == true)
+            if (Paused == true)
             {
                 Unpause();
             }
@@ -66,7 +84,7 @@ public class GameManager : MonoBehaviour
     {
         Time.timeScale = 0f;
         PauseMenu.gameObject.SetActive(true);
-        paused = true;
+        Paused = true;
         Debug.Log("paused");
     }
 
@@ -74,7 +92,7 @@ public class GameManager : MonoBehaviour
     {
         Time.timeScale = 1f;
         PauseMenu.gameObject.SetActive(false);
-        paused = false;
+        Paused = false;
     }
     public void Restart()
     {
@@ -86,13 +104,6 @@ public class GameManager : MonoBehaviour
     {
         Time.timeScale = 1f;
         LoadLevel(nextLevelID);
-    }
-
-    void Win()
-    {
-        Time.timeScale = 0f;
-        Debug.Log("WIN!!");
-        WinScreen.gameObject.SetActive(true);
     }
 
     void LoadLevel(int levelID)

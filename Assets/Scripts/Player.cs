@@ -48,120 +48,124 @@ public class Player : MonoBehaviour
 
         //Debug.Log(rb.linearVelocity);
 
-        if (isGrounded())
+        if (!GameManager.Instance.Win)
         {
-            coyoteTimeCounter = coyoteTime;
-            //isJumping = false;
-        }
-        else if (!isGrounded())
-        {
-            coyoteTimeCounter -= Time.deltaTime;
-        }
-
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            jumpBufferCounter = jumpBufferTime;
-            //isJumping = true;
-            //jumpCount--;
-            if (coyoteTimeCounter < 0 & jumpCount > 0)
+            if (isGrounded())
             {
-                rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
-                jumpCount = 0;
+                coyoteTimeCounter = coyoteTime;
+                //isJumping = false;
             }
-        }
-        else
-        {
-            jumpBufferCounter -= Time.deltaTime;
-            //isJumping = false;
-        }
-
-        //if (jumpBufferCounter > 0f & coyoteTimeCounter > 0f & !isJumping)
-
-        //if (jumpBufferCounter > 0f & coyoteTimeCounter > 0f & !isJumping)
-        //{
-        //    if (isJumping)
-        //    //isJumping = true;
-        //    Debug.Log("jump");
-        //    rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
-        //    isJumping = true;
-
-        //    jumpBufferCounter = 0f;
-        //    coyoteTimeCounter = 0f;
-        //}
-        //else if (jumpBufferCounter > 0f & coyoteTimeCounter > 0f & isJumping & jumpCount > 0)
-        //{
-        //    Debug.Log("double jump");
-        //    jumpCount--;
-        //    isJumping = false;
-        //    rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
-        //}
-
-        if (isJumping)
-        {
-            playerAnim.SetBool("IsJumping", true);
-        }
-        else if (!isJumping)
-        {
-            playerAnim.SetBool("IsJumping", false);
-        }
-
-        if (jumpBufferCounter > 0f) //could be better, if you have time come revisit //moving while jumping increases jumpheight
-        {
-            if (coyoteTimeCounter > 0f && !isJumping)
+            else if (!isGrounded())
             {
-                rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
-                isJumping = true;
-
-                jumpBufferCounter = 0f;
-                coyoteTimeCounter = 0f;
+                coyoteTimeCounter -= Time.deltaTime;
             }
-            else if (isJumping)
+
+            if (Input.GetKeyDown(KeyCode.Space))
             {
-                if (jumpCount > 0)
+                jumpBufferCounter = jumpBufferTime;
+                //isJumping = true;
+                //jumpCount--;
+                if (coyoteTimeCounter < 0 & jumpCount > 0)
                 {
-                    jumpCount--;
                     rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
+                    jumpCount = 0;
+                }
+            }
+            else
+            {
+                jumpBufferCounter -= Time.deltaTime;
+                //isJumping = false;
+            }
+
+            //if (jumpBufferCounter > 0f & coyoteTimeCounter > 0f & !isJumping)
+
+            //if (jumpBufferCounter > 0f & coyoteTimeCounter > 0f & !isJumping)
+            //{
+            //    if (isJumping)
+            //    //isJumping = true;
+            //    Debug.Log("jump");
+            //    rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
+            //    isJumping = true;
+
+            //    jumpBufferCounter = 0f;
+            //    coyoteTimeCounter = 0f;
+            //}
+            //else if (jumpBufferCounter > 0f & coyoteTimeCounter > 0f & isJumping & jumpCount > 0)
+            //{
+            //    Debug.Log("double jump");
+            //    jumpCount--;
+            //    isJumping = false;
+            //    rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
+            //}
+
+            if (isJumping)
+            {
+                playerAnim.SetBool("IsJumping", true);
+            }
+            else if (!isJumping)
+            {
+                playerAnim.SetBool("IsJumping", false);
+            }
+
+            if (jumpBufferCounter > 0f) //could be better, if you have time come revisit //moving while jumping increases jumpheight
+            {
+                if (coyoteTimeCounter > 0f && !isJumping)
+                {
+                    rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
+                    isJumping = true;
+
                     jumpBufferCounter = 0f;
+                    coyoteTimeCounter = 0f;
+                }
+                else if (isJumping)
+                {
+                    if (jumpCount > 0)
+                    {
+                        jumpCount--;
+                        rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
+                        jumpBufferCounter = 0f;
+                    }
                 }
             }
         }
     }
     private void FixedUpdate()
     {
-        var horizontalInput = Input.GetAxisRaw("Horizontal");
-        //float targetSpeed = horizontalInput * speed;
-
-        //var runAccelAmount = (50 * runAcceleration) / runMaxSpeed;
-        //var runDeccelAmount = (50 * runDecceleration) / runMaxSpeed;
-
-        //targetSpeed = Mathf.Lerp(rb.linearVelocity.x, targetSpeed, 1);
-        //float speedDif = targetSpeed - rb.linearVelocity.x;
-        //float movement = speedDif * accelRate;
-        //rb.AddForce(movement * Vector2.right, ForceMode2D.Force);
-        rb.linearVelocity = new Vector2(horizontalInput * speed, rb.linearVelocity.y);
-        //transform.Translate(Vector2.right * horizontalInput * speed * Time.deltaTime);
-
-        if (horizontalInput != 0)
+        if (!GameManager.Instance.Win)
         {
-            playerAnim.SetBool("IsWalking", true);
+            var horizontalInput = Input.GetAxisRaw("Horizontal");
+
+            rb.linearVelocity = new Vector2(horizontalInput * speed, rb.linearVelocity.y);
+            //transform.Translate(Vector2.right * horizontalInput * speed * Time.deltaTime);
+
+            if (horizontalInput != 0)
+            {
+                playerAnim.SetBool("IsWalking", true);
+            }
+            else
+            {
+                playerAnim.SetBool("IsWalking", false);
+            }
+
+            if (horizontalInput < 0 && !facingRight)
+            {
+                Flip();
+            }
+            else if (horizontalInput > 0 && facingRight)
+            {
+                Flip();
+            }
+
+            if (rb.linearVelocity.y < 0)
+            {
+                rb.linearVelocity += Vector2.up * Physics2D.gravity.y * 1.25f * Time.deltaTime;
+            }
         }
         else
         {
+            rb.linearVelocity = Vector2.zero;
             playerAnim.SetBool("IsWalking", false);
-        }
-
-        if (horizontalInput < 0 && !facingRight)
-        {
-            Flip();
-        }
-        else if (horizontalInput > 0 && facingRight)
-        {
-            Flip();
-        }
-
-        if (rb.linearVelocity.y < 0)
-        {
-            rb.linearVelocity += Vector2.up * Physics2D.gravity.y * 1.25f * Time.deltaTime;
+            playerAnim.SetBool("IsJumping", false);
         }
     }
 
@@ -191,6 +195,7 @@ public class Player : MonoBehaviour
             rb.linearVelocity = new Vector2(0f, rb.linearVelocity.y);
         }
     }
+
     void Flip()
     {
         facingRight = !facingRight;

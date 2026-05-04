@@ -25,6 +25,8 @@ public class Refresh : MonoBehaviour
     Coroutine CoFadeInLayout;
     public Animator RefreshUI;
 
+    [SerializeField] AudioClip refreshSFX;
+
     //public static Refresh Instance { get; private set; }
 
     //private void OnEnable()
@@ -117,6 +119,7 @@ public class Refresh : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.E) & RefreshCount > 0)
             {
+                SFXManager.Instance.PlaySound(refreshSFX, transform, 1f);
                 RefreshCount--;
                 HasRefreshed = !HasRefreshed;
 

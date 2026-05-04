@@ -30,6 +30,9 @@ public class Player : MonoBehaviour
 
     public int RefreshCount = 5;
 
+    [SerializeField] AudioClip jumpSFX;
+    [SerializeField] AudioClip deadSFX;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -68,6 +71,7 @@ public class Player : MonoBehaviour
                 if (coyoteTimeCounter < 0 & jumpCount > 0)
                 {
                     rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
+                    SFXManager.Instance.PlaySound(jumpSFX, transform, 1f);
                     jumpCount = 0;
                 }
             }
@@ -113,6 +117,7 @@ public class Player : MonoBehaviour
                 {
                     rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
                     isJumping = true;
+                    SFXManager.Instance.PlaySound(jumpSFX, transform, 1f);
 
                     jumpBufferCounter = 0f;
                     coyoteTimeCounter = 0f;
@@ -123,6 +128,7 @@ public class Player : MonoBehaviour
                     {
                         jumpCount--;
                         rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
+                        SFXManager.Instance.PlaySound(jumpSFX, transform, 1f);
                         jumpBufferCounter = 0f;
                     }
                 }

@@ -13,6 +13,8 @@ public class OnHover : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     Color hoverColor;
     public float TypeSpeed = 0.01f;
     [SerializeField] List<Image> changeColor = new List<Image>();
+
+    [SerializeField] AudioClip typeSFX;
     private void Awake()
     {
         buttonName = GetComponentInChildren<TextMeshProUGUI>();
@@ -21,6 +23,8 @@ public class OnHover : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         var changeColor = GetComponentsInChildren<Image>().ToList();
         changeColor.RemoveAt(0);
         this.changeColor = changeColor;
+        buttonName.maxVisibleCharacters = 0;
+        StartCoroutine(TypeText());
     }
 
     private void OnEnable()
@@ -55,6 +59,7 @@ public class OnHover : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         for (int i = 0; i < currentCharacterCount; i++)
         {
             buttonName.maxVisibleCharacters = i;
+            SFXManager.Instance.PlaySound(typeSFX, transform, 1f);
             yield return new WaitForSecondsRealtime(TypeSpeed);
         }
     }

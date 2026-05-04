@@ -10,6 +10,7 @@ public class Transition : MonoBehaviour
     public RectTransform Text;
     public TextMeshProUGUI LevelText;
     Sequence sequence;
+    [SerializeField] AudioClip typeSFX;
 
     private void OnEnable()
     {
@@ -52,6 +53,7 @@ public class Transition : MonoBehaviour
         for (int i = 0; i < currentCharacterCount; i++)
         {
             LevelText.maxVisibleCharacters = i;
+            SFXManager.Instance.PlaySound(typeSFX, transform, 1f);
             yield return new WaitForSeconds(0.01f);
         }
     }

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -9,6 +10,7 @@ using UnityEngine.UI;
 public class Typewriter : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI text;
+    [SerializeField] AudioClip typeSFX;
     public float TypeSpeed = 0.01f;
     private void Awake()
     {
@@ -28,6 +30,7 @@ public class Typewriter : MonoBehaviour
         for (int i = 0; i < currentCharacterCount; i++)
         {
             text.maxVisibleCharacters = i;
+            SFXManager.Instance.PlaySound(typeSFX, transform, 1f);
             yield return new WaitForSecondsRealtime(TypeSpeed);
         }
     }

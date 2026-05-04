@@ -5,6 +5,9 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public GameObject PauseMenu;
+    public GameObject CreditsMenu;
+    public GameObject LevelCompleteMenu;
+    public GameObject RefreshCount;
 
     int levelID;
     int nextLevelID;
@@ -111,6 +114,13 @@ public class GameManager : MonoBehaviour
     void LoadLevel(int levelID)
     {
         SceneManager.LoadScene(levelID);
+    }
+
+    public void Credits()
+    {
+        CreditsMenu.gameObject.SetActive(!CreditsMenu.activeInHierarchy);
+        LevelCompleteMenu.SetActive(!LevelCompleteMenu.activeInHierarchy);
+        RefreshCount.SetActive(!RefreshCount.activeInHierarchy);
     }
 
     //public void Settings()

@@ -7,8 +7,9 @@ public class Jumppad : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
+            var force = collision.rigidbody.mass * JumpForce;
             collision.rigidbody.linearVelocity = new Vector2(collision.rigidbody.linearVelocity.x, 0f);
-            collision.rigidbody.AddForce(Vector2.up * JumpForce, ForceMode2D.Impulse);
+            collision.rigidbody.AddForce(Vector2.up * force, ForceMode2D.Impulse);
         }
     }
 }

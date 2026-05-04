@@ -6,7 +6,12 @@ public class MenuManager : MonoBehaviour
     public GameObject MainMenu;
     public GameObject SettingsMenu;
     public GameObject LevelSelect;
+    public GameObject CreditsMenu;
 
+    void Start()
+    {
+        MainMenu.SetActive(true);
+    }
     public void LevelSelectMenu()
     {
         LevelSelect.SetActive(!LevelSelect.activeInHierarchy);
@@ -21,5 +26,11 @@ public class MenuManager : MonoBehaviour
     public void LoadLevel(int levelID)
     {
         SceneManager.LoadScene(levelID);
+    }
+
+    public void Credits()
+    {
+        CreditsMenu.gameObject.SetActive(!CreditsMenu.activeInHierarchy);
+        MainMenu.SetActive(!MainMenu.activeInHierarchy);
     }
 }

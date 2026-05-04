@@ -5,7 +5,6 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public GameObject PauseMenu;
-    public GameObject WinScreen;
 
     int levelID;
     int nextLevelID;
@@ -61,22 +60,25 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape) & !Win)
+        if (SceneManager.GetActiveScene().buildIndex != 0)
         {
-            if (Paused == true)
+            if (Input.GetKeyDown(KeyCode.Escape) & !Win)
             {
-                Unpause();
+                if (Paused == true)
+                {
+                    Unpause();
+                }
+                else
+                {
+                    Pause();
+                }
             }
-            else
-            {
-                Pause();
-            }
-        }
 
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            Restart();
-            //NextLevel();
+            if (Input.GetKeyDown(KeyCode.R))
+            {
+                Restart();
+                //NextLevel();
+            }
         }
     }
 

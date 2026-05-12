@@ -1,8 +1,10 @@
 using UnityEngine;
 
-public class DontDestoryUI : MonoBehaviour
+public class PersistentUI : MonoBehaviour
 {
-    public static DontDestoryUI Instance { get; private set; }
+    public static PersistentUI Instance; //{ get; private set; }
+    public Animator RefreshUI;
+    public GameObject LevelComplete;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private void Awake()
@@ -19,5 +21,19 @@ public class DontDestoryUI : MonoBehaviour
             Instance = this;
             DontDestroyOnLoad(gameObject);
         }
+        //if (Instance != null)
+        //{
+        //    Destroy(gameObject);
+        //}
+        //else
+        //{
+        //    Instance = this;
+        //    DontDestroyOnLoad(gameObject);
+        //}
+    }
+
+    public void LevelCompleteActive()
+    {
+        LevelComplete.SetActive(!LevelComplete.activeInHierarchy);
     }
 }

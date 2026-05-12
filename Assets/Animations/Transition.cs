@@ -28,16 +28,24 @@ public class Transition : MonoBehaviour
         }
         else
         {
+            Debug.Log("running");
             TransitionImage.localScale = new Vector3(1, 1, 1);
+            LevelText.rectTransform.localScale = new Vector3(1, 1, 1);
             LevelText.text = $"LEVEL_{SceneManager.GetActiveScene().buildIndex}";
             LevelText.maxVisibleCharacters = 0;
             RunTransition();
         }
     }
 
+    private void Update()
+    {
+        Debug.Log(LevelText.text);
+        Debug.Log(LevelText.maxVisibleCharacters);
+    }
+
     void RunTransition()
     {
-        sequence.Restart();
+        //sequence.Restart();
         sequence = DOTween.Sequence();
         sequence.Append(TransitionImage.DOScaleY(0.15f, 0.6f));
         sequence.InsertCallback(0.4f, () => StartCoroutine(TypeText()));

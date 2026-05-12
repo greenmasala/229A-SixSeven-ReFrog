@@ -59,7 +59,8 @@ public class OnHover : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         for (int i = 0; i < currentCharacterCount; i++)
         {
             buttonName.maxVisibleCharacters = i;
-            SFXManager.Instance.PlaySound(typeSFX, transform, 1f);
+            AudioManager.Instance.PlaySFX(AudioManager.Instance.Typing);
+            //SFXManager.Instance.PlaySound(typeSFX, transform, 1f);
             yield return new WaitForSecondsRealtime(TypeSpeed);
         }
     }

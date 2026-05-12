@@ -25,7 +25,7 @@ public class MenuManager : MonoBehaviour
 
     public void LoadLevel(int levelID)
     {
-        SceneManager.LoadScene(levelID);
+        LevelManager.Instance.LoadLevel(levelID);
     }
 
     public void Credits()

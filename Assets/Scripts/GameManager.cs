@@ -1,4 +1,5 @@
 using System.Runtime.CompilerServices;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -102,7 +103,10 @@ public class GameManager : MonoBehaviour
     public void Restart()
     {
         Time.timeScale = 1f;
-        LoadLevel(levelID);
+        //LoadLevel(levelID);
+        Destroy(ddol.Instance.gameObject);
+        ddol.Instance = null;
+        LevelManager.Instance.LoadLevel(SceneManager.GetActiveScene().buildIndex);
     }
 
     public void NextLevel()

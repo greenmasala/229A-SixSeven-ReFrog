@@ -23,94 +23,94 @@ public class Refresh : MonoBehaviour
     int currentColumn2;
 
     Coroutine CoFadeInLayout;
-    public Animator RefreshUI;
+    //public Animator RefreshUI;
 
     [SerializeField] AudioClip refreshSFX;
 
-    //public static Refresh Instance { get; private set; }
+    public static Refresh Instance { get; private set; }
 
-    //private void OnEnable()
-    //{
-    //    SceneManager.sceneLoaded += SceneChanged;
-    //}
-    //private void OnDisable()
-    //{
-    //    SceneManager.sceneLoaded -= SceneChanged;
-    //}
-    //private void SceneChanged(Scene scene, LoadSceneMode mode)
-    //{
-    //    if (scene.buildIndex == 0)
-    //    {
-    //        return;
-    //    }
-    //    else
-    //    {
-    //        gameObject.SetActive(true);
-    //        RefreshCount = FindFirstObjectByType<Player>().RefreshCount;
-    //        RefreshCountText = PersistentOverlay.Instance.GetComponentInChildren<TextMeshProUGUI>();
-    //        Layout1 = GameObject.FindGameObjectWithTag("Layout1").GetComponent<Tilemap>();
-    //        Layout2 = GameObject.FindGameObjectWithTag("Layout2").GetComponent<Tilemap>();
-
-    //        Columns = GameObject.FindGameObjectsWithTag("Column").OrderByDescending(o =>
-    //        {
-    //            var numberPart = new string(o.name.Where(char.IsDigit).ToArray());
-    //            return int.Parse(numberPart);
-    //        }).ToArray();
-
-    //        Columns2 = GameObject.FindGameObjectsWithTag("Column2").OrderByDescending(o =>
-    //        {
-    //            var numberPart = new string(o.name.Where(char.IsDigit).ToArray());
-    //            return int.Parse(numberPart);
-    //        }).ToArray();
-
-    //        RefreshCountText.text = RefreshCount.ToString();
-
-    //        foreach (GameObject column2 in Columns2)
-    //        {
-    //            column2.SetActive(false);
-    //        }
-    //    }
-    //}
-    //private void Awake()
-    //{
-    //    if (Instance == null)
-    //    {
-    //        Instance = this;
-    //        DontDestroyOnLoad(gameObject);
-
-    //    }
-    //    else if (Instance != this)
-    //    {
-    //        Destroy(Instance.gameObject);
-    //        Instance = this;
-    //        DontDestroyOnLoad(gameObject);
-    //    }
-    //}
-    //Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    private void OnEnable()
     {
-        Layout1 = GameObject.FindGameObjectWithTag("Layout1").GetComponent<Tilemap>();
-        Layout2 = GameObject.FindGameObjectWithTag("Layout2").GetComponent<Tilemap>();
-
-        Columns = GameObject.FindGameObjectsWithTag("Column").OrderByDescending(o =>
+        SceneManager.sceneLoaded += SceneChanged;
+    }
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= SceneChanged;
+    }
+    private void SceneChanged(Scene scene, LoadSceneMode mode)
+    {
+        if (scene.buildIndex == 0)
         {
-            var numberPart = new string(o.name.Where(char.IsDigit).ToArray());
-            return int.Parse(numberPart);
-        }).ToArray();
-
-        Columns2 = GameObject.FindGameObjectsWithTag("Column2").OrderByDescending(o =>
+            return;
+        }
+        else
         {
-            var numberPart = new string(o.name.Where(char.IsDigit).ToArray());
-            return int.Parse(numberPart);
-        }).ToArray();
+            Debug.Log("Acitve");
+            gameObject.SetActive(true);
+            RefreshCount = FindFirstObjectByType<Player>().RefreshCount;
+            Layout1 = GameObject.FindGameObjectWithTag("Layout1").GetComponent<Tilemap>();
+            Layout2 = GameObject.FindGameObjectWithTag("Layout2").GetComponent<Tilemap>();
 
-        RefreshCountText.text = RefreshCount.ToString();
+            Columns = GameObject.FindGameObjectsWithTag("Column").OrderByDescending(o =>
+            {
+                var numberPart = new string(o.name.Where(char.IsDigit).ToArray());
+                return int.Parse(numberPart);
+            }).ToArray();
 
-        foreach (GameObject column2 in Columns2)
-        {
-            column2.SetActive(false);
+            Columns2 = GameObject.FindGameObjectsWithTag("Column2").OrderByDescending(o =>
+            {
+                var numberPart = new string(o.name.Where(char.IsDigit).ToArray());
+                return int.Parse(numberPart);
+            }).ToArray();
+
+            RefreshCountText.text = RefreshCount.ToString();
+
+            foreach (GameObject column2 in Columns2)
+            {
+                column2.SetActive(false);
+            }
         }
     }
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+
+        }
+        else if (Instance != this)
+        {
+            Destroy(Instance.gameObject);
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+    }
+    //Start is called once before the first execution of Update after the MonoBehaviour is created
+    //void Start()
+    //{
+    //    Layout1 = GameObject.FindGameObjectWithTag("Layout1").GetComponent<Tilemap>();
+    //    Layout2 = GameObject.FindGameObjectWithTag("Layout2").GetComponent<Tilemap>();
+
+    //    Columns = GameObject.FindGameObjectsWithTag("Column").OrderByDescending(o =>
+    //    {
+    //        var numberPart = new string(o.name.Where(char.IsDigit).ToArray());
+    //        return int.Parse(numberPart);
+    //    }).ToArray();
+
+    //    Columns2 = GameObject.FindGameObjectsWithTag("Column2").OrderByDescending(o =>
+    //    {
+    //        var numberPart = new string(o.name.Where(char.IsDigit).ToArray());
+    //        return int.Parse(numberPart);
+    //    }).ToArray();
+
+    //    RefreshCountText.text = RefreshCount.ToString();
+
+    //    foreach (GameObject column2 in Columns2)
+    //    {
+    //        column2.SetActive(false);
+    //    }
+    //}
 
     // Update is called once per frame
     void Update()
@@ -123,7 +123,7 @@ public class Refresh : MonoBehaviour
                 RefreshCount--;
                 HasRefreshed = !HasRefreshed;
 
-                RefreshUI.SetBool("HasRefreshed", HasRefreshed);
+                PersistentUI.Instance.RefreshUI.SetBool("HasRefreshed", HasRefreshed);
 
                 RefreshCountText.text = RefreshCount.ToString();
                 Debug.Log("hasRefreshed" + HasRefreshed);

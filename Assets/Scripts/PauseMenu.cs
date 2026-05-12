@@ -3,7 +3,7 @@ using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
-    //public GameObject SettingsMenu;
+    public GameObject SettingsMenu;
     //GameManager gameManager;
 
     //private void Start()
@@ -20,12 +20,13 @@ public class PauseMenu : MonoBehaviour
     }
     public void ReturnToMenu()
     {
+        Destroy(ddol.Instance.gameObject);
+        ddol.Instance = null;
         SceneManager.LoadScene("MainMenu");
         Time.timeScale = 1f;
     }
-    
-    //public void Settings()
-    //{
-    //    SettingsMenu.gameObject.SetActive(!SettingsMenu.activeInHierarchy);
-    //}
+    public void Settings()
+    {
+        SettingsMenu.gameObject.SetActive(!SettingsMenu.activeInHierarchy);
+    }
 }

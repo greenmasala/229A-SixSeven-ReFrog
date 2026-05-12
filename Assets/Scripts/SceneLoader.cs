@@ -1,0 +1,19 @@
+using UnityEngine;
+using UnityEditor.SceneManagement;
+using UnityEngine.SceneManagement;
+
+public class SceneLoader : MonoBehaviour
+{
+    public string LevelName;
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    void Awake()
+    {
+        SceneManager.LoadSceneAsync(LevelName);
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+}

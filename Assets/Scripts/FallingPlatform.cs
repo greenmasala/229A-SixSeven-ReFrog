@@ -23,6 +23,11 @@ public class FallingPlatform : MonoBehaviour
         {
             StartCoroutine(Fall());
         }
+
+        if (collision.gameObject.CompareTag("Obstacle"))
+        {
+            Destroy(this.gameObject);
+        }
     }
 
     private IEnumerator Fall()

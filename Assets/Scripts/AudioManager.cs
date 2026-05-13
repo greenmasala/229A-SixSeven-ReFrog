@@ -13,6 +13,9 @@ public class AudioManager: MonoBehaviour
     public AudioSource Music;
     public AudioSource SFX;
 
+    [Header("Music")]
+    public AudioClip BGM;
+
     [Header("UI")]
     public AudioClip Typing;
     public AudioClip Popup;
@@ -54,6 +57,9 @@ public class AudioManager: MonoBehaviour
             SetMusicVol(0.5f);
             SetSFXVol(0.5f);
         }
+
+        Music.clip = BGM;
+        Music.Play();
     }
     public void SetMasterVol(float vol)
     {

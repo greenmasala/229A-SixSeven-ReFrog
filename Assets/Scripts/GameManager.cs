@@ -78,11 +78,11 @@ public class GameManager : MonoBehaviour
                 }
             }
 
-            if (Input.GetKeyDown(KeyCode.R))
-            {
-                Restart();
-                //NextLevel();
-            }
+            //if (Input.GetKeyDown(KeyCode.R) & SceneManager.GetActiveScene().buildIndex != 0)
+            //{
+            //    Restart();
+            //    //NextLevel();
+            //}
         }
     }
 

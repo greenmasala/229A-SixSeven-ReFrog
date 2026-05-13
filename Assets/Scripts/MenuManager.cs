@@ -10,6 +10,7 @@ public class MenuManager : MonoBehaviour
 
     void Start()
     {
+        //PlayerPrefs.DeleteAll();
         MainMenu.SetActive(true);
     }
     public void LevelSelectMenu()

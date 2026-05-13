@@ -14,7 +14,6 @@ public class OnHover : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     public float TypeSpeed = 0.01f;
     [SerializeField] List<Image> changeColor = new List<Image>();
 
-    [SerializeField] AudioClip typeSFX;
     private void Awake()
     {
         buttonName = GetComponentInChildren<TextMeshProUGUI>();
@@ -60,7 +59,6 @@ public class OnHover : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         {
             buttonName.maxVisibleCharacters = i;
             AudioManager.Instance.PlaySFX(AudioManager.Instance.Typing);
-            //SFXManager.Instance.PlaySound(typeSFX, transform, 1f);
             yield return new WaitForSecondsRealtime(TypeSpeed);
         }
     }

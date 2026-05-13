@@ -19,8 +19,9 @@ public class LevelSelectPanel : MonoBehaviour
         {
             Buttons[i].interactable = false;
         }
-        for (int i = 0; i < unlockedLevel; i++)
+        for (int i = 0; i < Mathf.Clamp(unlockedLevel, 1, Buttons.Length); i++)
         {
+            Debug.Log(i);
             Buttons[i].interactable = true;
         }
         foreach (var button in Buttons)

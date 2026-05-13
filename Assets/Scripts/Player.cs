@@ -19,7 +19,7 @@ public class Player : MonoBehaviour
     public float jumpBufferTime = 0.2f;
     public float jumpBufferCounter;
 
-    public SpriteRenderer spriteRenderer;
+    //public SpriteRenderer spriteRenderer;
 
     public bool isJumping;
     public Transform GroundCheckPos;
@@ -29,9 +29,6 @@ public class Player : MonoBehaviour
     Animator playerAnim;
 
     public int RefreshCount = 5;
-
-    [SerializeField] AudioClip jumpSFX;
-    [SerializeField] AudioClip deadSFX;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -44,13 +41,6 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //if (Input.GetKeyDown(KeyCode.Space))
-        //{
-        //    rb.velocity = Vector2.up * jumpForce;
-        //}
-
-        //Debug.Log(rb.linearVelocity);
-
         if (!GameManager.Instance.Win)
         {
             if (isGrounded())
@@ -71,8 +61,13 @@ public class Player : MonoBehaviour
                 if (coyoteTimeCounter < 0 & jumpCount > 0)
                 {
                     rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
-                    SFXManager.Instance.PlaySound(jumpSFX, transform, 1f);
+                    AudioManager.Instance.PlaySFX(AudioManager.Instance.Jump);
                     jumpCount = 0;
+                }
+                else if (coyoteTimeCounter > 0 & jumpCount > 0)
+                {
+                    rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
+                    AudioManager.Instance.PlaySFX(AudioManager.Instance.Jump);
                 }
             }
             else
@@ -117,7 +112,7 @@ public class Player : MonoBehaviour
                 {
                     rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
                     isJumping = true;
-                    SFXManager.Instance.PlaySound(jumpSFX, transform, 1f);
+                    AudioManager.Instance.PlaySFX(AudioManager.Instance.Jump);
 
                     jumpBufferCounter = 0f;
                     coyoteTimeCounter = 0f;
@@ -128,7 +123,7 @@ public class Player : MonoBehaviour
                     {
                         jumpCount--;
                         rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
-                        SFXManager.Instance.PlaySound(jumpSFX, transform, 1f);
+                        AudioManager.Instance.PlaySFX(AudioManager.Instance.Jump);
                         jumpBufferCounter = 0f;
                     }
                 }
@@ -179,7 +174,7 @@ public class Player : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Obstacle"))
         {
-            GameManager.Instance.Restart();
+            Death();
         }
     }
 
@@ -213,5 +208,15 @@ public class Player : MonoBehaviour
     {
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireCube(GroundCheckPos.position, GroundCheckSize);
+    }
+
+    public void Death()
+    {
+        GameManager.Instance.Death(transform, Quaternion.identity);
+        Destroy(gameObject);
+    }
+    void WalkSFX()
+    {
+        AudioManager.Instance.PlaySFX(AudioManager.Instance.Walk);
     }
 }

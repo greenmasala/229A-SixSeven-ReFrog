@@ -5,7 +5,6 @@ using UnityEngine;
 public class Popup : MonoBehaviour
 {
     RectTransform position;
-    [SerializeField] AudioClip popupSFX;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
@@ -14,11 +13,8 @@ public class Popup : MonoBehaviour
     }
 
     private void OnEnable()
-    {
-        if (popupSFX != null)
-        {
-            SFXManager.Instance.PlaySound(popupSFX, transform, 1f);
-        }
+    {   
+        AudioManager.Instance.PlaySFX(AudioManager.Instance.Popup);
         position.transform.localPosition = new Vector2(0f, -100f);
         position.DOAnchorPos(new Vector2(0f, 0f), 0.3f).SetUpdate(true);
     }

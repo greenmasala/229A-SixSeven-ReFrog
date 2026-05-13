@@ -23,13 +23,8 @@ public class AudioManager: MonoBehaviour
 
     [Header("Player")]
     public AudioClip Jump;
+    public AudioClip Walk;
     public AudioClip Refresh;
-    //public Slider MasterSlider;
-    //public Slider MusicSlider;
-    //public Slider SFXSlider;
-    //public TextMeshProUGUI MasterVolVal;
-    //public TextMeshProUGUI MusicVolVal;
-    //public TextMeshProUGUI SFXVolVal;
 
     private void Awake()
     {
@@ -65,29 +60,20 @@ public class AudioManager: MonoBehaviour
     {
         audioMixer.SetFloat("MasterVol", Mathf.Log10(vol) * 20f);
         MasterVol = vol;
-        //var percentage = (vol / 1) * 100;
-        //MasterVolVal.text = percentage.ToString("F0");
         PlayerPrefs.SetFloat("MasterVol", vol);
-        //MasterSlider.value = PlayerPrefs.GetFloat("MasterVol");
     }
     public void SetMusicVol(float vol)
     {
         audioMixer.SetFloat("MusicVol", Mathf.Log10(vol) * 20f);
         MusicVol = vol;
-        //var percentage = (vol / 1) * 100;
-        //MusicVolVal.text = percentage.ToString("F0");
         PlayerPrefs.SetFloat("MusicVol", vol);
-        //MusicSlider.value = PlayerPrefs.GetFloat("MusicVol");
     }
 
     public void SetSFXVol(float vol)
     {
         audioMixer.SetFloat("SFXVol", Mathf.Log10(vol) * 20f);
         SFXVol = vol;
-        //var percentage = (vol / 1) * 100;
-        //SFXVolVal.text = percentage.ToString("F0");
         PlayerPrefs.SetFloat("SFXVol", vol);
-        //SFXSlider.value = PlayerPrefs.GetFloat("SFXVol");
     }
 
     public void LoadSettings()

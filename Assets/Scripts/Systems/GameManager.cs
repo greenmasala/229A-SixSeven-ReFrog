@@ -1,3 +1,5 @@
+using System;
+using System.Collections;
 using System.Runtime.CompilerServices;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -9,12 +11,14 @@ public class GameManager : MonoBehaviour
     public GameObject CreditsMenu;
     public GameObject LevelCompleteMenu;
     public GameObject RefreshCount;
+    public GameObject LevelTransitionRef;
 
     int levelID;
     int nextLevelID;
     public bool Paused;
     public bool Win;
-
+    public bool Dead;
+    public ParticleSystem DeathFX;
     public static GameManager Instance { get; private set; }
 
     private void OnEnable()
@@ -33,7 +37,10 @@ public class GameManager : MonoBehaviour
         }
         else
         {
+            Refresh.Instance.RefreshCountText.GetComponent<Flicker>().TextAppear();
+            LevelTransitionRef.SetActive(false);
             Win = false;
+            Dead = false;
             Debug.Log(PauseMenu);
             levelID = SceneManager.GetActiveScene().buildIndex;
             nextLevelID = levelID + 1;
@@ -103,16 +110,15 @@ public class GameManager : MonoBehaviour
     public void Restart()
     {
         Time.timeScale = 1f;
-        //LoadLevel(levelID);
-        Destroy(ddol.Instance.gameObject);
-        ddol.Instance = null;
+        Destroy(DDOL.Instance.gameObject);
+        DDOL.Instance = null;
         LevelManager.Instance.LoadLevel(SceneManager.GetActiveScene().buildIndex);
     }
 
     public void NextLevel()
     {
         Time.timeScale = 1f;
-        LoadLevel(nextLevelID);
+        StartCoroutine(TransitionRoutine("LOADING...", false));
     }
 
     void LoadLevel(int levelID)
@@ -120,21 +126,40 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(levelID);
     }
 
-    public void Credits()
+    public void Death(Transform transform, Quaternion rotation)
     {
-        CreditsMenu.gameObject.SetActive(!CreditsMenu.activeInHierarchy);
-        LevelCompleteMenu.SetActive(!LevelCompleteMenu.activeInHierarchy);
-        RefreshCount.SetActive(!RefreshCount.activeInHierarchy);
+        StartCoroutine(DeathRoutine(transform, rotation));
     }
 
-    //public void Settings()
-    //{
-    //    SettingsMenu.gameObject.SetActive(!SettingsMenu.activeInHierarchy);
-    //    PauseMenu.gameObject.SetActive(!PauseMenu.activeInHierarchy);
-    //}
+    IEnumerator DeathRoutine(Transform transform, Quaternion rotation)
+    {
+        Dead = true;
+        LevelTransitionRef.GetComponent<LevelTransition>().TitleText = "RESTARTING...";
+        Refresh.Instance.RefreshCountText.GetComponent<Flicker>().TextDisappear();
+        Instantiate(DeathFX, transform.position, rotation);
+        yield return new WaitForSeconds(0.2f);
+        StartCoroutine(TransitionRoutine("RESTARTING...", true));
+    }
 
-    ////public void OpenCredits()
-    ////{
-    ////    Credits.gameObject.SetActive(true);
-    ////}
+    IEnumerator TransitionRoutine(string text, bool restart)
+    {
+        LevelTransitionRef.GetComponent<LevelTransition>().TitleText = text;
+        Refresh.Instance.RefreshCountText.GetComponent<Flicker>().TextDisappear();
+        LevelTransitionRef.SetActive(true);
+        yield return new WaitForSeconds(0.8f);
+        if (restart)
+        {
+            Restart();
+        }
+        else
+        {
+            LoadLevel(nextLevelID);
+        }
+    }
+    //public void Credits()
+    //{
+    //    CreditsMenu.gameObject.SetActive(!CreditsMenu.activeInHierarchy);
+    //    LevelCompleteMenu.SetActive(!LevelCompleteMenu.activeInHierarchy);
+    //    RefreshCount.SetActive(!RefreshCount.activeInHierarchy);
+    //}
 }

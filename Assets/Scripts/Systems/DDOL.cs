@@ -1,8 +1,8 @@
 using UnityEngine;
 
-public class ddol : MonoBehaviour
+public class DDOL : MonoBehaviour
 {
-    public static ddol Instance;
+    public static DDOL Instance;
     private void Awake()
     {
         if (Instance != null)

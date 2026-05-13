@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class PersistentUI : MonoBehaviour
 {
-    public static PersistentUI Instance; //{ get; private set; }
+    public static PersistentUI Instance; 
     public Animator RefreshUI;
     public GameObject LevelComplete;
 
@@ -21,15 +21,6 @@ public class PersistentUI : MonoBehaviour
             Instance = this;
             DontDestroyOnLoad(gameObject);
         }
-        //if (Instance != null)
-        //{
-        //    Destroy(gameObject);
-        //}
-        //else
-        //{
-        //    Instance = this;
-        //    DontDestroyOnLoad(gameObject);
-        //}
     }
 
     public void LevelCompleteActive()

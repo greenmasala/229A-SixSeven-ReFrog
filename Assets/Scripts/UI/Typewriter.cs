@@ -30,7 +30,7 @@ public class Typewriter : MonoBehaviour
         for (int i = 0; i < currentCharacterCount; i++)
         {
             text.maxVisibleCharacters = i;
-            AudioManager.Instance.PlaySFX(AudioManager.Instance.Typing);
+            AudioManager.Instance.PlaySFX(typeSFX);
             yield return new WaitForSecondsRealtime(TypeSpeed);
         }
     }

@@ -16,7 +16,6 @@ public class MenuManager : MonoBehaviour
     public void LevelSelectMenu()
     {
         LevelSelect.SetActive(!LevelSelect.activeInHierarchy);
-        MainMenu.SetActive(!MainMenu.activeInHierarchy);
     }
 
     public void Settings()

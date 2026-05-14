@@ -7,6 +7,7 @@ public class WallCheck : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Wall"))
         {
+            AudioManager.Instance.PlaySFX(AudioManager.Instance.Death);
             Player.Death();
         }
     }

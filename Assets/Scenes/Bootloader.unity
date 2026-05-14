@@ -493,6 +493,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 370a4fdaacfcfed4b8d7e32d4a46608a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Pause
+  SFX: {fileID: 0}
 --- !u!114 &75995479
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1732,6 +1733,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 370a4fdaacfcfed4b8d7e32d4a46608a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Pause
+  SFX: {fileID: 8300000, guid: 0649daaaeaf98324093e6b62581189cc, type: 3}
 --- !u!1 &304341313
 GameObject:
   m_ObjectHideFlags: 0
@@ -5747,6 +5749,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Typewriter
   text: {fileID: 0}
   typeSFX: {fileID: 8300000, guid: 9c516c7e235574b44a1f58f3a7f264b3, type: 3}
+  PlaySFX: 0
   TypeSpeed: 0.025
 --- !u!114 &1444172747
 MonoBehaviour:
@@ -6233,6 +6236,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 370a4fdaacfcfed4b8d7e32d4a46608a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Popup
+  SFX: {fileID: 0}
 --- !u!1 &1632765283
 GameObject:
   m_ObjectHideFlags: 0
@@ -7472,8 +7476,12 @@ MonoBehaviour:
   Popup: {fileID: 8300000, guid: db569b7d686f196409711fc8062c2680, type: 3}
   LevelComplete: {fileID: 8300000, guid: 0649daaaeaf98324093e6b62581189cc, type: 3}
   Jump: {fileID: 8300000, guid: f9e7a1dbd34ad5a4a9483fc2fc1a2ef3, type: 3}
+  Yahoo: {fileID: 0}
   Walk: {fileID: 8300000, guid: d538aee3d65f25d4e89a40e71687c014, type: 3}
   Refresh: {fileID: 8300000, guid: dc9814653ddc5804486427bb893dd2a2, type: 3}
+  Refresh2: {fileID: 0}
+  Death: {fileID: 0}
+  Jumppad: {fileID: 0}
 --- !u!1 &1869307359
 GameObject:
   m_ObjectHideFlags: 0
@@ -7507,7 +7515,6 @@ MonoBehaviour:
   CreditsMenu: {fileID: 0}
   LevelCompleteMenu: {fileID: 0}
   RefreshCount: {fileID: 0}
-  LevelTransitionRef: {fileID: 0}
   Paused: 0
   Win: 0
   Dead: 0

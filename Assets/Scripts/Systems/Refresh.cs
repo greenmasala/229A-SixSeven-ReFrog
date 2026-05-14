@@ -111,6 +111,7 @@ public class Refresh : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.E) & RefreshCount > 0)
             {
                 AudioManager.Instance.PlaySFX(AudioManager.Instance.Refresh);
+                AudioManager.Instance.PlaySFX(AudioManager.Instance.Refresh2);
                 RefreshCount--;
                 HasRefreshed = !HasRefreshed;
 

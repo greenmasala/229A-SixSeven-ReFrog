@@ -5,14 +5,34 @@ using UnityEngine;
 public class Flicker : MonoBehaviour
 {
     TextMeshProUGUI text;
+    CanvasGroup canvas;
     void Start()
     {
         text = GetComponent<TextMeshProUGUI>();
-        if (text.text != null)
+        canvas = GetComponent<CanvasGroup>();
+        if (text != null)
         {
-            text.enabled = false;
-            StartCoroutine(FlickerText());
+            if (text.text != null)
+            {
+                text.enabled = false;
+                StartCoroutine(FlickerText());
+            }
         }
+        if (canvas != null)
+        {
+            canvas.alpha = 0;
+            StartCoroutine(FlickerCanvas());
+        }
+    }
+
+    public void TextAppear()
+    {
+        StartCoroutine(FlickerText());
+    }
+
+    public void TextDisappear()
+    {
+        StartCoroutine(UnflickerText());
     }
 
     IEnumerator FlickerText()
@@ -24,15 +44,6 @@ public class Flicker : MonoBehaviour
         yield return new WaitForSecondsRealtime(0.1f);
         text.enabled = true;
     }
-    public void TextAppear()
-    {
-        StartCoroutine(FlickerText());
-    }
-
-    public void TextDisappear()
-    {
-        StartCoroutine(UnflickerText());
-    }
     IEnumerator UnflickerText()
     {
         yield return new WaitForSecondsRealtime(0.1f);
@@ -41,5 +52,16 @@ public class Flicker : MonoBehaviour
         text.enabled = true;
         yield return new WaitForSecondsRealtime(0.1f);
         text.enabled = false;
+    }
+
+    IEnumerator FlickerCanvas()
+    {
+        Debug.Log("flicker");
+        yield return new WaitForSecondsRealtime(0.2f);
+        canvas.alpha = 1;
+        yield return new WaitForSecondsRealtime(0.1f);
+        canvas.alpha = 0;
+        yield return new WaitForSecondsRealtime(0.1f);
+        canvas.alpha = 1;
     }
 }

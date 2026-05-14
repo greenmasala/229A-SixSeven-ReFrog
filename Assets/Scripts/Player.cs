@@ -18,6 +18,7 @@ public class Player : MonoBehaviour
 
     public float jumpBufferTime = 0.2f;
     public float jumpBufferCounter;
+    public ParticleSystem DustFX;
 
     //public SpriteRenderer spriteRenderer;
 
@@ -61,13 +62,16 @@ public class Player : MonoBehaviour
                 if (coyoteTimeCounter < 0 & jumpCount > 0)
                 {
                     rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
-                    AudioManager.Instance.PlaySFX(AudioManager.Instance.Jump);
+                    JumpSFX();
+                    DustFX.Play();
+                    isJumping = true;
                     jumpCount = 0;
                 }
                 else if (coyoteTimeCounter > 0 & jumpCount > 0)
                 {
                     rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
-                    AudioManager.Instance.PlaySFX(AudioManager.Instance.Jump);
+                    DustFX.Play();
+                    JumpSFX();
                 }
             }
             else
@@ -112,7 +116,8 @@ public class Player : MonoBehaviour
                 {
                     rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
                     isJumping = true;
-                    AudioManager.Instance.PlaySFX(AudioManager.Instance.Jump);
+                    JumpSFX();
+                    DustFX.Play();
 
                     jumpBufferCounter = 0f;
                     coyoteTimeCounter = 0f;
@@ -123,7 +128,8 @@ public class Player : MonoBehaviour
                     {
                         jumpCount--;
                         rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
-                        AudioManager.Instance.PlaySFX(AudioManager.Instance.Jump);
+                        JumpSFX();
+                        DustFX.Play();
                         jumpBufferCounter = 0f;
                     }
                 }
@@ -174,6 +180,7 @@ public class Player : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Obstacle"))
         {
+            AudioManager.Instance.PlaySFX(AudioManager.Instance.Death);
             Death();
         }
     }
@@ -218,5 +225,24 @@ public class Player : MonoBehaviour
     void WalkSFX()
     {
         AudioManager.Instance.PlaySFX(AudioManager.Instance.Walk);
+    }
+
+    public void JumpFX()
+    {
+        isJumping = true;
+        DustFX.Play();
+    }
+
+    void JumpSFX()
+    {
+        int no = Random.Range(0, 670);
+        if (no == 67) //this is just for funsies
+        {
+            AudioManager.Instance.PlaySFX(AudioManager.Instance.Yahoo);
+        }
+        else
+        {
+            AudioManager.Instance.PlaySFX(AudioManager.Instance.Jump);
+        }
     }
 }

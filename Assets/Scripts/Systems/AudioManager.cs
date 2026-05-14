@@ -23,8 +23,14 @@ public class AudioManager: MonoBehaviour
 
     [Header("Player")]
     public AudioClip Jump;
+    public AudioClip Yahoo;
     public AudioClip Walk;
     public AudioClip Refresh;
+    public AudioClip Refresh2;
+    public AudioClip Death;
+
+    [Header("SFX")]
+    public AudioClip Jumppad;
 
     private void Awake()
     {

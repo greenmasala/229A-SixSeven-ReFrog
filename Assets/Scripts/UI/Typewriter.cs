@@ -11,6 +11,7 @@ public class Typewriter : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI text;
     [SerializeField] AudioClip typeSFX;
+    public bool PlaySFX;
     public float TypeSpeed = 0.01f;
     private void Awake()
     {
@@ -30,7 +31,14 @@ public class Typewriter : MonoBehaviour
         for (int i = 0; i < currentCharacterCount; i++)
         {
             text.maxVisibleCharacters = i;
-            AudioManager.Instance.PlaySFX(typeSFX);
+            if (typeSFX != null || PlaySFX)
+            {
+                AudioManager.Instance.PlaySFX(typeSFX);
+            }
+            else
+            {
+                AudioManager.Instance.PlaySFX(AudioManager.Instance.Typing);
+            }
             yield return new WaitForSecondsRealtime(TypeSpeed);
         }
     }

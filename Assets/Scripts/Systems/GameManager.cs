@@ -111,6 +111,7 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1f;
         Destroy(DDOL.Instance.gameObject);
         DDOL.Instance = null;
+        PersistentOverlay.Instance.TransitionRef.GetComponent<LevelTransition>().TitleText = "RESTARTING...";
         LevelManager.Instance.LoadLevel(SceneManager.GetActiveScene().buildIndex);
     }
 
@@ -120,7 +121,7 @@ public class GameManager : MonoBehaviour
         StartCoroutine(TransitionRoutine("LOADING...", false));
     }
 
-    void LoadLevel(int levelID)
+    public void LoadLevel(int levelID)
     {
         SceneManager.LoadScene(levelID);
     }

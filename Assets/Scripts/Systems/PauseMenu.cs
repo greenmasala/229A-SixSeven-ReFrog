@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -14,13 +15,23 @@ public class PauseMenu : MonoBehaviour
     }
     public void ReturnToMenu()
     {
-        Destroy(DDOL.Instance.gameObject);
-        DDOL.Instance = null;
-        SceneManager.LoadScene("MainMenu");
         Time.timeScale = 1f;
+        StartCoroutine(BackToMenu());
     }
     public void Settings()
     {
         SettingsMenu.gameObject.SetActive(!SettingsMenu.activeInHierarchy);
+    }
+
+    IEnumerator BackToMenu()
+    {
+        PersistentOverlay.Instance.TransitionRef.GetComponent<LevelTransition>().TitleText = "LOADING...";
+        PersistentOverlay.Instance.RunTransition(true);
+        Refresh.Instance.RefreshCountText.GetComponent<Flicker>().TextDisappear();
+        yield return new WaitForSeconds(1.15f);
+        Destroy(DDOL.Instance.gameObject);
+        DDOL.Instance = null;
+        Time.timeScale = 1f;
+        GameManager.Instance.LoadLevel(0);
     }
 }

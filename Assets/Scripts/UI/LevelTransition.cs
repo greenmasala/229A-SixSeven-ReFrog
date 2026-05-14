@@ -9,6 +9,7 @@ public class LevelTransition : MonoBehaviour
     public RectTransform TransitionImage;
     public TextMeshProUGUI Title;
     public string TitleText;
+
     private void OnEnable()
     {
         Debug.Log("running");

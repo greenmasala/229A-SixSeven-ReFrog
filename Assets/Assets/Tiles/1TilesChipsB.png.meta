@@ -1,13 +1,13 @@
 fileFormatVersion: 2
-guid: f3470617b0b0e404a941c35ca96bc740
+guid: 8ad7aab107aaf744da779364dba1a4ff
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8159222111367436682
-    second: GreenChips_0
+      213: 8916659420414113854
+    second: 1TilesChipsB_0
   - first:
-      213: 3332049575935810387
-    second: GreenChips_1
+      213: 8137450140752542217
+    second: 1TilesChipsB_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -99,138 +99,15 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: GreenChips_0
+      name: 1TilesChipsB_0
       rect:
         serializedVersion: 2
         x: 0
         y: 64
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape:
-      - - {x: 16, y: -3}
-        - {x: 12, y: -3}
-        - {x: -3, y: -3}
-        - {x: -3, y: -5}
-        - {x: -3, y: -16}
-        - {x: 16, y: -16}
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6766e6818be94ce80800000000000000
-      internalID: -8159222111367436682
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: GreenChips_1
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 64
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape:
-      - - {x: 16, y: -3}
-        - {x: 12, y: -3}
-        - {x: -16, y: -3}
-        - {x: -16, y: -16}
-        - {x: 16, y: -16}
-      tessellationDetail: 0
-      bones: []
-      spriteID: 35b15a37f61dd3e20800000000000000
-      internalID: 3332049575935810387
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: GreenChips_2
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 64
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape:
-      - - {x: 3, y: -9}
-        - {x: -1, y: -4}
-        - {x: -10, y: -3}
-        - {x: -16, y: -3}
-        - {x: -16, y: -16}
-        - {x: 3, y: -16}
-      tessellationDetail: 0
-      bones: []
-      spriteID: d687213b1c9434544b108b40e80117d9
-      internalID: -1785916318
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: GreenChips_3
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 32
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape:
-      - - {x: 16, y: 16}
-        - {x: -4, y: 16}
-        - {x: -4, y: -16}
-        - {x: 0, y: -16}
-        - {x: 16, y: -16}
-      tessellationDetail: 0
-      bones: []
-      spriteID: e8e0be4fdfb0ec443a661968d8569b03
-      internalID: -849737231
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: GreenChips_4
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 32
         width: 32
         height: 32
       alignment: 0
@@ -241,14 +118,177 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f70a677e45c8bc5488ba972aa85d9acb
-      internalID: -216118563
+      spriteID: e387ce810865ebb70800000000000000
+      internalID: 8916659420414113854
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: GreenChips_5
+      name: 1TilesChipsB_1
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 90af109f9c70ee070800000000000000
+      internalID: 8137450140752542217
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1TilesChipsB_2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 65a76daec340f1e4ab24d40f13bebca7
+      internalID: 1909011569
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1TilesChipsB_3
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: baf89dfb66e1f83449c42eefc991799d
+      internalID: -2060387023
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1TilesChipsB_4
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb6aa0d6bedb7714eb26fe2e7700a42e
+      internalID: 436855580
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1TilesChipsB_5
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c61c665b24cfa0d4bb5b3d54d9c9d076
+      internalID: 1117737188
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1TilesChipsB_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape:
+      - - {x: 16, y: 11}
+        - {x: -2, y: 11}
+        - {x: -2, y: -2}
+        - {x: -2, y: -16}
+        - {x: 16, y: -16}
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac7ced01a9d496f4e853f589e335b066
+      internalID: 441874368
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1TilesChipsB_7
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape:
+      - - {x: 16, y: 11}
+        - {x: -16, y: 11}
+        - {x: -16, y: -16}
+        - {x: 16, y: -16}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2254e3f1c6e813d4f928b67841415db4
+      internalID: -1125410599
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1TilesChipsB_8
       rect:
         serializedVersion: 2
         x: 64
@@ -261,22 +301,20 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape:
-      - - {x: 3, y: -1}
-        - {x: 3, y: 14}
-        - {x: 3, y: 16}
-        - {x: -16, y: 16}
-        - {x: -16, y: -16}
-        - {x: 3, y: -16}
+      - - {x: -16, y: -16}
+        - {x: 4, y: -16}
+        - {x: 4, y: 11}
+        - {x: -16, y: 11}
       tessellationDetail: 0
       bones: []
-      spriteID: 241cc8a04c5366f479ad60498593614c
-      internalID: 1869651077
+      spriteID: 6c9186af1e2ae5545be611111687e740
+      internalID: -1266811777
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: GreenChips_6
+      name: 1TilesChipsB_9
       rect:
         serializedVersion: 2
         x: 96
@@ -289,22 +327,21 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape:
-      - - {x: 16, y: 16}
-        - {x: -3, y: 16}
-        - {x: -3, y: -3}
-        - {x: -16, y: -3}
-        - {x: -16, y: -16}
+      - - {x: 16, y: 11}
+        - {x: -2, y: 11}
+        - {x: -2, y: -2}
+        - {x: -2, y: -16}
         - {x: 16, y: -16}
       tessellationDetail: 0
       bones: []
-      spriteID: c6c9b9bb4ad3c1e44afe5f1598afc12d
-      internalID: -1929861339
+      spriteID: 2835c464eb28cf84cbf9ec730e535239
+      internalID: -1383914840
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: GreenChips_7
+      name: 1TilesChipsB_10
       rect:
         serializedVersion: 2
         x: 128
@@ -317,23 +354,46 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape:
-      - - {x: 16, y: -3}
-        - {x: 12, y: -3}
-        - {x: 4, y: -3}
-        - {x: 4, y: 16}
-        - {x: -16, y: 16}
+      - - {x: 16, y: 11}
+        - {x: -16, y: 11}
         - {x: -16, y: -16}
         - {x: 16, y: -16}
       tessellationDetail: 0
       bones: []
-      spriteID: 1f34be6c3ecdc124d90c111aa57ec55d
-      internalID: -927314619
+      spriteID: 44b73be5d9eac124181d7d385520a0db
+      internalID: -1579944815
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: GreenChips_8
+      name: 1TilesChipsB_11
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape:
+      - - {x: -16, y: -16}
+        - {x: 4, y: -16}
+        - {x: 4, y: 11}
+        - {x: -16, y: 11}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 19a8c39a62d2447428dc6ec1c0da685e
+      internalID: -1924363499
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1TilesChipsB_12
       rect:
         serializedVersion: 2
         x: 0
@@ -345,21 +405,17 @@ TextureImporter:
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
-      physicsShape:
-      - - {x: -3, y: -5}
-        - {x: 16, y: -5}
-        - {x: 16, y: 16}
-        - {x: -3, y: 16}
+      physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 09097a3f627cd014093394d249840c15
-      internalID: 1971018498
+      spriteID: 81e6b6d81017232408f76643317d609b
+      internalID: 1260147506
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: GreenChips_9
+      name: 1TilesChipsB_13
       rect:
         serializedVersion: 2
         x: 32
@@ -371,21 +427,17 @@ TextureImporter:
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
-      physicsShape:
-      - - {x: -16, y: -4}
-        - {x: 16, y: -5}
-        - {x: 16, y: 16}
-        - {x: -16, y: 16}
+      physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 13c817a57504a5b4e9340f53da8e63d2
-      internalID: 498483873
+      spriteID: 72dcbd34e648a224d815317145bd23be
+      internalID: 1169148984
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: GreenChips_10
+      name: 1TilesChipsB_14
       rect:
         serializedVersion: 2
         x: 64
@@ -397,21 +449,17 @@ TextureImporter:
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
-      physicsShape:
-      - - {x: -16, y: -4}
-        - {x: 2, y: -4}
-        - {x: 3, y: 16}
-        - {x: -16, y: 16}
+      physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8d7ba06fc49e49a499719e4128593705
-      internalID: -1007312741
+      spriteID: 65d74ef0af468df4abe6b716dba09821
+      internalID: 1391230379
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: GreenChips_11
+      name: 1TilesChipsB_15
       rect:
         serializedVersion: 2
         x: 96
@@ -423,24 +471,17 @@ TextureImporter:
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
-      physicsShape:
-      - - {x: 16, y: 16}
-        - {x: -16, y: 16}
-        - {x: -16, y: -5}
-        - {x: -9, y: -5}
-        - {x: -5, y: -5}
-        - {x: -5, y: -16}
-        - {x: 16, y: -16}
+      physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4c9e68cfac777b7488d84ff49ab3503f
-      internalID: 776750207
+      spriteID: e654279b59bf7a3438d6b3624041c71e
+      internalID: 151570640
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: GreenChips_12
+      name: 1TilesChipsB_16
       rect:
         serializedVersion: 2
         x: 128
@@ -452,17 +493,33 @@ TextureImporter:
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
-      physicsShape:
-      - - {x: 5, y: -5}
-        - {x: 16, y: -5}
-        - {x: 16, y: 16}
-        - {x: -16, y: 16}
-        - {x: -16, y: -16}
-        - {x: 5, y: -16}
+      physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f62dab8f6b07911428bfb2adcd8fa68f
-      internalID: -2050637525
+      spriteID: ba2d47ddc72634b4ab8e1128dc6710a9
+      internalID: -232983580
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1TilesChipsB_17
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b9f8ef64bdb8fdc4fa906b4548393ee0
+      internalID: -1217404581
       vertices: []
       indices: 
       edges: []
@@ -471,7 +528,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 54d7b4b61923c8047b718d2e74335ea9
+    spriteID: 815e2c15de861b941a0a7e9dd9519067
     internalID: 0
     vertices: []
     indices: 
@@ -483,19 +540,24 @@ TextureImporter:
       - key: SpriteEditor.SliceSettings
         value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":32.0,"y":32.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      GreenChips_0: -8159222111367436682
-      GreenChips_1: 3332049575935810387
-      GreenChips_10: -1007312741
-      GreenChips_11: 776750207
-      GreenChips_12: -2050637525
-      GreenChips_2: -1785916318
-      GreenChips_3: -849737231
-      GreenChips_4: -216118563
-      GreenChips_5: 1869651077
-      GreenChips_6: -1929861339
-      GreenChips_7: -927314619
-      GreenChips_8: 1971018498
-      GreenChips_9: 498483873
+      1TilesChipsB_0: 8916659420414113854
+      1TilesChipsB_1: 8137450140752542217
+      1TilesChipsB_10: -1579944815
+      1TilesChipsB_11: -1924363499
+      1TilesChipsB_12: 1260147506
+      1TilesChipsB_13: 1169148984
+      1TilesChipsB_14: 1391230379
+      1TilesChipsB_15: 151570640
+      1TilesChipsB_16: -232983580
+      1TilesChipsB_17: -1217404581
+      1TilesChipsB_2: 1909011569
+      1TilesChipsB_3: -2060387023
+      1TilesChipsB_4: 436855580
+      1TilesChipsB_5: 1117737188
+      1TilesChipsB_6: 441874368
+      1TilesChipsB_7: -1125410599
+      1TilesChipsB_8: -1266811777
+      1TilesChipsB_9: -1383914840
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

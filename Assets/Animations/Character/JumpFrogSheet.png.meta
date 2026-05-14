@@ -1,25 +1,25 @@
 fileFormatVersion: 2
-guid: 3d096d15765e24b4fb0eb8b90562010f
+guid: 120e2b553b8a8974299fcab894965dad
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2334714655908623875
-    second: GreenFrogJump_0
+      213: 4248179989820354248
+    second: JumpFrogSheet_0
   - first:
-      213: -4639858530868865249
-    second: GreenFrogJump_1
+      213: 1953876564583809292
+    second: JumpFrogSheet_1
   - first:
-      213: -3487307522253914314
-    second: GreenFrogJump_2
+      213: 984253772401353363
+    second: JumpFrogSheet_2
   - first:
-      213: 5679990629503693733
-    second: GreenFrogJump_3
+      213: 3637784805669839903
+    second: JumpFrogSheet_3
   - first:
-      213: 5372707619742567169
-    second: GreenFrogJump_4
+      213: 1762484848836356425
+    second: JumpFrogSheet_4
   - first:
-      213: 9145496257885098940
-    second: GreenFrogJump_5
+      213: -3569871771053204640
+    second: JumpFrogSheet_5
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -115,7 +115,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: GreenFrogJump_0
+      name: JumpFrogSheet_0
       rect:
         serializedVersion: 2
         x: 0
@@ -127,30 +127,17 @@ TextureImporter:
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
-      physicsShape:
-      - - {x: 20, y: -32}
-        - {x: 12, y: -28}
-        - {x: 8, y: -28}
-        - {x: 13, y: -18}
-        - {x: 13, y: -12}
-        - {x: -1, y: -8}
-        - {x: -9, y: -9}
-        - {x: -14, y: -9}
-        - {x: -17, y: -12}
-        - {x: -17, y: -17}
-        - {x: -18, y: -19}
-        - {x: -14, y: -37}
-        - {x: 18, y: -37}
-      tessellationDetail: 0
+      physicsShape: []
+      tessellationDetail: -1
       bones: []
-      spriteID: 306f4551c92966020800000000000000
-      internalID: 2334714655908623875
+      spriteID: 8ce2a23613194fa30800000000000000
+      internalID: 4248179989820354248
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: GreenFrogJump_1
+      name: JumpFrogSheet_1
       rect:
         serializedVersion: 2
         x: 64
@@ -162,78 +149,39 @@ TextureImporter:
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
-      physicsShape:
-      - - {x: 19, y: -27}
-        - {x: 16, y: -26}
-        - {x: 11, y: -25}
-        - {x: 11, y: -20}
-        - {x: 11, y: -14}
-        - {x: -3, y: -10}
-        - {x: -11, y: -11}
-        - {x: -16, y: -11}
-        - {x: -19, y: -14}
-        - {x: -19, y: -19}
-        - {x: -18, y: -30}
-        - {x: -15, y: -37}
-        - {x: -1, y: -37}
-        - {x: 8, y: -32}
-        - {x: 17, y: -33}
-      tessellationDetail: 0
+      physicsShape: []
+      tessellationDetail: -1
       bones: []
-      spriteID: f17de7bcf39eb9fb0800000000000000
-      internalID: -4639858530868865249
+      spriteID: c018af622609d1b10800000000000000
+      internalID: 1953876564583809292
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: GreenFrogJump_2
+      name: JumpFrogSheet_2
       rect:
         serializedVersion: 2
-        x: 128
-        y: 0
-        width: 64
-        height: 80
+        x: 130
+        y: 5
+        width: 48
+        height: 48
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
-      physicsShape:
-      - - {x: -5, y: -24}
-        - {x: -4, y: -16}
-        - {x: 0, y: -20}
-        - {x: 4, y: -18}
-        - {x: 8, y: -18}
-        - {x: 9, y: -19}
-        - {x: 13, y: -19}
-        - {x: 16, y: -14}
-        - {x: 13, y: -12}
-        - {x: 9, y: -11}
-        - {x: 5, y: -9}
-        - {x: 9, y: -5}
-        - {x: 9, y: 1}
-        - {x: 6.7247314, y: 3.2752686}
-        - {x: 1, y: 6}
-        - {x: -18, y: 6}
-        - {x: -21, y: 1}
-        - {x: -25, y: -10}
-        - {x: -14, y: -10}
-        - {x: -15, y: -13}
-        - {x: -16, y: -17}
-        - {x: -22, y: -19}
-        - {x: -22, y: -26}
-        - {x: -8, y: -26}
-      tessellationDetail: 0
+      physicsShape: []
+      tessellationDetail: -1
       bones: []
-      spriteID: 63ff189f8489a9fc0800000000000000
-      internalID: -3487307522253914314
+      spriteID: 39222d85795c8ad00800000000000000
+      internalID: 984253772401353363
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: GreenFrogJump_3
+      name: JumpFrogSheet_3
       rect:
         serializedVersion: 2
         x: 192
@@ -245,34 +193,17 @@ TextureImporter:
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
-      physicsShape:
-      - - {x: 9, y: -5}
-        - {x: 19, y: -6}
-        - {x: 22, y: -1}
-        - {x: 17, y: 2}
-        - {x: 10, y: 4}
-        - {x: 10, y: 15}
-        - {x: 3, y: 21}
-        - {x: -11, y: 21}
-        - {x: -15, y: 13}
-        - {x: -16, y: 0}
-        - {x: -10, y: -2}
-        - {x: -5, y: -7}
-        - {x: -12, y: -6}
-        - {x: -17, y: -9}
-        - {x: -17, y: -15}
-        - {x: -3, y: -15}
-        - {x: 4, y: -8}
-      tessellationDetail: 0
+      physicsShape: []
+      tessellationDetail: -1
       bones: []
-      spriteID: 5a37d17326163de40800000000000000
-      internalID: 5679990629503693733
+      spriteID: f14a347c1020c7230800000000000000
+      internalID: 3637784805669839903
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: GreenFrogJump_4
+      name: JumpFrogSheet_4
       rect:
         serializedVersion: 2
         x: 256
@@ -284,28 +215,11 @@ TextureImporter:
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
-      physicsShape:
-      - - {x: 21, y: -34}
-        - {x: 19, y: -31}
-        - {x: 14, y: -31}
-        - {x: 13, y: -26}
-        - {x: 17, y: -20}
-        - {x: 16, y: -16}
-        - {x: 9, y: -12}
-        - {x: 2, y: -12}
-        - {x: -10, y: -12}
-        - {x: -14, y: -18}
-        - {x: -12, y: -23}
-        - {x: -12, y: -34}
-        - {x: -7, y: -32}
-        - {x: -2, y: -36}
-        - {x: 1, y: -33}
-        - {x: 3, y: -38}
-        - {x: 19, y: -38}
-      tessellationDetail: 0
+      physicsShape: []
+      tessellationDetail: -1
       bones: []
-      spriteID: 10b4ac44d11bf8a40800000000000000
-      internalID: 5372707619742567169
+      spriteID: 94926e8c1aa957810800000000000000
+      internalID: 1762484848836356425
       vertices: []
       indices: 
       edges: []
@@ -314,7 +228,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 6f28510b2cb436449b2aa1b5e5a2b4c0
+    spriteID: 3ac3f65de3a0334439cb816efdc3e11b
     internalID: 0
     vertices: []
     indices: 
@@ -326,11 +240,11 @@ TextureImporter:
       - key: SpriteEditor.SliceSettings
         value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":80.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      GreenFrogJump_0: 2334714655908623875
-      GreenFrogJump_1: -4639858530868865249
-      GreenFrogJump_2: -3487307522253914314
-      GreenFrogJump_3: 5679990629503693733
-      GreenFrogJump_4: 5372707619742567169
+      JumpFrogSheet_0: 4248179989820354248
+      JumpFrogSheet_1: 1953876564583809292
+      JumpFrogSheet_2: 984253772401353363
+      JumpFrogSheet_3: 3637784805669839903
+      JumpFrogSheet_4: 1762484848836356425
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

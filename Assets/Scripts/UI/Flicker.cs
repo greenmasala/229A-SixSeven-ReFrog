@@ -46,12 +46,15 @@ public class Flicker : MonoBehaviour
     }
     IEnumerator UnflickerText()
     {
-        yield return new WaitForSecondsRealtime(0.1f);
-        text.enabled = false;
-        yield return new WaitForSecondsRealtime(0.1f);
-        text.enabled = true;
-        yield return new WaitForSecondsRealtime(0.1f);
-        text.enabled = false;
+        if (text.enabled)
+        {
+            yield return new WaitForSecondsRealtime(0.1f);
+            text.enabled = false;
+            yield return new WaitForSecondsRealtime(0.1f);
+            text.enabled = true;
+            yield return new WaitForSecondsRealtime(0.1f);
+            text.enabled = false;
+        }
     }
 
     IEnumerator FlickerCanvas()

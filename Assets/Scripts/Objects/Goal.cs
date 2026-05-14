@@ -4,10 +4,14 @@ using UnityEngine.SceneManagement;
 
 public class Goal : MonoBehaviour
 {
+    public ParticleSystem WinFX;
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
+            var winFXPrefab = Instantiate(WinFX, collision.transform.position, Quaternion.identity);
+            Destroy(collision.gameObject);
+            Destroy(winFXPrefab, 0.6f);
             UnlockLevel();
             PersistentUI.Instance.LevelCompleteActive();
             GameManager.Instance.Win = true;

@@ -106,7 +106,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7887e8dad854fee4a84d5a3459921e8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Goal
-  LevelComplete: {fileID: 0}
+  WinFX: {fileID: 7966981662102404070, guid: 5a9ba41b67a59a345aa973dbcc210e45, type: 3}
 --- !u!95 &805539131285311592
 Animator:
   serializedVersion: 7

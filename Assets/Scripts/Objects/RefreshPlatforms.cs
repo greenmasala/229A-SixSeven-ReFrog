@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System.Collections;
 using UnityEngine;
 
@@ -14,7 +15,8 @@ public class RefreshPlatforms : MonoBehaviour
         {
             if (transform.position != MovePoints[1].position)
             {
-                transform.position = Vector3.MoveTowards(transform.position, MovePoints[1].position, MoveSpeed * Time.deltaTime);
+                transform.DOMove(MovePoints[1].position, 0.1f).SetEase(Ease.InOutQuad);
+                //transform.position = Vector3.MoveTowards(transform.position, MovePoints[1].position, MoveSpeed * Time.deltaTime);
             }
         }
 
@@ -22,7 +24,8 @@ public class RefreshPlatforms : MonoBehaviour
         {
             if (transform.position != MovePoints[0].position)
             {
-                transform.position = Vector3.MoveTowards(transform.position, MovePoints[0].position, MoveSpeed * Time.deltaTime);
+                transform.DOMove(MovePoints[0].position, 0.1f).SetEase(Ease.InOutQuad);
+                //transform.position = Vector3.MoveTowards(transform.position, MovePoints[0].position, MoveSpeed * Time.deltaTime);
                 Debug.Log("running");
             }
         }

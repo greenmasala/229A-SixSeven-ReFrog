@@ -118,7 +118,14 @@ public class GameManager : MonoBehaviour
     public void NextLevel()
     {
         Time.timeScale = 1f;
-        StartCoroutine(TransitionRoutine("LOADING...", false));
+        if (SceneManager.GetActiveScene().buildIndex == SceneManager.sceneCountInBuildSettings - 2)
+        {
+            PersistentUI.Instance.CreditsActive();
+        }
+        else
+        {
+            StartCoroutine(TransitionRoutine("LOADING...", false));
+        }
     }
 
     public void LoadLevel(int levelID)
@@ -126,16 +133,16 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(levelID);
     }
 
-    public void Death(Transform transform, Quaternion rotation)
+    public void Death(Transform transform)
     {
-        StartCoroutine(DeathRoutine(transform, rotation));
+        StartCoroutine(DeathRoutine(transform));
     }
 
-    IEnumerator DeathRoutine(Transform transform, Quaternion rotation)
+    IEnumerator DeathRoutine(Transform transform)
     {
         Dead = true;
         Refresh.Instance.RefreshCountText.GetComponent<Flicker>().TextDisappear();
-        Instantiate(DeathFX, transform.position, rotation);
+        Instantiate(DeathFX, transform.position, Quaternion.identity);
         yield return new WaitForSeconds(0.3f);
         StartCoroutine(TransitionRoutine("RESTARTING...", true));
     }

@@ -10,7 +10,7 @@ public class Player : MonoBehaviour
     Rigidbody2D rb;
     [SerializeField] int speed = 10;
     [SerializeField] int jumpForce = 10;
-    [SerializeField] int jumpCount = 1;
+    public int JumpCount = 1;
     int maxJumpCount;
 
     public float coyoteTime = 0.2f;
@@ -34,7 +34,7 @@ public class Player : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        maxJumpCount = jumpCount;
+        maxJumpCount = JumpCount;
         rb = GetComponent<Rigidbody2D>();
         playerAnim = GetComponent<Animator>();  
     }
@@ -59,15 +59,15 @@ public class Player : MonoBehaviour
                 jumpBufferCounter = jumpBufferTime;
                 //isJumping = true;
                 //jumpCount--;
-                if (coyoteTimeCounter < 0 & jumpCount > 0)
+                if (coyoteTimeCounter < 0 & JumpCount > 0)
                 {
                     rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
                     JumpSFX();
                     DustFX.Play();
                     isJumping = true;
-                    jumpCount = 0;
+                    JumpCount = 0;
                 }
-                else if (coyoteTimeCounter > 0 & jumpCount > 0)
+                else if (coyoteTimeCounter > 0 & JumpCount > 0)
                 {
                     rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
                     DustFX.Play();
@@ -124,9 +124,9 @@ public class Player : MonoBehaviour
                 }
                 else if (isJumping)
                 {
-                    if (jumpCount > 0)
+                    if (JumpCount > 0)
                     {
-                        jumpCount--;
+                        JumpCount--;
                         rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
                         JumpSFX();
                         DustFX.Play();
@@ -180,7 +180,6 @@ public class Player : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Obstacle"))
         {
-            AudioManager.Instance.PlaySFX(AudioManager.Instance.Death);
             Death();
         }
     }
@@ -189,7 +188,7 @@ public class Player : MonoBehaviour
     {
         if (Physics2D.OverlapBox(GroundCheckPos.position, GroundCheckSize, 0, GroundLayer) & rb.linearVelocity.y <= 0) //kinda ducttape rn
         {
-            jumpCount = maxJumpCount;
+            JumpCount = maxJumpCount;
             isJumping = false;
             return true;
         }
@@ -219,8 +218,12 @@ public class Player : MonoBehaviour
 
     public void Death()
     {
-        GameManager.Instance.Death(transform, Quaternion.identity);
-        Destroy(gameObject);
+        if (!GameManager.Instance.Win)
+        {
+            AudioManager.Instance.PlaySFX(AudioManager.Instance.Death);
+            GameManager.Instance.Death(transform);
+            Destroy(gameObject);
+        }
     }
     void WalkSFX()
     {

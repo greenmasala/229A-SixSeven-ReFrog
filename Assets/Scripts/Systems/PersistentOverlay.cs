@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 public class PersistentOverlay : MonoBehaviour
 {
     public static PersistentOverlay Instance;
+    public GameObject TransitionRef;
 
     private void Awake()
     {
@@ -17,5 +18,10 @@ public class PersistentOverlay : MonoBehaviour
 
         DontDestroyOnLoad(gameObject);
         Instance = this;
+    }
+
+    public void RunTransition(bool activate)
+    {
+        TransitionRef.SetActive(activate);
     }
 }

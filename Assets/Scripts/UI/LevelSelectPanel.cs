@@ -10,6 +10,7 @@ public class LevelSelectPanel : MonoBehaviour
 {
     public Button[] Buttons;
     public GameObject levelButtons;
+    public float AnimSpeed;
 
     private void Awake()
     {
@@ -58,7 +59,7 @@ public class LevelSelectPanel : MonoBehaviour
             var s = DOTween.Sequence();
             s.Append(position.DOAnchorPos(new Vector2(position.transform.localPosition.x, position.transform.localPosition.y + 100), 0.1f).SetUpdate(true));
             s.Insert(0.05f, button.GetComponent<CanvasGroup>().DOFade(1, 0.01f));
-            yield return new WaitForSeconds(0.15f);
+            yield return new WaitForSeconds(AnimSpeed);
         }
     }
 }

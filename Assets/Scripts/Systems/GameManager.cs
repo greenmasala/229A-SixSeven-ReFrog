@@ -11,7 +11,6 @@ public class GameManager : MonoBehaviour
     public GameObject CreditsMenu;
     public GameObject LevelCompleteMenu;
     public GameObject RefreshCount;
-    public GameObject LevelTransitionRef;
 
     int levelID;
     int nextLevelID;
@@ -38,7 +37,7 @@ public class GameManager : MonoBehaviour
         else
         {
             Refresh.Instance.RefreshCountText.GetComponent<Flicker>().TextAppear();
-            LevelTransitionRef.SetActive(false);
+            PersistentOverlay.Instance.RunTransition(false);
             Win = false;
             Dead = false;
             Debug.Log(PauseMenu);
@@ -134,25 +133,24 @@ public class GameManager : MonoBehaviour
     IEnumerator DeathRoutine(Transform transform, Quaternion rotation)
     {
         Dead = true;
-        LevelTransitionRef.GetComponent<LevelTransition>().TitleText = "RESTARTING...";
         Refresh.Instance.RefreshCountText.GetComponent<Flicker>().TextDisappear();
         Instantiate(DeathFX, transform.position, rotation);
-        yield return new WaitForSeconds(0.2f);
+        yield return new WaitForSeconds(0.3f);
         StartCoroutine(TransitionRoutine("RESTARTING...", true));
     }
 
     IEnumerator TransitionRoutine(string text, bool restart)
     {
-        LevelTransitionRef.GetComponent<LevelTransition>().TitleText = text;
-        Refresh.Instance.RefreshCountText.GetComponent<Flicker>().TextDisappear();
-        LevelTransitionRef.SetActive(true);
-        yield return new WaitForSeconds(0.8f);
+        PersistentOverlay.Instance.TransitionRef.GetComponent<LevelTransition>().TitleText = text;
         if (restart)
         {
             Restart();
         }
         else
         {
+            Refresh.Instance.RefreshCountText.GetComponent<Flicker>().TextDisappear();
+            PersistentOverlay.Instance.RunTransition(true);
+            yield return new WaitForSeconds(1.15f);
             LoadLevel(nextLevelID);
         }
     }

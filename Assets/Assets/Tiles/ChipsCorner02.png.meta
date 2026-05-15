@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: a522bc29f7340594ca19965e7cc0cb2c
+guid: f2831dbde10ec544abe862a4d803a2e9
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -991638230497588076
-    second: ChipsConnect_0
+      213: 3802627401592235366
+    second: ChipsCorner02_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -96,102 +96,11 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ChipsConnect_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 64
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape:
-      - - {x: 16, y: 16}
-        - {x: -16, y: 16}
-        - {x: -16, y: -16}
-        - {x: 16, y: -16}
-      tessellationDetail: 0
-      bones: []
-      spriteID: 49c8e75884efc32f0800000000000000
-      internalID: -991638230497588076
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ChipsConnect_1
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 64
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape:
-      - - {x: 16, y: 16}
-        - {x: -16, y: 16}
-        - {x: -16, y: -16}
-        - {x: 16, y: -16}
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0d0357b318234e8459e2dd0bcb11a66c
-      internalID: -998945900
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ChipsConnect_2
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 64
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape:
-      - - {x: 16, y: 16}
-        - {x: -16, y: 16}
-        - {x: -16, y: -16}
-        - {x: 16, y: -16}
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5a9e47c22aee4f9478db4602bc05bab6
-      internalID: -390924245
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ChipsConnect_3
+      name: ChipsCorner02_0
       rect:
         serializedVersion: 2
         x: 0
@@ -204,20 +113,20 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape:
-      - - {x: 16, y: 16}
-        - {x: -16, y: 16}
-        - {x: -16, y: -16}
+      - - {x: -16, y: -16}
         - {x: 16, y: -16}
+        - {x: 16, y: 11}
+        - {x: -16, y: 11}
       tessellationDetail: 0
       bones: []
-      spriteID: cab28e19f4701a14c85da475f4086a0f
-      internalID: 1176362064
+      spriteID: 665621d7975a5c430800000000000000
+      internalID: 3802627401592235366
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ChipsConnect_4
+      name: ChipsCorner02_1
       rect:
         serializedVersion: 2
         x: 32
@@ -230,24 +139,24 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape:
-      - - {x: 16, y: 16}
-        - {x: -16, y: 16}
-        - {x: -16, y: -16}
+      - - {x: -16, y: -16}
         - {x: 16, y: -16}
+        - {x: 16, y: 11}
+        - {x: -16, y: 11}
       tessellationDetail: 0
       bones: []
-      spriteID: 1dabc0276d040fe4ca7b03a555425668
-      internalID: -119015214
+      spriteID: f0f6e699afebe7741898d9367e2dafb4
+      internalID: -218404621
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ChipsConnect_5
+      name: ChipsCorner02_2
       rect:
         serializedVersion: 2
-        x: 64
-        y: 32
+        x: 0
+        y: 0
         width: 32
         height: 32
       alignment: 0
@@ -256,14 +165,40 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape:
-      - - {x: 16, y: 16}
-        - {x: -16, y: 16}
-        - {x: -16, y: -16}
+      - - {x: -16, y: -16}
         - {x: 16, y: -16}
+        - {x: 16, y: 16}
+        - {x: -16, y: 16}
       tessellationDetail: 0
       bones: []
-      spriteID: 981e477649ade634ca2852464cb08001
-      internalID: 1741046281
+      spriteID: 397a35098051c3a40aa4fbf5ff796324
+      internalID: 2046656712
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ChipsCorner02_3
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape:
+      - - {x: -16, y: -16}
+        - {x: 16, y: -16}
+        - {x: 16, y: 16}
+        - {x: -16, y: 16}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 64037746a84f5c1428bcb114894361c3
+      internalID: 1960161190
       vertices: []
       indices: 
       edges: []
@@ -272,7 +207,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: a9db2f9f1e3a7f949a100d72becae8d2
+    spriteID: d1ea45897a9415448974ec69ed7de658
     internalID: 0
     vertices: []
     indices: 
@@ -284,12 +219,10 @@ TextureImporter:
       - key: SpriteEditor.SliceSettings
         value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":32.0,"y":32.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      ChipsConnect_0: -991638230497588076
-      ChipsConnect_1: -998945900
-      ChipsConnect_2: -390924245
-      ChipsConnect_3: 1176362064
-      ChipsConnect_4: -119015214
-      ChipsConnect_5: 1741046281
+      ChipsCorner02_0: 3802627401592235366
+      ChipsCorner02_1: -218404621
+      ChipsCorner02_2: 2046656712
+      ChipsCorner02_3: 1960161190
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

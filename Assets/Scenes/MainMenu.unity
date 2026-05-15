@@ -10520,16 +10520,18 @@ MonoBehaviour:
   Music: {fileID: 656817247938129076}
   SFX: {fileID: 5847421361296580753}
   BGM: {fileID: 8300000, guid: 33ddec5845aaf5d47b7afdd61f0f9f06, type: 3}
+  Flicker: {fileID: 8300000, guid: 239363f50e0aa0140996f7e7bfd71398, type: 3}
+  Loading: {fileID: 8300000, guid: ace43772f01a4ec479a4adb5ebd6a959, type: 3}
   Typing: {fileID: 8300000, guid: 9c516c7e235574b44a1f58f3a7f264b3, type: 3}
-  Popup: {fileID: 8300000, guid: db569b7d686f196409711fc8062c2680, type: 3}
-  LevelComplete: {fileID: 8300000, guid: 0649daaaeaf98324093e6b62581189cc, type: 3}
-  Jump: {fileID: 8300000, guid: c4ab777a29e023b4fba2c3b93fdfa7db, type: 3}
-  Yahoo: {fileID: 8300000, guid: 1606c61a524c79b489c695d0062622ed, type: 3}
+  Popup: {fileID: 8300000, guid: 55065a25ffd5dfc4e921abd86e2ab179, type: 3}
+  LevelComplete: {fileID: 8300000, guid: 4483b733676c9654b82a9a5ff681b211, type: 3}
+  Jump: {fileID: 8300000, guid: 8fd051046f114a74c834fadd5073ebdd, type: 3}
+  Yahoo: {fileID: 8300000, guid: b6a606ede75b0e747890c809524b5d42, type: 3}
   Walk: {fileID: 8300000, guid: d538aee3d65f25d4e89a40e71687c014, type: 3}
-  Refresh: {fileID: 8300000, guid: 03091cb396020a543a13f20bc462db83, type: 3}
-  Refresh2: {fileID: 8300000, guid: dc9814653ddc5804486427bb893dd2a2, type: 3}
-  Death: {fileID: 8300000, guid: f1ad88f9eb577134a9d9b3d9d76f5aa9, type: 3}
-  Jumppad: {fileID: 8300000, guid: 1eaa3953b3346004a9917adfe94ad332, type: 3}
+  Refresh: {fileID: 8300000, guid: 2c3645c6f0a5dc14cbe2543360a8be48, type: 3}
+  Refresh2: {fileID: 8300000, guid: ca6d9e9737133f14c82e9f10930ed815, type: 3}
+  Death: {fileID: 8300000, guid: b8a540931628dbf4db21f3a6670a7def, type: 3}
+  Jumppad: {fileID: 8300000, guid: d3f1a16172dde264eb716752f647dc24, type: 3}
 --- !u!4 &2006359763886895937
 Transform:
   m_ObjectHideFlags: 0

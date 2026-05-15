@@ -17,9 +17,10 @@ public class AudioManager: MonoBehaviour
     public AudioClip BGM;
 
     [Header("UI")]
+    public AudioClip Flicker;
+    public AudioClip Loading;
     public AudioClip Typing;
     public AudioClip Popup;
-    public AudioClip LevelComplete;
 
     [Header("Player")]
     public AudioClip Jump;

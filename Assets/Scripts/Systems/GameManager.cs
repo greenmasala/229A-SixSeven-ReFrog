@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour
     public bool Win;
     public bool Dead;
     public ParticleSystem DeathFX;
+    Coroutine restartRoutine;
     public static GameManager Instance { get; private set; }
 
     private void OnEnable()
@@ -72,7 +73,7 @@ public class GameManager : MonoBehaviour
     {
         if (SceneManager.GetActiveScene().buildIndex != 0)
         {
-            if (Input.GetKeyDown(KeyCode.Escape) & !Win)
+            if (Input.GetKeyDown(KeyCode.Escape) & !Win & !Dead)
             {
                 if (Paused == true)
                 {
@@ -108,11 +109,18 @@ public class GameManager : MonoBehaviour
     }
     public void Restart()
     {
+        Dead = true;
+        if (restartRoutine != null)
+        {
+            return;
+        }
         Time.timeScale = 1f;
-        Destroy(DDOL.Instance.gameObject);
-        DDOL.Instance = null;
-        PersistentOverlay.Instance.TransitionRef.GetComponent<LevelTransition>().TitleText = "RESTARTING...";
-        LevelManager.Instance.LoadLevel(SceneManager.GetActiveScene().buildIndex);
+        restartRoutine = StartCoroutine(RestartRoutine());
+        //Refresh.Instance.RefreshCountText.GetComponent<Flicker>().TextDisappear();
+        //Destroy(DDOL.Instance.gameObject);
+        //DDOL.Instance = null;
+        //PersistentOverlay.Instance.TransitionRef.GetComponent<LevelTransition>().TitleText = "RESTARTING...";
+        //LevelManager.Instance.LoadLevel(SceneManager.GetActiveScene().buildIndex);
     }
 
     public void NextLevel()
@@ -161,6 +169,16 @@ public class GameManager : MonoBehaviour
             yield return new WaitForSeconds(1.15f);
             LoadLevel(nextLevelID);
         }
+    }
+
+    IEnumerator RestartRoutine()
+    {
+        Refresh.Instance.RefreshCountText.GetComponent<Flicker>().TextDisappear();
+        PersistentOverlay.Instance.TransitionRef.GetComponent<LevelTransition>().TitleText = "RESTARTING...";
+        LevelManager.Instance.LoadLevel(SceneManager.GetActiveScene().buildIndex);
+        yield return new WaitForSeconds(0.7f);
+        Destroy(DDOL.Instance.gameObject);
+        DDOL.Instance = null;
     }
     //public void Credits()
     //{

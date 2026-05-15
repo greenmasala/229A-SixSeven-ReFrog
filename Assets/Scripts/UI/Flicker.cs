@@ -1,6 +1,7 @@
 using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Flicker : MonoBehaviour
 {
@@ -37,18 +38,23 @@ public class Flicker : MonoBehaviour
 
     IEnumerator FlickerText()
     {
-        yield return new WaitForSecondsRealtime(0.2f);
-        text.enabled = true;
-        yield return new WaitForSecondsRealtime(0.1f);
-        text.enabled = false;
-        yield return new WaitForSecondsRealtime(0.1f);
-        text.enabled = true;
+        if (SceneManager.GetActiveScene().buildIndex != SceneManager.sceneCountInBuildSettings - 1)
+        {
+            yield return new WaitForSecondsRealtime(0.2f);
+            AudioManager.Instance.PlaySFX(AudioManager.Instance.Flicker);
+            text.enabled = true;
+            yield return new WaitForSecondsRealtime(0.1f);
+            text.enabled = false;
+            yield return new WaitForSecondsRealtime(0.1f);
+            text.enabled = true;
+        }
     }
     IEnumerator UnflickerText()
     {
         if (text.enabled)
         {
             yield return new WaitForSecondsRealtime(0.1f);
+            AudioManager.Instance.PlaySFX(AudioManager.Instance.Flicker);
             text.enabled = false;
             yield return new WaitForSecondsRealtime(0.1f);
             text.enabled = true;
@@ -61,6 +67,7 @@ public class Flicker : MonoBehaviour
     {
         Debug.Log("flicker");
         yield return new WaitForSecondsRealtime(0.2f);
+        AudioManager.Instance.PlaySFX(AudioManager.Instance.Flicker);
         canvas.alpha = 1;
         yield return new WaitForSecondsRealtime(0.1f);
         canvas.alpha = 0;

@@ -34,7 +34,6 @@ public class PersistentUI : MonoBehaviour
         StartCoroutine(CreditsCoroutine());
     }
 
-
     IEnumerator CreditsCoroutine()
     {
         PersistentOverlay.Instance.TransitionRef.GetComponent<LevelTransition>().TitleText = "LOADING...";

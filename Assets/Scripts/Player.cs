@@ -1,9 +1,5 @@
-using NUnit.Framework.Constraints;
-using System.Collections;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.InputSystem;
-using UnityEngine.SceneManagement;
+using DG.Tweening;
 
 public class Player : MonoBehaviour
 {
@@ -29,6 +25,7 @@ public class Player : MonoBehaviour
     bool facingRight;
     Animator playerAnim;
 
+    Sequence jumpSequence;
     public int RefreshCount = 5;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -206,9 +203,17 @@ public class Player : MonoBehaviour
     void Flip()
     {
         facingRight = !facingRight;
-        Vector3 theScale = transform.localScale;
-        theScale.x *= -1;
-        transform.localScale = theScale;
+        if (!facingRight)
+        {
+            gameObject.GetComponent<SpriteRenderer>().flipX = true;
+        }
+        else
+        {
+            gameObject.GetComponent<SpriteRenderer>().flipX = false;
+        }
+        //Vector3 theScale = transform.localScale;
+        //theScale.x *= -1;
+        //transform.localScale = theScale;
     }
     private void OnDrawGizmosSelected()
     {
@@ -247,5 +252,7 @@ public class Player : MonoBehaviour
         {
             AudioManager.Instance.PlaySFX(AudioManager.Instance.Jump);
         }
+
+        
     }
 }

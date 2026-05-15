@@ -1719,7 +1719,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 370a4fdaacfcfed4b8d7e32d4a46608a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Pause
-  SFX: {fileID: 8300000, guid: 0649daaaeaf98324093e6b62581189cc, type: 3}
+  SFX: {fileID: 8300000, guid: 4483b733676c9654b82a9a5ff681b211, type: 3}
 --- !u!1 &304341313
 GameObject:
   m_ObjectHideFlags: 0
@@ -8600,6 +8600,8 @@ MonoBehaviour:
   Music: {fileID: 1553916356}
   SFX: {fileID: 1991830933}
   BGM: {fileID: 8300000, guid: 33ddec5845aaf5d47b7afdd61f0f9f06, type: 3}
+  Flicker: {fileID: 0}
+  Loading: {fileID: 0}
   Typing: {fileID: 8300000, guid: 9c516c7e235574b44a1f58f3a7f264b3, type: 3}
   Popup: {fileID: 8300000, guid: db569b7d686f196409711fc8062c2680, type: 3}
   LevelComplete: {fileID: 8300000, guid: 0649daaaeaf98324093e6b62581189cc, type: 3}

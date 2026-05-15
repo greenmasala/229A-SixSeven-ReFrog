@@ -7874,6 +7874,7 @@ GameObject:
   - component: {fileID: 1140119153}
   - component: {fileID: 1140119152}
   - component: {fileID: 1140119151}
+  - component: {fileID: 1140119154}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -7922,9 +7923,9 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 60
-  orthographic: 1
-  orthographic size: 5
+  field of view: 53
+  orthographic: 0
+  orthographic size: 4.21875
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -7936,7 +7937,7 @@ Camera:
   m_HDR: 1
   m_AllowMSAA: 0
   m_AllowDynamicResolution: 0
-  m_ForceIntoRT: 0
+  m_ForceIntoRT: 1
   m_OcclusionCulling: 0
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
@@ -7955,6 +7956,26 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1140119154
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1140119150}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a160d838ff8b4b4693ac20007e008c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.2D.PixelPerfect::UnityEngine.U2D.PixelPerfectCamera
+  m_AssetsPPU: 32
+  m_RefResolutionX: 480
+  m_RefResolutionY: 270
+  m_UpscaleRT: 1
+  m_PixelSnapping: 0
+  m_CropFrameX: 0
+  m_CropFrameY: 0
+  m_StretchFill: 0
 --- !u!1 &1194787864
 GameObject:
   m_ObjectHideFlags: 0
@@ -12052,14 +12073,6 @@ PrefabInstance:
       propertyPath: jumpCount
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 4054753479566579115, guid: 1e92aeade43a75d42abdbfc1f33dc5e4, type: 3}
-      propertyPath: jumpForce
-      value: 14
-      objectReference: {fileID: 0}
-    - target: {fileID: 4054753479566579115, guid: 1e92aeade43a75d42abdbfc1f33dc5e4, type: 3}
-      propertyPath: RefreshCount
-      value: 10
-      objectReference: {fileID: 0}
     - target: {fileID: 4650090985229078267, guid: 1e92aeade43a75d42abdbfc1f33dc5e4, type: 3}
       propertyPath: m_LocalPosition.x
       value: -4.3
@@ -15993,8 +16006,8 @@ SpriteRenderer:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
-  - {fileID: 1850021455}
   - {fileID: 1140119153}
+  - {fileID: 1850021455}
   - {fileID: 399239925}
   - {fileID: 1392243025}
   - {fileID: 143355072}

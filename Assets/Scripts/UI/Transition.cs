@@ -39,12 +39,16 @@ public class Transition : MonoBehaviour
     void RunTransition()
     {
         //sequence.Restart();
-        sequence = DOTween.Sequence();
-        sequence.Append(TransitionImage.DOScaleY(0.15f, 0.6f));
-        sequence.InsertCallback(0.4f, () => StartCoroutine(TypeText()));
-        sequence.AppendInterval(0.6f);
-        sequence.Append(TransitionImage.DOScaleY(0f, 0.6f));
-        sequence.Join(Text.DOScaleY(0, 0.2f));
+        if (SceneManager.GetActiveScene().buildIndex != SceneManager.sceneCountInBuildSettings - 1)
+        {
+            sequence = DOTween.Sequence();
+            AudioManager.Instance.PlaySFX(AudioManager.Instance.Loading);
+            sequence.Append(TransitionImage.DOScaleY(0.15f, 0.6f));
+            sequence.InsertCallback(0.4f, () => StartCoroutine(TypeText()));
+            sequence.AppendInterval(0.6f);
+            sequence.Append(TransitionImage.DOScaleY(0f, 0.6f));
+            sequence.Join(Text.DOScaleY(0, 0.2f));
+        }
     }
 
     IEnumerator TypeText()

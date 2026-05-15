@@ -439,7 +439,7 @@ RectTransform:
   m_Father: {fileID: 1898539255}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0.4994995, y: 1}
+  m_AnchorMax: {x: 0.49995, y: 1}
   m_AnchoredPosition: {x: 5.060608, y: -0.023200035}
   m_SizeDelta: {x: -0.1212, y: -13.1519}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -456,7 +456,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 0.08235294, g: 0.5764706, b: 0.06666667, a: 1}
+  m_Color: {r: 0, g: 1, b: 0.33333334, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -548,7 +548,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4279082256
-  m_fontColor: {r: 0.0627451, g: 0.6156863, b: 0.050980397, a: 1}
+  m_fontColor: {r: 0, g: 1, b: 0.33333334, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -704,7 +704,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 0.06666667, g: 0.6117647, b: 0.054901965, a: 0}
+  m_Color: {r: 0, g: 1, b: 0.33333334, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -935,7 +935,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4279082256
-  m_fontColor: {r: 0.0627451, g: 0.6156863, b: 0.050980397, a: 1}
+  m_fontColor: {r: 0, g: 1, b: 0.33333334, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1071,8 +1071,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4279147537
-  m_fontColor: {r: 0.06666667, g: 0.6117647, b: 0.054901965, a: 1}
+    rgba: 4283825920
+  m_fontColor: {r: 0, g: 1, b: 0.33333334, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1294,7 +1294,7 @@ RectTransform:
   m_Father: {fileID: 560138943}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0.7497497, y: 1}
+  m_AnchorMax: {x: 0.749975, y: 1}
   m_AnchoredPosition: {x: 5.060608, y: -0.023200035}
   m_SizeDelta: {x: -0.1212, y: -13.1519}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -1311,7 +1311,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 0.08235294, g: 0.5764706, b: 0.06666667, a: 1}
+  m_Color: {r: 0, g: 1, b: 0.33333334, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1369,7 +1369,7 @@ RectTransform:
   m_Father: {fileID: 774089698}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0.4994995, y: 1}
+  m_AnchorMax: {x: 0.49995, y: 1}
   m_AnchoredPosition: {x: 5.060608, y: -0.023200035}
   m_SizeDelta: {x: -0.1212, y: -13.1519}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -1386,7 +1386,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 0.08235294, g: 0.5764706, b: 0.06666667, a: 1}
+  m_Color: {r: 0, g: 1, b: 0.33333334, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1501,7 +1501,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 0.06666667, g: 0.6117647, b: 0.054901965, a: 1}
+  m_Color: {r: 0, g: 1, b: 0.33333334, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1592,8 +1592,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4279147537
-  m_fontColor: {r: 0.06666667, g: 0.6117647, b: 0.054901965, a: 1}
+    rgba: 4283825920
+  m_fontColor: {r: 0, g: 1, b: 0.33333334, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1797,7 +1797,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4279082256
-  m_fontColor: {r: 0.0627451, g: 0.6156863, b: 0.050980397, a: 1}
+  m_fontColor: {r: 0, g: 1, b: 0.33333334, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -2204,7 +2204,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4279082256
-  m_fontColor: {r: 0.0627451, g: 0.6156863, b: 0.050980397, a: 1}
+  m_fontColor: {r: 0, g: 1, b: 0.33333334, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -2429,8 +2429,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4279147537
-  m_fontColor: {r: 0.06666667, g: 0.6117647, b: 0.054901965, a: 1}
+    rgba: 4283825920
+  m_fontColor: {r: 0, g: 1, b: 0.33333334, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -2653,8 +2653,8 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 828470848}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.4994995, y: 0}
-  m_AnchorMax: {x: 0.4994995, y: 1}
+  m_AnchorMin: {x: 0.49995, y: 0}
+  m_AnchorMax: {x: 0.49995, y: 1}
   m_AnchoredPosition: {x: 6.1748047, y: 0}
   m_SizeDelta: {x: 32.3496, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -2767,7 +2767,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4279147537
-  m_fontColor: {r: 0.06666667, g: 0.6117647, b: 0.054901965, a: 1}
+  m_fontColor: {r: 0, g: 1, b: 0.33333334, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -2903,8 +2903,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4279147537
-  m_fontColor: {r: 0.06666667, g: 0.6117647, b: 0.054901965, a: 1}
+    rgba: 4283825920
+  m_fontColor: {r: 0, g: 1, b: 0.33333334, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -3228,7 +3228,6 @@ RectTransform:
   m_Children:
   - {fileID: 692994095}
   - {fileID: 1250581178}
-  - {fileID: 2041425278}
   - {fileID: 425844067}
   - {fileID: 1853464138}
   - {fileID: 1934379785}
@@ -3314,8 +3313,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4279147537
-  m_fontColor: {r: 0.06666667, g: 0.6117647, b: 0.054901965, a: 1}
+    rgba: 4283825920
+  m_fontColor: {r: 0, g: 1, b: 0.33333334, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -3622,7 +3621,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4279147537
-  m_fontColor: {r: 0.06666667, g: 0.6117647, b: 0.054901965, a: 1}
+  m_fontColor: {r: 0, g: 1, b: 0.33333334, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -3742,7 +3741,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 0.06666667, g: 0.6117647, b: 0.054901965, a: 0}
+  m_Color: {r: 0, g: 1, b: 0.33333334, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -3834,7 +3833,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4279082256
-  m_fontColor: {r: 0.0627451, g: 0.6156863, b: 0.050980397, a: 1}
+  m_fontColor: {r: 0, g: 1, b: 0.33333334, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -4118,7 +4117,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4279147537
-  m_fontColor: {r: 0.06666667, g: 0.6117647, b: 0.054901965, a: 1}
+  m_fontColor: {r: 0, g: 1, b: 0.33333334, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -4220,8 +4219,8 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 145387463}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.4994995, y: 0}
-  m_AnchorMax: {x: 0.4994995, y: 1}
+  m_AnchorMin: {x: 0.49995, y: 0}
+  m_AnchorMax: {x: 0.49995, y: 1}
   m_AnchoredPosition: {x: 6.1748047, y: 0}
   m_SizeDelta: {x: 32.3496, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -4552,7 +4551,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4279082256
-  m_fontColor: {r: 0.0627451, g: 0.6156863, b: 0.050980397, a: 1}
+  m_fontColor: {r: 0, g: 1, b: 0.33333334, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -4901,7 +4900,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4279147537
-  m_fontColor: {r: 0.06666667, g: 0.6117647, b: 0.054901965, a: 1}
+  m_fontColor: {r: 0, g: 1, b: 0.33333334, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -5263,7 +5262,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4279082256
-  m_fontColor: {r: 0.0627451, g: 0.6156863, b: 0.050980397, a: 1}
+  m_fontColor: {r: 0, g: 1, b: 0.33333334, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -5474,8 +5473,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4279147537
-  m_fontColor: {r: 0.06666667, g: 0.6117647, b: 0.054901965, a: 1}
+    rgba: 4283825920
+  m_fontColor: {r: 0, g: 1, b: 0.33333334, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -5612,7 +5611,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4279147537
-  m_fontColor: {r: 0.06666667, g: 0.6117647, b: 0.054901965, a: 1}
+  m_fontColor: {r: 0, g: 1, b: 0.33333334, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -5972,7 +5971,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 0.06666667, g: 0.6117647, b: 0.054901965, a: 1}
+  m_Color: {r: 0, g: 1, b: 0.33333334, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -6423,7 +6422,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 0.06666667, g: 0.6117647, b: 0.054901965, a: 0}
+  m_Color: {r: 0, g: 1, b: 0.33333334, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -6498,7 +6497,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 0.06666667, g: 0.6117647, b: 0.054901965, a: 1}
+  m_Color: {r: 0, g: 1, b: 0.33333334, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -6598,7 +6597,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4279147537
-  m_fontColor: {r: 0.06666667, g: 0.6117647, b: 0.054901965, a: 1}
+  m_fontColor: {r: 0, g: 1, b: 0.33333334, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -6865,7 +6864,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 0.06666667, g: 0.6117647, b: 0.054901965, a: 1}
+  m_Color: {r: 0, g: 1, b: 0.33333334, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -7132,7 +7131,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4279081997
-  m_fontColor: {r: 0.050980397, g: 0.6117647, b: 0.050980397, a: 1}
+  m_fontColor: {r: 0, g: 1, b: 0.33333334, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -7339,8 +7338,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4279147537
-  m_fontColor: {r: 0.06666667, g: 0.6117647, b: 0.054901965, a: 1}
+    rgba: 4283825920
+  m_fontColor: {r: 0, g: 1, b: 0.33333334, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -7496,7 +7495,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4279082256
-  m_fontColor: {r: 0.0627451, g: 0.6156863, b: 0.050980397, a: 1}
+  m_fontColor: {r: 0, g: 1, b: 0.33333334, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -7616,7 +7615,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 0.06666667, g: 0.6117647, b: 0.054901965, a: 0}
+  m_Color: {r: 0, g: 1, b: 0.33333334, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -7857,8 +7856,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4279147537
-  m_fontColor: {r: 0.06666667, g: 0.6117647, b: 0.054901965, a: 1}
+    rgba: 4283825920
+  m_fontColor: {r: 0, g: 1, b: 0.33333334, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -8219,7 +8218,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4279082256
-  m_fontColor: {r: 0.0627451, g: 0.6156863, b: 0.050980397, a: 1}
+  m_fontColor: {r: 0, g: 1, b: 0.33333334, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -8339,7 +8338,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 0.06666667, g: 0.6117647, b: 0.054901965, a: 0}
+  m_Color: {r: 0, g: 1, b: 0.33333334, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -8590,8 +8589,8 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 2119674981}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.7497497, y: 0}
-  m_AnchorMax: {x: 0.7497497, y: 1}
+  m_AnchorMin: {x: 0.749975, y: 0}
+  m_AnchorMax: {x: 0.749975, y: 1}
   m_AnchoredPosition: {x: 6.1748047, y: 0}
   m_SizeDelta: {x: 32.3496, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -8700,7 +8699,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4279081997
-  m_fontColor: {r: 0.050980397, g: 0.6117647, b: 0.050980397, a: 1}
+  m_fontColor: {r: 0, g: 1, b: 0.33333334, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -9187,14 +9186,14 @@ RectTransform:
   m_GameObject: {fileID: 2041425277}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.51961803, y: 0.51961803, z: 0.51961803}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 704116674}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -464.4833, y: 295.0833}
+  m_AnchoredPosition: {x: 925.7311, y: 564.0178}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2041425279
@@ -9364,7 +9363,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4279082256
-  m_fontColor: {r: 0.0627451, g: 0.6156863, b: 0.050980397, a: 1}
+  m_fontColor: {r: 0, g: 1, b: 0.33333334, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -9623,8 +9622,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4279147537
-  m_fontColor: {r: 0.06666667, g: 0.6117647, b: 0.054901965, a: 1}
+    rgba: 4283825920
+  m_fontColor: {r: 0, g: 1, b: 0.33333334, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -9855,7 +9854,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4279082256
-  m_fontColor: {r: 0.0627451, g: 0.6156863, b: 0.050980397, a: 1}
+  m_fontColor: {r: 0, g: 1, b: 0.33333334, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -10167,7 +10166,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4279082256
-  m_fontColor: {r: 0.0627451, g: 0.6156863, b: 0.050980397, a: 1}
+  m_fontColor: {r: 0, g: 1, b: 0.33333334, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -10379,7 +10378,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 0.06666667, g: 0.6117647, b: 0.054901965, a: 0}
+  m_Color: {r: 0, g: 1, b: 0.33333334, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -10524,7 +10523,6 @@ MonoBehaviour:
   Loading: {fileID: 8300000, guid: ace43772f01a4ec479a4adb5ebd6a959, type: 3}
   Typing: {fileID: 8300000, guid: 9c516c7e235574b44a1f58f3a7f264b3, type: 3}
   Popup: {fileID: 8300000, guid: 55065a25ffd5dfc4e921abd86e2ab179, type: 3}
-  LevelComplete: {fileID: 8300000, guid: 4483b733676c9654b82a9a5ff681b211, type: 3}
   Jump: {fileID: 8300000, guid: 8fd051046f114a74c834fadd5073ebdd, type: 3}
   Yahoo: {fileID: 8300000, guid: b6a606ede75b0e747890c809524b5d42, type: 3}
   Walk: {fileID: 8300000, guid: d538aee3d65f25d4e89a40e71687c014, type: 3}
@@ -10737,3 +10735,4 @@ SceneRoots:
   - {fileID: 763807626}
   - {fileID: 259604664}
   - {fileID: 3502118312849007830}
+  - {fileID: 2041425278}

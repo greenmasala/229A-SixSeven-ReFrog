@@ -5,11 +5,26 @@ public class FallingPlatform : MonoBehaviour
 {
     public float FallDelay = 1f;
     public float DestroyDelay = 2f;
+    public GameObject Layout;
+    GameObject layoutPrefab;
+    public string Tag;
     float delaySequence;
+    public Vector3 CustomScale;
+    public bool ApplyCustomScale;
+    public GameObject[] AdditionalObjects;
 
     Rigidbody2D rb;
     SpriteRenderer color;
 
+    private void Awake()
+    {
+        layoutPrefab = Instantiate(Layout, transform.position, Quaternion.identity);
+        if (ApplyCustomScale)
+        {
+            layoutPrefab.transform.localScale = CustomScale;
+        }
+        layoutPrefab.tag = Tag;
+    }
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -22,6 +37,14 @@ public class FallingPlatform : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             StartCoroutine(Fall());
+            Destroy(layoutPrefab);
+            if (AdditionalObjects != null)
+            {
+                foreach (var item in AdditionalObjects)
+                {
+                    Destroy(item);
+                }
+            }
         }
 
         if (collision.gameObject.CompareTag("Obstacle"))

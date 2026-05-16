@@ -11,6 +11,7 @@ TagManager:
   - Layout2
   - Goal
   - Wall
+  - UniLayout
   layers:
   - Default
   - TransparentFX

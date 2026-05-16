@@ -82,7 +82,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 3
+  m_SortingOrder: 2
   m_MaskInteraction: 0
   m_Sprite: {fileID: -8675647197314211145, guid: 71235f25890f2f54b86ca81acbcca75e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -181,3 +181,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FallingPlatform
   FallDelay: 0.33
   DestroyDelay: 5
+  Layout: {fileID: 1098914991718939273, guid: e3d85b71802b7ce44b328e9d444ab14b, type: 3}

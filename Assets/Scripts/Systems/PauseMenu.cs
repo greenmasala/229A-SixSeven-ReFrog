@@ -15,7 +15,6 @@ public class PauseMenu : MonoBehaviour
     }
     public void ReturnToMenu()
     {
-        Time.timeScale = 1f;
         StartCoroutine(BackToMenu());
     }
     public void Settings()
@@ -25,13 +24,14 @@ public class PauseMenu : MonoBehaviour
 
     IEnumerator BackToMenu()
     {
+        Time.timeScale = 1f;
+        GameManager.Instance.StopDeath = true;
         PersistentOverlay.Instance.TransitionRef.GetComponent<LevelTransition>().TitleText = "LOADING...";
         PersistentOverlay.Instance.RunTransition(true);
         Refresh.Instance.RefreshCountText.GetComponent<Flicker>().TextDisappear();
         yield return new WaitForSeconds(1.15f);
         Destroy(DDOL.Instance.gameObject);
         DDOL.Instance = null;
-        Time.timeScale = 1f;
         GameManager.Instance.LoadLevel(0);
     }
 }

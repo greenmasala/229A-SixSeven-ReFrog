@@ -15,7 +15,7 @@ public class GameManager : MonoBehaviour
     int levelID;
     int nextLevelID;
     public bool Paused;
-    public bool Win;
+    public bool StopDeath;
     public bool Dead;
     public ParticleSystem DeathFX;
     Coroutine restartRoutine;
@@ -39,7 +39,7 @@ public class GameManager : MonoBehaviour
         {
             Refresh.Instance.RefreshCountText.GetComponent<Flicker>().TextAppear();
             PersistentOverlay.Instance.RunTransition(false);
-            Win = false;
+            StopDeath = false;
             Dead = false;
             Debug.Log(PauseMenu);
             levelID = SceneManager.GetActiveScene().buildIndex;
@@ -73,7 +73,7 @@ public class GameManager : MonoBehaviour
     {
         if (SceneManager.GetActiveScene().buildIndex != 0)
         {
-            if (Input.GetKeyDown(KeyCode.Escape) & !Win & !Dead)
+            if (Input.GetKeyDown(KeyCode.Escape) & !StopDeath & !Dead)
             {
                 if (Paused == true)
                 {
@@ -109,13 +109,17 @@ public class GameManager : MonoBehaviour
     }
     public void Restart()
     {
-        Dead = true;
-        if (restartRoutine != null)
+        if (!StopDeath)
         {
-            return;
+            Dead = true;
+            if (restartRoutine != null)
+            {
+                return;
+            }
+            Time.timeScale = 1f;
+            restartRoutine = StartCoroutine(RestartRoutine());
         }
-        Time.timeScale = 1f;
-        restartRoutine = StartCoroutine(RestartRoutine());
+       
         //Refresh.Instance.RefreshCountText.GetComponent<Flicker>().TextDisappear();
         //Destroy(DDOL.Instance.gameObject);
         //DDOL.Instance = null;
@@ -164,6 +168,7 @@ public class GameManager : MonoBehaviour
         }
         else
         {
+            StopDeath = true;
             Refresh.Instance.RefreshCountText.GetComponent<Flicker>().TextDisappear();
             PersistentOverlay.Instance.RunTransition(true);
             yield return new WaitForSeconds(1.15f);

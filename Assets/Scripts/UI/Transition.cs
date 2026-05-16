@@ -39,9 +39,10 @@ public class Transition : MonoBehaviour
     void RunTransition()
     {
         //sequence.Restart();
-        if (SceneManager.GetActiveScene().buildIndex != SceneManager.sceneCountInBuildSettings - 1)
+        if (SceneManager.GetActiveScene().name != "Bootloader")
         {
             sequence = DOTween.Sequence();
+            Debug.Log(SceneManager.GetActiveScene().name);
             AudioManager.Instance.PlaySFX(AudioManager.Instance.Loading);
             sequence.Append(TransitionImage.DOScaleY(0.15f, 0.6f));
             sequence.InsertCallback(0.4f, () => StartCoroutine(TypeText()));

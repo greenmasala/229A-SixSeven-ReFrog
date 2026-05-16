@@ -39,7 +39,7 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!GameManager.Instance.Win)
+        if (!GameManager.Instance.StopDeath)
         {
             if (isGrounded())
             {
@@ -135,7 +135,7 @@ public class Player : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        if (!GameManager.Instance.Win)
+        if (!GameManager.Instance.StopDeath)
         {
             var horizontalInput = Input.GetAxisRaw("Horizontal");
 
@@ -223,7 +223,7 @@ public class Player : MonoBehaviour
 
     public void Death()
     {
-        if (!GameManager.Instance.Win)
+        if (!GameManager.Instance.StopDeath)
         {
             AudioManager.Instance.PlaySFX(AudioManager.Instance.Death);
             GameManager.Instance.Death(transform);
@@ -252,7 +252,5 @@ public class Player : MonoBehaviour
         {
             AudioManager.Instance.PlaySFX(AudioManager.Instance.Jump);
         }
-
-        
     }
 }

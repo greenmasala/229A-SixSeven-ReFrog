@@ -2,6 +2,7 @@ using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -13,8 +14,11 @@ public class Refresh : MonoBehaviour
     public int RefreshCount;
     public GameObject[] Columns;
     public GameObject[] Columns2;
-    public Tilemap Layout1;
-    public Tilemap Layout2;
+    public GameObject[] Layout1;
+    public GameObject[] Layout2;
+    public bool Layout1Active;
+    public bool Layout2Active; 
+    public GameObject[] UniversalLayout;
     public TextMeshProUGUI RefreshCountText;
     Coroutine refreshCoroutine;
     public bool HasRefreshed;
@@ -23,6 +27,7 @@ public class Refresh : MonoBehaviour
     int currentColumn2;
 
     Coroutine CoFadeInLayout;
+    Coroutine CoFadeOutLayout;
 
     [SerializeField] AudioClip refreshSFX;
 
@@ -56,8 +61,21 @@ public class Refresh : MonoBehaviour
             Debug.Log("Acitve");
             gameObject.SetActive(true);
             RefreshCount = FindFirstObjectByType<Player>().RefreshCount;
-            Layout1 = GameObject.FindGameObjectWithTag("Layout1").GetComponent<Tilemap>();
-            Layout2 = GameObject.FindGameObjectWithTag("Layout2").GetComponent<Tilemap>();
+            Layout1 = GameObject.FindGameObjectsWithTag("Layout1");
+            Layout2 = GameObject.FindGameObjectsWithTag("Layout2");
+            UniversalLayout = GameObject.FindGameObjectsWithTag("UniLayout");
+            foreach (var item in Layout1)
+            {
+                item.gameObject.SetActive(false);
+            }
+            foreach (var item in Layout2)
+            {
+                item.gameObject.SetActive(false);
+            }
+            foreach (var uni in UniversalLayout)
+            {
+                uni.gameObject.SetActive(false);
+            }
 
             Columns = GameObject.FindGameObjectsWithTag("Column").OrderByDescending(o =>
             {
@@ -75,7 +93,7 @@ public class Refresh : MonoBehaviour
             {
                 RefreshCountText.text = RefreshCount.ToString();
             }
-           
+
             foreach (GameObject column in Columns)
             {
                 column.SetActive(true);
@@ -106,7 +124,7 @@ public class Refresh : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!GameManager.Instance.Win & !GameManager.Instance.Paused & SceneManager.GetActiveScene().buildIndex != 0 & !GameManager.Instance.Dead)
+        if (!GameManager.Instance.StopDeath & !GameManager.Instance.Paused & SceneManager.GetActiveScene().buildIndex != 0 & !GameManager.Instance.Dead)
         {
             if (Input.GetKeyDown(KeyCode.E) & RefreshCount > 0)
             {
@@ -131,28 +149,64 @@ public class Refresh : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.Q))
             {
+                AudioManager.Instance.PlaySFX(AudioManager.Instance.Flicker);
+                StartCoroutine(FadeInUniLayout());
+                PersistentUI.Instance.PreviewActive();
+                if (CoFadeInLayout != null)
+                {
+                    StopCoroutine(CoFadeInLayout);
+                }
                 if (HasRefreshed)
                 {
-                    if (CoFadeInLayout != null)
-                    {
-                        StopCoroutine(CoFadeInLayout);
-                    }
-                    CoFadeInLayout = StartCoroutine(FadeInLayout(0.3f, 0.5f, Layout1));
+                    CoFadeInLayout = StartCoroutine(FadeInLayout(Layout1));
+                    Layout1Active = true;
                 }
                 else
                 {
-                    if (CoFadeInLayout != null)
-                    {
-                        StopCoroutine(CoFadeInLayout);
-                    }
-                    CoFadeInLayout = StartCoroutine(FadeInLayout(0.3f, 0.5f, Layout2));
+                    CoFadeInLayout = StartCoroutine(FadeInLayout(Layout2));
+                    Layout2Active = true;
                 }
             }
 
             if (Input.GetKeyUp(KeyCode.Q))
             {
-                CoFadeInLayout = StartCoroutine(FadeInLayout(0.3f, 0f, Layout1));
-                CoFadeInLayout = StartCoroutine(FadeInLayout(0.3f, 0f, Layout2));
+                AudioManager.Instance.PlaySFX(AudioManager.Instance.Flicker);
+                StartCoroutine(FadeOutUniLayout());
+                PersistentUI.Instance.PreviewDisable();
+                if (CoFadeOutLayout != null)
+                {
+                    StopCoroutine(CoFadeOutLayout);
+                }
+                if (Layout1Active)
+                {
+                    CoFadeOutLayout = StartCoroutine(FadeOutLayout(Layout1));
+                    Layout1Active = false;
+                }
+                else if (Layout2Active)
+                {
+                    CoFadeOutLayout = StartCoroutine(FadeOutLayout(Layout2));
+                    Layout2Active = false;
+                }
+                //if (HasRefreshed)
+                //{
+                //    if (CoFadeOutLayout != null)
+                //    {
+                //        StopCoroutine(CoFadeOutLayout);
+                //    }
+                //    if (Layout1.activeInHierarchy)
+                //        CoFadeOutLayout = StartCoroutine(FadeOutLayout(0.3f, 0f, Layout1));
+                //}
+                //else if (HasRefreshed & !Layout2.activeInHierarchy)
+                //{
+                //    if (CoFadeOutLayout != null)
+                //    {
+                //        StopCoroutine(CoFadeOutLayout);
+                //    }
+                //    if (Layout2.activeInHierarchy)
+                //    {
+                //        CoFadeOutLayout = StartCoroutine(FadeOutLayout(0.3f, 0f, Layout2));
+                //    }
+                //}
             }
         }
     }
@@ -172,7 +226,7 @@ public class Refresh : MonoBehaviour
                 Debug.Log("current column 2: " + currentColumn2);
                 currentColumn2 = Mathf.Clamp(currentColumn2 + 1, 0, Columns.Length);
             }
-            else 
+            else
             {
                 Debug.Log("current column returning: " + currentColumn);
                 currentColumn = Mathf.Clamp(currentColumn - 1, 0, Columns.Length);
@@ -221,19 +275,134 @@ public class Refresh : MonoBehaviour
         RefreshCountText.text = RefreshCount.ToString();
     }
 
-    IEnumerator FadeInLayout(float duration, float endAlpha, Tilemap layout)
+    IEnumerator FadeInLayout(GameObject[] layout)
     {
-        Color startingColor = layout.color;
-        Color c = layout.color;
-        c.a = endAlpha;
-        float elapsed = 0;
- 
-        while (elapsed < duration)
+        foreach (GameObject obj in layout)
         {
-            elapsed += Time.deltaTime;
-            layout.color = Color.Lerp(startingColor, c, elapsed / duration);
-            yield return null;
+            if (obj != null)
+            {
+                obj.SetActive(true);
+            }
         }
-        layout.color = c;
+        yield return new WaitForSeconds(0.1f);
+        foreach (GameObject obj in layout)
+        {
+            if (obj != null)
+            {
+                obj.SetActive(false);
+            }
+        }
+        yield return new WaitForSeconds(0.1f);
+        foreach (GameObject obj in layout)
+        {
+            if (obj != null)
+            {
+                obj.SetActive(true);
+            }
+        }
+        //foreach (var uni in UniversalLayout)
+        //{
+        //    Color uniStartingColor = uni.GetComponent<SpriteRenderer>().color;
+        //    Color c2 = uni.GetComponent<SpriteRenderer>().color;
+        //    c2.a = endAlpha;
+        //}
+
+        //Color startingColor = layout.color;
+        //Color c = layout.color;
+        //c.a = endAlpha;
+        //float elapsed = 0;
+
+        //while (elapsed < duration)
+        //{
+        //    elapsed += Time.deltaTime;
+        //    layout.color = Color.Lerp(startingColor, c, elapsed / duration);
+
+        //    foreach (var uni in UniversalLayout)
+        //    {
+
+        //    }
+        //    yield return null;
+        //}
+        //layout.color = c;
+    }
+    IEnumerator FadeOutLayout(GameObject[] layout)
+    {
+        foreach (GameObject obj in layout)
+        {
+            if (obj != null)
+            {
+                obj.SetActive(false);
+            }
+        }
+        yield return new WaitForSeconds(0.1f);
+        foreach (GameObject obj in layout)
+        {
+            if (obj != null)
+            {
+                obj.SetActive(true);
+            }
+        }
+        yield return new WaitForSeconds(0.1f);
+        foreach (GameObject obj in layout)
+        {
+            if (obj != null)
+            {
+                obj.SetActive(false);
+            }
+        }
+    }
+
+    IEnumerator FadeInUniLayout()
+    {
+        foreach (var uni in UniversalLayout)
+        {
+            if (uni != null)
+            {
+                uni.SetActive(true);
+            }
+        }
+        yield return new WaitForSeconds(0.1f);
+        foreach (var uni in UniversalLayout)
+        {
+            if (uni != null)
+            {
+                uni.SetActive(false);
+            }
+        }
+        yield return new WaitForSeconds(0.1f);
+        foreach (var uni in UniversalLayout)
+        {
+            if (uni != null)
+            {
+                uni.SetActive(true);
+            }
+        }
+    }
+
+    IEnumerator FadeOutUniLayout()
+    {
+        foreach (var uni in UniversalLayout)
+        {
+            if (uni != null)
+            {
+                uni.SetActive(false);
+            }
+        }
+        yield return new WaitForSeconds(0.1f);
+        foreach (var uni in UniversalLayout)
+        {
+            if (uni != null)
+            {
+                uni.SetActive(true);
+            }
+        }
+        yield return new WaitForSeconds(0.1f);
+        foreach (var uni in UniversalLayout)
+        {
+            if (uni != null)
+            {
+                uni.SetActive(false);
+            }
+        }
     }
 }

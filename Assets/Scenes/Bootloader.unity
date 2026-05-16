@@ -3535,7 +3535,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -365.68982, y: 0, z: 61.83792, w: -169.85754}
+  m_margin: {x: -365.68982, y: 0, z: 61.83792, w: -58.923096}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -9389,6 +9389,7 @@ MonoBehaviour:
   Loading: {fileID: 0}
   Typing: {fileID: 8300000, guid: 9c516c7e235574b44a1f58f3a7f264b3, type: 3}
   Popup: {fileID: 8300000, guid: db569b7d686f196409711fc8062c2680, type: 3}
+  ThankYou: {fileID: 0}
   Jump: {fileID: 8300000, guid: f9e7a1dbd34ad5a4a9483fc2fc1a2ef3, type: 3}
   Yahoo: {fileID: 0}
   Walk: {fileID: 8300000, guid: d538aee3d65f25d4e89a40e71687c014, type: 3}

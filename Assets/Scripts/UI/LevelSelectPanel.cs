@@ -1,8 +1,10 @@
 using DG.Tweening;
 using Mono.Cecil.Cil;
 using System.Collections;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using static System.Net.Mime.MediaTypeNames;
 
 //using UnityEngine.UIElements;
 
@@ -34,6 +36,14 @@ public class LevelSelectPanel : MonoBehaviour
     private void OnEnable()
     {
         StartCoroutine(ButtonPopup());
+        foreach(var button in Buttons)
+        {
+            TextMeshProUGUI[] texts = button.GetComponentsInChildren<TextMeshProUGUI>();
+            foreach (var text in texts)
+            {
+                text.enabled = text.GetComponentInParent<Button>().interactable;
+            }
+        }
     }
 
     void AddLevelToPanel()

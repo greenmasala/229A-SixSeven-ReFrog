@@ -7,6 +7,7 @@ public class LevelManager : MonoBehaviour
     public static LevelManager Instance;
     private void Awake()
     {
+        //PlayerPrefs.DeleteAll();
         if (Instance != null)
         {
             Destroy(gameObject);

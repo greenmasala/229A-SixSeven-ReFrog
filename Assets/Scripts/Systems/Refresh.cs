@@ -16,9 +16,9 @@ public class Refresh : MonoBehaviour
     public GameObject[] Columns2;
     public GameObject[] Layout1;
     public GameObject[] Layout2;
+    public GameObject[] UniversalLayout;
     public bool Layout1Active;
     public bool Layout2Active; 
-    public GameObject[] UniversalLayout;
     public TextMeshProUGUI RefreshCountText;
     Coroutine refreshCoroutine;
     public bool HasRefreshed;
@@ -149,64 +149,12 @@ public class Refresh : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.Q))
             {
-                AudioManager.Instance.PlaySFX(AudioManager.Instance.Flicker);
-                StartCoroutine(FadeInUniLayout());
-                PersistentUI.Instance.PreviewActive();
-                if (CoFadeInLayout != null)
-                {
-                    StopCoroutine(CoFadeInLayout);
-                }
-                if (HasRefreshed)
-                {
-                    CoFadeInLayout = StartCoroutine(FadeInLayout(Layout1));
-                    Layout1Active = true;
-                }
-                else
-                {
-                    CoFadeInLayout = StartCoroutine(FadeInLayout(Layout2));
-                    Layout2Active = true;
-                }
+                ShowLayout();
             }
 
-            if (Input.GetKeyUp(KeyCode.Q))
+            if (Input.GetKeyUp(KeyCode.Q) & Layout1Active || Input.GetKeyUp(KeyCode.Q) & Layout2Active) 
             {
-                AudioManager.Instance.PlaySFX(AudioManager.Instance.Flicker);
-                StartCoroutine(FadeOutUniLayout());
-                PersistentUI.Instance.PreviewDisable();
-                if (CoFadeOutLayout != null)
-                {
-                    StopCoroutine(CoFadeOutLayout);
-                }
-                if (Layout1Active)
-                {
-                    CoFadeOutLayout = StartCoroutine(FadeOutLayout(Layout1));
-                    Layout1Active = false;
-                }
-                else if (Layout2Active)
-                {
-                    CoFadeOutLayout = StartCoroutine(FadeOutLayout(Layout2));
-                    Layout2Active = false;
-                }
-                //if (HasRefreshed)
-                //{
-                //    if (CoFadeOutLayout != null)
-                //    {
-                //        StopCoroutine(CoFadeOutLayout);
-                //    }
-                //    if (Layout1.activeInHierarchy)
-                //        CoFadeOutLayout = StartCoroutine(FadeOutLayout(0.3f, 0f, Layout1));
-                //}
-                //else if (HasRefreshed & !Layout2.activeInHierarchy)
-                //{
-                //    if (CoFadeOutLayout != null)
-                //    {
-                //        StopCoroutine(CoFadeOutLayout);
-                //    }
-                //    if (Layout2.activeInHierarchy)
-                //    {
-                //        CoFadeOutLayout = StartCoroutine(FadeOutLayout(0.3f, 0f, Layout2));
-                //    }
-                //}
+                HideLayout();
             }
         }
     }
@@ -269,6 +217,48 @@ public class Refresh : MonoBehaviour
         yield break;
     }
 
+    public void ShowLayout()
+    {
+        AudioManager.Instance.PlaySFX(AudioManager.Instance.Flicker);
+        StartCoroutine(FadeInUniLayout());
+        PersistentUI.Instance.PreviewActive();
+        if (CoFadeInLayout != null)
+        {
+            StopCoroutine(CoFadeInLayout);
+        }
+        if (HasRefreshed)
+        {
+            CoFadeInLayout = StartCoroutine(FadeInLayout(Layout1));
+            Layout1Active = true;
+        }
+        else
+        {
+            CoFadeInLayout = StartCoroutine(FadeInLayout(Layout2));
+            Layout2Active = true;
+        }
+    }
+
+    public void HideLayout()
+    {
+        AudioManager.Instance.PlaySFX(AudioManager.Instance.Flicker);
+        StartCoroutine(FadeOutUniLayout());
+        PersistentUI.Instance.PreviewDisable();
+        if (CoFadeOutLayout != null)
+        {
+            StopCoroutine(CoFadeOutLayout);
+        }
+        if (Layout1Active)
+        {
+            CoFadeOutLayout = StartCoroutine(FadeOutLayout(Layout1));
+            Layout1Active = false;
+        }
+        else if (Layout2Active)
+        {
+            CoFadeOutLayout = StartCoroutine(FadeOutLayout(Layout2));
+            Layout2Active = false;
+        }
+    }
+
     public void ReplenishRefresh()
     {
         RefreshCount++;
@@ -300,30 +290,6 @@ public class Refresh : MonoBehaviour
                 obj.SetActive(true);
             }
         }
-        //foreach (var uni in UniversalLayout)
-        //{
-        //    Color uniStartingColor = uni.GetComponent<SpriteRenderer>().color;
-        //    Color c2 = uni.GetComponent<SpriteRenderer>().color;
-        //    c2.a = endAlpha;
-        //}
-
-        //Color startingColor = layout.color;
-        //Color c = layout.color;
-        //c.a = endAlpha;
-        //float elapsed = 0;
-
-        //while (elapsed < duration)
-        //{
-        //    elapsed += Time.deltaTime;
-        //    layout.color = Color.Lerp(startingColor, c, elapsed / duration);
-
-        //    foreach (var uni in UniversalLayout)
-        //    {
-
-        //    }
-        //    yield return null;
-        //}
-        //layout.color = c;
     }
     IEnumerator FadeOutLayout(GameObject[] layout)
     {

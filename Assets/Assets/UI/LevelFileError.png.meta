@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: be27a16cd96e1f14ebf9719255ccdc39
+guid: ab0691b225d760c40aa95f5b8fa96e6d
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8463829403593949340
-    second: levelfile_0
+      213: 6703414645460563784
+    second: LevelFileError_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -75,7 +75,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -113,7 +113,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: levelfile_0
+      name: LevelFileError_0
       rect:
         serializedVersion: 2
         x: 0
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 46fb64f20007a8a80800000000000000
-      internalID: -8463829403593949340
+      spriteID: 847f3d49a10570d50800000000000000
+      internalID: 6703414645460563784
       vertices: []
       indices: 
       edges: []
@@ -138,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: d58ae88fe97122440b0c224a3c76e31b
+    spriteID: 30cd880baf8bb46409500e97344de321
     internalID: 0
     vertices: []
     indices: 
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      levelfile_0: -8463829403593949340
+      LevelFileError_0: 6703414645460563784
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

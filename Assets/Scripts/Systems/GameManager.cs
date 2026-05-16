@@ -106,19 +106,19 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1f;
         PauseMenu.gameObject.SetActive(false);
         Paused = false;
+        if (Refresh.Instance.Layout1Active || Refresh.Instance.Layout2Active)
+        {
+            Refresh.Instance.HideLayout();
+        }
     }
     public void Restart()
     {
-        if (!StopDeath)
+        if (restartRoutine != null || StopDeath)
         {
-            Dead = true;
-            if (restartRoutine != null)
-            {
-                return;
-            }
-            Time.timeScale = 1f;
-            restartRoutine = StartCoroutine(RestartRoutine());
+            return;
         }
+        Time.timeScale = 1f;
+        restartRoutine = StartCoroutine(RestartRoutine());
        
         //Refresh.Instance.RefreshCountText.GetComponent<Flicker>().TextDisappear();
         //Destroy(DDOL.Instance.gameObject);

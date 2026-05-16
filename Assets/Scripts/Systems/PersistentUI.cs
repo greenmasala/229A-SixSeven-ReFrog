@@ -77,6 +77,7 @@ public class PersistentUI : MonoBehaviour
         Refresh.Instance.RefreshCountText.GetComponent<Flicker>().TextDisappear();
         yield return new WaitForSeconds(1.15f);
         PersistentOverlay.Instance.RunTransition(false);
+        AudioManager.Instance.PlaySFX(AudioManager.Instance.ThankYou);
         Credits.SetActive(true);
     }
 

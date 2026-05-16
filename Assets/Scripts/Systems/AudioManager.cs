@@ -21,6 +21,7 @@ public class AudioManager: MonoBehaviour
     public AudioClip Loading;
     public AudioClip Typing;
     public AudioClip Popup;
+    public AudioClip ThankYou;
 
     [Header("Player")]
     public AudioClip Jump;

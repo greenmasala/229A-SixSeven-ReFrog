@@ -11643,6 +11643,7 @@ MonoBehaviour:
   Loading: {fileID: 8300000, guid: ace43772f01a4ec479a4adb5ebd6a959, type: 3}
   Typing: {fileID: 8300000, guid: 9c516c7e235574b44a1f58f3a7f264b3, type: 3}
   Popup: {fileID: 8300000, guid: 55065a25ffd5dfc4e921abd86e2ab179, type: 3}
+  ThankYou: {fileID: 8300000, guid: 908aced14d74aa54a86eb96b26ce5025, type: 3}
   Jump: {fileID: 8300000, guid: 8fd051046f114a74c834fadd5073ebdd, type: 3}
   Yahoo: {fileID: 8300000, guid: b6a606ede75b0e747890c809524b5d42, type: 3}
   Walk: {fileID: 8300000, guid: d538aee3d65f25d4e89a40e71687c014, type: 3}

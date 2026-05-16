@@ -5,10 +5,18 @@ using UnityEngine.SceneManagement;
 public class Goal : MonoBehaviour
 {
     public ParticleSystem WinFX;
+    Animator WinAnim;
+    void Start()
+    {
+        WinAnim = GetComponent<Animator>();
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
+            WinAnim.SetBool("IsWinning", true);
+
             var winFXPrefab = Instantiate(WinFX, collision.transform.position, Quaternion.identity);
             Destroy(collision.gameObject);
             Destroy(winFXPrefab, 0.6f);

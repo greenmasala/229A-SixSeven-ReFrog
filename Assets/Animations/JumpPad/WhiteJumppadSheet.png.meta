@@ -1,13 +1,13 @@
 fileFormatVersion: 2
-guid: d941c134114d5134f9b2fd67ef0d9804
+guid: eb8bdcb6fedd297408a938a7dc5e7abf
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1339775118048854645
-    second: JumppadSheet_0
+      213: -816568076633120801
+    second: WhiteJumppadSheet_0
   - first:
-      213: -5768922953552437778
-    second: JumppadSheet_1
+      213: 4097293952602996297
+    second: WhiteJumppadSheet_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -103,7 +103,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: JumppadSheet_0
+      name: WhiteJumppadSheet_0
       rect:
         serializedVersion: 2
         x: 0
@@ -118,14 +118,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 57285361f56d79210800000000000000
-      internalID: 1339775118048854645
+      spriteID: fdfdb5129a7faa4f0800000000000000
+      internalID: -816568076633120801
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: JumppadSheet_1
+      name: WhiteJumppadSheet_1
       rect:
         serializedVersion: 2
         x: 48
@@ -140,8 +140,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: eedd8e8832ba0ffa0800000000000000
-      internalID: -5768922953552437778
+      spriteID: 94ef14934238cd830800000000000000
+      internalID: 4097293952602996297
       vertices: []
       indices: 
       edges: []
@@ -150,7 +150,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 289b6054599234b489d8dad83ea0a4bf
+    spriteID: d07fb7d777d0dc240b7ca4bf5a61e18f
     internalID: 0
     vertices: []
     indices: 
@@ -162,8 +162,8 @@ TextureImporter:
       - key: SpriteEditor.SliceSettings
         value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":48.0,"y":32.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      JumppadSheet_0: 1339775118048854645
-      JumppadSheet_1: -5768922953552437778
+      WhiteJumppadSheet_0: -816568076633120801
+      WhiteJumppadSheet_1: 4097293952602996297
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

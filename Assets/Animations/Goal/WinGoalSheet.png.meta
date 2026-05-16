@@ -1,118 +1,25 @@
 fileFormatVersion: 2
-guid: 6a2b4f483f60fdc409ca783c685eb127
+guid: 2bd99382ab0fab54c8bb3c032486a641
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4314440204327429562
-    second: FallingPlatform_0
+      213: -4422939814749428646
+    second: WinGoalSheet_0
   - first:
-      213: 4655729412942762893
-    second: FallingPlatform_1
+      213: -8699344954950912740
+    second: WinGoalSheet_1
   - first:
-      213: 64375919205600973
-    second: FallingPlatform_2
+      213: 5486548395964745905
+    second: WinGoalSheet_2
   - first:
-      213: -98556363236952894
-    second: FallingPlatform_3
+      213: 3022659345751099878
+    second: WinGoalSheet_3
   - first:
-      213: -7505496787240083598
-    second: FallingPlatform_4
+      213: 4649824673782710657
+    second: WinGoalSheet_4
   - first:
-      213: -5584851579276820264
-    second: FallingPlatform_5
-  - first:
-      213: 6105254316050880076
-    second: FallingPlatform_6
-  - first:
-      213: -412121987987209163
-    second: FallingPlatform_7
-  - first:
-      213: -7845557060582475785
-    second: FallingPlatform_8
-  - first:
-      213: 6093845612336892145
-    second: FallingPlatform_9
-  - first:
-      213: -3722270371435108753
-    second: FallingPlatform_10
-  - first:
-      213: -489486365106268289
-    second: FallingPlatform_11
-  - first:
-      213: 132437421577398447
-    second: FallingPlatform_12
-  - first:
-      213: 3997361406972688317
-    second: FallingPlatform_13
-  - first:
-      213: -8521904574521146073
-    second: FallingPlatform_14
-  - first:
-      213: 6292670849694502278
-    second: FallingPlatform_15
-  - first:
-      213: -4954432114497416713
-    second: FallingPlatform_16
-  - first:
-      213: -8526273794462315170
-    second: FallingPlatform_17
-  - first:
-      213: 8041342297372576789
-    second: FallingPlatform_18
-  - first:
-      213: -1336017219891049597
-    second: FallingPlatform_19
-  - first:
-      213: -440088581539953418
-    second: FallingPlatform_20
-  - first:
-      213: -808570080205417854
-    second: FallingPlatform_21
-  - first:
-      213: -1931735265006154442
-    second: FallingPlatform_22
-  - first:
-      213: 532371000732524604
-    second: FallingPlatform_23
-  - first:
-      213: 8747268765083114192
-    second: FallingPlatform_24
-  - first:
-      213: -5041308628060978480
-    second: FallingPlatform_25
-  - first:
-      213: -6262800602946609254
-    second: FallingPlatform_26
-  - first:
-      213: 2207423899281294653
-    second: FallingPlatform_27
-  - first:
-      213: -4434874139281926942
-    second: FallingPlatform_28
-  - first:
-      213: 1074774151000922630
-    second: FallingPlatform_29
-  - first:
-      213: 2425896866433525080
-    second: FallingPlatform_30
-  - first:
-      213: 7343975731760351854
-    second: FallingPlatform_31
-  - first:
-      213: 5148700813943303533
-    second: FallingPlatform_32
-  - first:
-      213: -299757890527969992
-    second: FallingPlatform_33
-  - first:
-      213: -8151364441974447833
-    second: FallingPlatform_34
-  - first:
-      213: -1441265688460755872
-    second: FallingPlatform_35
-  - first:
-      213: -2350806185192088954
-    second: FallingPlatform_36
+      213: -7685658712485824775
+    second: WinGoalSheet_5
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -208,13 +115,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: FallingPlatform_0
+      name: WinGoalSheet_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 64
-        height: 64
+        width: 40
+        height: 75
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -223,20 +130,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 64a56683e770024c0800000000000000
-      internalID: -4314440204327429562
+      spriteID: a54ade61caf8e92c0800000000000000
+      internalID: -4422939814749428646
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FallingPlatform_1
+      name: WinGoalSheet_1
       rect:
         serializedVersion: 2
-        x: 64
+        x: 40
         y: 0
-        width: 64
-        height: 64
+        width: 40
+        height: 75
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -245,20 +152,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d839ac4eb397c9040800000000000000
-      internalID: 4655729412942762893
+      spriteID: c157095cad7b54780800000000000000
+      internalID: -8699344954950912740
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FallingPlatform_2
+      name: WinGoalSheet_2
       rect:
         serializedVersion: 2
-        x: 128
+        x: 80
         y: 0
-        width: 64
-        height: 64
+        width: 40
+        height: 75
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -267,20 +174,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: dcec654be85b4e000800000000000000
-      internalID: 64375919205600973
+      spriteID: 1b8c77872b2242c40800000000000000
+      internalID: 5486548395964745905
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FallingPlatform_3
+      name: WinGoalSheet_3
       rect:
         serializedVersion: 2
-        x: 192
+        x: 120
         y: 0
-        width: 64
-        height: 64
+        width: 40
+        height: 75
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -289,74 +196,74 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2c438e2828bd1aef0800000000000000
-      internalID: -98556363236952894
+      spriteID: 6e9428409a4a2f920800000000000000
+      internalID: 3022659345751099878
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FallingPlatform_4
+      name: WinGoalSheet_4
       rect:
         serializedVersion: 2
-        x: 256
+        x: 160
         y: 0
-        width: 64
-        height: 64
+        width: 40
+        height: 75
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 27f18b5107e17d790800000000000000
-      internalID: -7505496787240083598
+      spriteID: 20730d768ababd74cb4651c95797a4be
+      internalID: -1856254389
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FallingPlatform_5
+      name: WinGoalSheet_5
       rect:
         serializedVersion: 2
-        x: 320
+        x: 200
         y: 0
-        width: 64
-        height: 64
+        width: 40
+        height: 75
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 8d00de5141f9e72b0800000000000000
-      internalID: -5584851579276820264
+      spriteID: b5e4d63a721e22c4c8d78982ef3f7a6a
+      internalID: -884885318
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FallingPlatform_6
+      name: WinGoalSheet_6
       rect:
         serializedVersion: 2
-        x: 448
+        x: 240
         y: 0
-        width: 64
-        height: 64
+        width: 40
+        height: 75
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: c4612a314783ab450800000000000000
-      internalID: 6105254316050880076
+      spriteID: 01aa72dccc0e69348913eec725389370
+      internalID: 612242742
       vertices: []
       indices: 
       edges: []
@@ -365,7 +272,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 4d079107c29bf4348b13e6a729f97f72
+    spriteID: e542ed1c34ea029468ba8f15f389c139
     internalID: 0
     vertices: []
     indices: 
@@ -375,15 +282,15 @@ TextureImporter:
     spriteCustomMetadata:
       entries:
       - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":40.0,"y":75.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      FallingPlatform_0: -4314440204327429562
-      FallingPlatform_1: 4655729412942762893
-      FallingPlatform_2: 64375919205600973
-      FallingPlatform_3: -98556363236952894
-      FallingPlatform_4: -7505496787240083598
-      FallingPlatform_5: -5584851579276820264
-      FallingPlatform_6: 6105254316050880076
+      WinGoalSheet_0: -4422939814749428646
+      WinGoalSheet_1: -8699344954950912740
+      WinGoalSheet_2: 5486548395964745905
+      WinGoalSheet_3: 3022659345751099878
+      WinGoalSheet_4: -1856254389
+      WinGoalSheet_5: -884885318
+      WinGoalSheet_6: 612242742
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

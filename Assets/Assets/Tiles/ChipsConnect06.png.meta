@@ -1,13 +1,10 @@
 fileFormatVersion: 2
-guid: d941c134114d5134f9b2fd67ef0d9804
+guid: 7ff812fb0de32c945921aff0fe62c950
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1339775118048854645
-    second: JumppadSheet_0
-  - first:
-      213: -5768922953552437778
-    second: JumppadSheet_1
+      213: -3495955634725797676
+    second: ChipsConnect06_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -99,49 +96,44 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: JumppadSheet_0
+      name: ChipsConnect06_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 48
+        width: 32
         height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
-      physicsShape: []
-      tessellationDetail: -1
+      physicsShape:
+      - - {x: 16, y: 11}
+        - {x: -16, y: 11}
+        - {x: -16, y: -16}
+        - {x: 16, y: -16}
+      tessellationDetail: 0
       bones: []
-      spriteID: 57285361f56d79210800000000000000
-      internalID: 1339775118048854645
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: JumppadSheet_1
-      rect:
-        serializedVersion: 2
-        x: 48
-        y: 0
-        width: 48
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: eedd8e8832ba0ffa0800000000000000
-      internalID: -5768922953552437778
+      spriteID: 4d0c4a16fdedb7fc0800000000000000
+      internalID: -3495955634725797676
       vertices: []
       indices: 
       edges: []
@@ -150,7 +142,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 289b6054599234b489d8dad83ea0a4bf
+    spriteID: 6200cc181e143ec4db5aa461bc3ca63a
     internalID: 0
     vertices: []
     indices: 
@@ -158,12 +150,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries:
-      - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":48.0,"y":32.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
+      entries: []
     nameFileIdTable:
-      JumppadSheet_0: 1339775118048854645
-      JumppadSheet_1: -5768922953552437778
+      ChipsConnect06_0: -3495955634725797676
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -82,14 +82,14 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 3
   m_MaskInteraction: 0
   m_Sprite: {fileID: -837187411361191563, guid: f2e6ae448b5832447b2f3e99d9e55678, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1.25, y: 2.34375}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -107,6 +107,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Goal
   WinFX: {fileID: 7966981662102404070, guid: 5a9ba41b67a59a345aa973dbcc210e45, type: 3}
+  WinAnim: {fileID: 0}
 --- !u!95 &805539131285311592
 Animator:
   serializedVersion: 7
@@ -163,15 +164,15 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.121389866, y: -1.0643055}
+  m_Offset: {x: -0.04, y: -0.79}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 3, y: 3}
-    newSize: {x: 1, y: 1}
+    oldSize: {x: 1.25, y: 2.34375}
+    newSize: {x: 1.25, y: 2.34375}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1.5163488, y: 0.8713889}
+  m_Size: {x: 0.64, y: 0.63}
   m_EdgeRadius: 0

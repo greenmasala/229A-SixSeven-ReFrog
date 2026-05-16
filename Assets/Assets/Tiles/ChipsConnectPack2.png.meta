@@ -1,13 +1,10 @@
 fileFormatVersion: 2
-guid: d941c134114d5134f9b2fd67ef0d9804
+guid: 4b8da508ea0676c4ca317e793272cf74
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1339775118048854645
-    second: JumppadSheet_0
-  - first:
-      213: -5768922953552437778
-    second: JumppadSheet_1
+      213: 2729429745670932519
+    second: ChipsConnectPack2_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -99,16 +96,29 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: JumppadSheet_0
+      name: ChipsConnectPack2_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
-        width: 48
+        y: 32
+        width: 32
         height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -118,19 +128,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 57285361f56d79210800000000000000
-      internalID: 1339775118048854645
+      spriteID: 728c91e74e1e0e520800000000000000
+      internalID: 2729429745670932519
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: JumppadSheet_1
+      name: ChipsConnectPack2_1
       rect:
         serializedVersion: 2
-        x: 48
-        y: 0
-        width: 48
+        x: 32
+        y: 32
+        width: 32
         height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -138,10 +148,32 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: eedd8e8832ba0ffa0800000000000000
-      internalID: -5768922953552437778
+      spriteID: b56336ce66f688c42984faefbdba78af
+      internalID: 1509120912
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ChipsConnectPack2_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b0afa352950a85b4cba7b80f3ea2d3ce
+      internalID: -105023847
       vertices: []
       indices: 
       edges: []
@@ -150,7 +182,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 289b6054599234b489d8dad83ea0a4bf
+    spriteID: ce5ae6b5acba03744ba205e9766bb650
     internalID: 0
     vertices: []
     indices: 
@@ -160,10 +192,11 @@ TextureImporter:
     spriteCustomMetadata:
       entries:
       - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":48.0,"y":32.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":32.0,"y":32.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      JumppadSheet_0: 1339775118048854645
-      JumppadSheet_1: -5768922953552437778
+      ChipsConnectPack2_0: 2729429745670932519
+      ChipsConnectPack2_1: 1509120912
+      ChipsConnectPack2_2: -105023847
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

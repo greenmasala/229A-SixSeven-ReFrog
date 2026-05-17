@@ -124,7 +124,7 @@ public class Refresh : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!GameManager.Instance.StopDeath & !GameManager.Instance.Paused & SceneManager.GetActiveScene().buildIndex != 0 & !GameManager.Instance.Dead)
+        if (!GameManager.Instance.StopDeath & !GameManager.Instance.Paused & SceneManager.GetActiveScene().buildIndex != 0 & !GameManager.Instance.Dead & !GameManager.Instance.Win)
         {
             if (Input.GetKeyDown(KeyCode.E) & RefreshCount > 0)
             {

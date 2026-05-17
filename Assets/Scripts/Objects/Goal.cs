@@ -22,7 +22,7 @@ public class Goal : MonoBehaviour
             Destroy(winFXPrefab, 0.6f);
             UnlockLevel();
             PersistentUI.Instance.LevelCompleteActive();
-            //GameManager.Instance.StopDeath = true;
+            GameManager.Instance.Win = true;
         }
     }
 

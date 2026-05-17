@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
     int nextLevelID;
     public bool Paused;
     public bool StopDeath;
+    public bool Win;
     public bool Dead;
     public ParticleSystem DeathFX;
     Coroutine restartRoutine;
@@ -40,11 +41,14 @@ public class GameManager : MonoBehaviour
             Refresh.Instance.RefreshCountText.GetComponent<Flicker>().TextAppear();
             PersistentOverlay.Instance.RunTransition(false);
             StopDeath = false;
+            Win = false;
             Dead = false;
-            Debug.Log(PauseMenu);
+            if (Refresh.Instance.Layout1Active || Refresh.Instance.Layout2Active)
+            {
+                Refresh.Instance.HideLayout();
+            }
             levelID = SceneManager.GetActiveScene().buildIndex;
             nextLevelID = levelID + 1;
-            Debug.Log("LevelID" + levelID);
         }
     }
     private void Awake()
@@ -73,7 +77,7 @@ public class GameManager : MonoBehaviour
     {
         if (SceneManager.GetActiveScene().buildIndex != 0)
         {
-            if (Input.GetKeyDown(KeyCode.Escape) & !StopDeath & !Dead)
+            if (Input.GetKeyDown(KeyCode.Escape) & !StopDeath & !Dead & !Win)
             {
                 if (Paused == true)
                 {

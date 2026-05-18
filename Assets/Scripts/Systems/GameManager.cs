@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour
     int levelID;
     int nextLevelID;
     public bool Paused;
-    public bool Dead;
+    public bool GameOver;
 
     public ParticleSystem DeathFX;
     Coroutine restartRoutine;
@@ -35,11 +35,11 @@ public class GameManager : MonoBehaviour
             Time.timeScale = 1f;
             Refresh.Instance.RefreshCountText.GetComponent<Flicker>().TextAppear();
             PersistentOverlay.Instance.RunTransition(false);
-            Dead = false;
-            if (Refresh.Instance.Layout1Active || Refresh.Instance.Layout2Active)
-            {
-                Refresh.Instance.HideLayout();
-            }
+            GameOver = false;
+            //if (Refresh.Instance.Layout1Active || Refresh.Instance.Layout2Active)
+            //{
+            //    PersistentUI.Instance.HideLayout();
+            //}
             levelID = SceneManager.GetActiveScene().buildIndex;
             nextLevelID = levelID + 1;
         }
@@ -64,7 +64,7 @@ public class GameManager : MonoBehaviour
     {
         if (SceneManager.GetActiveScene().buildIndex != 0)
         {
-            if (Input.GetKeyDown(KeyCode.Escape) & !Dead)
+            if (Input.GetKeyDown(KeyCode.Escape) & !GameOver)
             {
                 if (Paused == true)
                 {
@@ -145,7 +145,7 @@ public class GameManager : MonoBehaviour
 
     IEnumerator DeathRoutine(Transform transform)
     {
-        Dead = true;
+        GameOver = true;
         Refresh.Instance.RefreshCountText.GetComponent<Flicker>().TextDisappear();
         Instantiate(DeathFX, transform.position, Quaternion.identity);
         yield return new WaitForSeconds(0.3f);

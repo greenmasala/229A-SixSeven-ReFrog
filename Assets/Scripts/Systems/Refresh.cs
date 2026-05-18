@@ -75,6 +75,12 @@ public class Refresh : MonoBehaviour
                 uni.gameObject.SetActive(false);
             }
 
+            if (Layout1Active || Layout2Active)
+            {
+                PersistentUI.Instance.HideLayout(Layout1, Layout2);
+                Layout1Active = false;
+                Layout2Active = false;
+            }
             Columns = GameObject.FindGameObjectsWithTag("Column").OrderByDescending(o =>
             {
                 var numberPart = new string(o.name.Where(char.IsDigit).ToArray());
@@ -87,11 +93,6 @@ public class Refresh : MonoBehaviour
                 return int.Parse(numberPart);
             }).ToArray();
 
-            if (RefreshCountText != null)
-            {
-                RefreshCountText.text = RefreshCount.ToString();
-            }
-
             foreach (GameObject column in Columns)
             {
                 column.SetActive(true);
@@ -101,6 +102,10 @@ public class Refresh : MonoBehaviour
             {
                 column2.SetActive(false);
             }
+        }
+        if (RefreshCountText != null)
+        {
+            RefreshCountText.text = RefreshCount.ToString();
         }
     }
     private void Awake()
@@ -122,7 +127,7 @@ public class Refresh : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!GameManager.Instance.Paused & SceneManager.GetActiveScene().buildIndex != 0 & !GameManager.Instance.Dead)
+        if (!GameManager.Instance.Paused & SceneManager.GetActiveScene().buildIndex != 0 & !GameManager.Instance.GameOver)
         {
             if (Input.GetKeyDown(KeyCode.E) & RefreshCount > 0)
             {
@@ -148,11 +153,39 @@ public class Refresh : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Q))
             {
                 ShowLayout();
+                //if (HasRefreshed)
+                //{
+                //    foreach (GameObject go in Layout2)
+                //    {
+                //        go.gameObject.SetActive(false);
+                //    }
+                //}
+                //else
+                //{
+                //    foreach (GameObject go in Layout1)
+                //    {
+                //        go.gameObject.SetActive(false);
+                //    }
+                //}
             }
 
             if (Input.GetKeyUp(KeyCode.Q) & Layout1Active || Input.GetKeyUp(KeyCode.Q) & Layout2Active) 
             {
                 HideLayout();
+                //if (Layout1Active)
+                //{
+                //    foreach (GameObject go in Layout2)
+                //    {
+                //        go.gameObject.SetActive(false);
+                //    }
+                //}
+                //else if (Layout2Active)
+                //{
+                //    foreach (GameObject go in Layout1)
+                //    {
+                //        go.gameObject.SetActive(false);
+                //    }
+                //}
             }
         }
     }
@@ -219,42 +252,45 @@ public class Refresh : MonoBehaviour
     {
         AudioManager.Instance.PlaySFX(AudioManager.Instance.Flicker);
         StartCoroutine(FadeInUniLayout());
-        PersistentUI.Instance.LayoutPreview();
-        if (CoFadeInLayout != null)
-        {
-            StopCoroutine(CoFadeInLayout);
-        }
-        if (HasRefreshed)
-        {
-            CoFadeInLayout = StartCoroutine(FadeInLayout(Layout1));
-            Layout1Active = true;
-        }
-        else
-        {
-            CoFadeInLayout = StartCoroutine(FadeInLayout(Layout2));
-            Layout2Active = true;
-        }
+        PersistentUI.Instance.LayoutPreview(Layout1, Layout2);
+        //if (CoFadeInLayout != null)
+        //{
+        //    StopCoroutine(CoFadeInLayout);
+        //}
+        //if (HasRefreshed)
+        //{
+        //    PersistentUI.Instance.LayoutPreview(Layout1);
+        //    //CoFadeInLayout = StartCoroutine(FadeInLayout(Layout1));
+        //    Layout1Active = true;
+        //}
+        //else
+        //{
+        //    PersistentUI.Instance.LayoutPreview(Layout2);
+        //    //CoFadeInLayout = StartCoroutine(FadeInLayout(Layout2));
+        //    Layout2Active = true;
+        //}
     }
 
     public void HideLayout()
     {
         AudioManager.Instance.PlaySFX(AudioManager.Instance.Flicker);
         StartCoroutine(FadeOutUniLayout());
-        PersistentUI.Instance.PreviewDisable();
-        if (CoFadeOutLayout != null)
-        {
-            StopCoroutine(CoFadeOutLayout);
-        }
-        if (Layout1Active)
-        {
-            CoFadeOutLayout = StartCoroutine(FadeOutLayout(Layout1));
-            Layout1Active = false;
-        }
-        else if (Layout2Active)
-        {
-            CoFadeOutLayout = StartCoroutine(FadeOutLayout(Layout2));
-            Layout2Active = false;
-        }
+        PersistentUI.Instance.PreviewDisable(Layout1, Layout2);
+        //if (CoFadeOutLayout != null)
+        //{
+        //    StopCoroutine(CoFadeOutLayout);
+        //}
+        //if (Layout1Active)
+        //{
+        //    PersistentUI.Instance.PreviewDisable(Layout1);
+        //    //CoFadeOutLayout = StartCoroutine(FadeOutLayout(Layout1));
+        //    Layout1Active = false;
+        //}
+        //else if (Layout2Active)
+        //{
+        //    PersistentUI.Instance.PreviewDisable(Layout2);
+        //    Layout2Active = false;
+        //}
     }
 
     //public void ReplenishRefresh()

@@ -247,7 +247,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 370a4fdaacfcfed4b8d7e32d4a46608a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Pause
-  popupSFX: {fileID: 8300000, guid: 0649daaaeaf98324093e6b62581189cc, type: 3}
+  SFX: {fileID: 0}
 --- !u!1 &35658709
 GameObject:
   m_ObjectHideFlags: 0
@@ -1198,7 +1198,6 @@ MonoBehaviour:
   buttonName: {fileID: 0}
   TypeSpeed: 0.025
   changeColor: []
-  typeSFX: {fileID: 8300000, guid: 9c516c7e235574b44a1f58f3a7f264b3, type: 3}
 --- !u!114 &131014164
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1624,7 +1623,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 370a4fdaacfcfed4b8d7e32d4a46608a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Pause
-  popupSFX: {fileID: 8300000, guid: db569b7d686f196409711fc8062c2680, type: 3}
+  SFX: {fileID: 0}
 --- !u!114 &161881303
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2818,7 +2817,6 @@ MonoBehaviour:
   buttonName: {fileID: 0}
   TypeSpeed: 0.025
   changeColor: []
-  typeSFX: {fileID: 8300000, guid: 9c516c7e235574b44a1f58f3a7f264b3, type: 3}
 --- !u!1 &244327426
 GameObject:
   m_ObjectHideFlags: 0
@@ -7205,6 +7203,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Typewriter
   text: {fileID: 0}
   typeSFX: {fileID: 8300000, guid: 9c516c7e235574b44a1f58f3a7f264b3, type: 3}
+  PlaySFX: 0
   TypeSpeed: 0.025
 --- !u!114 &760079290
 MonoBehaviour:
@@ -7364,7 +7363,6 @@ MonoBehaviour:
   buttonName: {fileID: 0}
   TypeSpeed: 0.025
   changeColor: []
-  typeSFX: {fileID: 8300000, guid: 9c516c7e235574b44a1f58f3a7f264b3, type: 3}
 --- !u!114 &771790109
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8143,7 +8141,6 @@ MonoBehaviour:
   buttonName: {fileID: 0}
   TypeSpeed: 0.025
   changeColor: []
-  typeSFX: {fileID: 8300000, guid: 9c516c7e235574b44a1f58f3a7f264b3, type: 3}
 --- !u!114 &866145277
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8282,12 +8279,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6e8a6753ae7c2346bd0801f64cc3c59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
-  PauseMenu: {fileID: 161881300}
-  CreditsMenu: {fileID: 0}
-  LevelCompleteMenu: {fileID: 0}
-  RefreshCount: {fileID: 0}
   Paused: 0
-  Win: 0
+  GameOver: 0
+  DeathFX: {fileID: 0}
 --- !u!1 &895368608
 GameObject:
   m_ObjectHideFlags: 0
@@ -8901,7 +8895,6 @@ MonoBehaviour:
   buttonName: {fileID: 0}
   TypeSpeed: 0.025
   changeColor: []
-  typeSFX: {fileID: 8300000, guid: 9c516c7e235574b44a1f58f3a7f264b3, type: 3}
 --- !u!114 &979650186
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9049,7 +9042,6 @@ MonoBehaviour:
   TransitionImage: {fileID: 895368609}
   Text: {fileID: 2116417240}
   LevelText: {fileID: 2116417241}
-  typeSFX: {fileID: 8300000, guid: 9c516c7e235574b44a1f58f3a7f264b3, type: 3}
 --- !u!1 &996149098
 GameObject:
   m_ObjectHideFlags: 0
@@ -9484,12 +9476,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Player
   speed: 5
   jumpForce: 14
-  jumpCount: 1
+  JumpCount: 1
   coyoteTime: 0.15
   coyoteTimeCounter: 0
   jumpBufferTime: 0.2
   jumpBufferCounter: 0
-  spriteRenderer: {fileID: 0}
+  DustFX: {fileID: 0}
   isJumping: 0
   GroundCheckPos: {fileID: 234790284}
   GroundCheckSize: {x: 0.5, y: 0.05}
@@ -9497,8 +9489,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   RefreshCount: 5
-  jumpSFX: {fileID: 8300000, guid: f9e7a1dbd34ad5a4a9483fc2fc1a2ef3, type: 3}
-  deadSFX: {fileID: 0}
 --- !u!61 &1045255788
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -12307,7 +12297,6 @@ MonoBehaviour:
   buttonName: {fileID: 0}
   TypeSpeed: 0.025
   changeColor: []
-  typeSFX: {fileID: 8300000, guid: 9c516c7e235574b44a1f58f3a7f264b3, type: 3}
 --- !u!114 &1415339491
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18438,8 +18427,13 @@ MonoBehaviour:
   RefreshCount: 5
   Columns: []
   Columns2: []
-  Layout1: {fileID: 0}
-  Layout2: {fileID: 0}
+  Layout1:
+  - {fileID: 0}
+  Layout2:
+  - {fileID: 0}
+  UniversalLayout: []
+  Layout1Active: 0
+  Layout2Active: 0
   RefreshCountText: {fileID: 1994774732}
   HasRefreshed: 0
   InitialRefreshDelay: 0.35
@@ -20488,11 +20482,18 @@ MonoBehaviour:
   Music: {fileID: 0}
   SFX: {fileID: 0}
   BGM: {fileID: 0}
+  Flicker: {fileID: 0}
+  Loading: {fileID: 0}
   Typing: {fileID: 0}
   Popup: {fileID: 0}
-  LevelComplete: {fileID: 0}
+  ThankYou: {fileID: 0}
   Jump: {fileID: 0}
+  Yahoo: {fileID: 0}
+  Walk: {fileID: 0}
   Refresh: {fileID: 0}
+  Refresh2: {fileID: 0}
+  Death: {fileID: 0}
+  Jumppad: {fileID: 0}
 --- !u!224 &8059838099922692300
 RectTransform:
   m_ObjectHideFlags: 0

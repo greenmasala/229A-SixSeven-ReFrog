@@ -2430,7 +2430,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d900b4f5886ae74b8e5944add9e4888, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SceneLoader
-  LevelName: Level4
+  LevelName: Level7
 --- !u!4 &436134473
 Transform:
   m_ObjectHideFlags: 0
@@ -9428,9 +9428,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
   Paused: 0
-  StopDeath: 0
-  Win: 0
-  Dead: 0
+  GameOver: 0
   DeathFX: {fileID: 5774705911907906273, guid: 30bcf98668ee16547a1217030e381b25, type: 3}
 --- !u!4 &1869307361
 Transform:

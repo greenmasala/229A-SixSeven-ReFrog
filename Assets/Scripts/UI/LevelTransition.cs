@@ -20,6 +20,6 @@ public class LevelTransition : MonoBehaviour
 
     public void RunTransition()
     {
-        TransitionImage.DOSizeDelta(new Vector2(TransitionImage.sizeDelta.x, 1150), 0.3f);
+        TransitionImage.DOSizeDelta(new Vector2(TransitionImage.sizeDelta.x, 1150), 0.3f).SetUpdate(true);
     }
 }

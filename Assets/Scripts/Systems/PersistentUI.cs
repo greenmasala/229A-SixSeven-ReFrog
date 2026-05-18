@@ -5,6 +5,7 @@ public class PersistentUI : MonoBehaviour
 {
     public static PersistentUI Instance; 
     public Animator RefreshUI;
+    public GameObject PauseMenu;
     public GameObject LevelComplete;
     public GameObject PreviewOverlay;
     public GameObject PreviewOverlay2;
@@ -38,7 +39,7 @@ public class PersistentUI : MonoBehaviour
         StartCoroutine(CreditsCoroutine());
     }
 
-    public void PreviewActive()
+    public void LayoutPreview()
     {
         if (previewRoutine != null)
         {
@@ -62,12 +63,17 @@ public class PersistentUI : MonoBehaviour
         }
         if (Refresh.Instance.Layout1Active)
         {
-            disablePreviewRoutine = StartCoroutine(DisablePreviewCoroutine(PreviewOverlay));
+            disablePreviewRoutine = StartCoroutine(PreviewCoroutine(PreviewOverlay));
         }
         else if (Refresh.Instance.Layout2Active)
         {
-            disablePreviewRoutine = StartCoroutine(DisablePreviewCoroutine(PreviewOverlay2));
+            disablePreviewRoutine = StartCoroutine(PreviewCoroutine(PreviewOverlay2));
         }
+    }
+
+    public void Pause()
+    {
+        PauseMenu.SetActive(!PauseMenu.activeInHierarchy);
     }
 
     IEnumerator CreditsCoroutine()
@@ -81,20 +87,12 @@ public class PersistentUI : MonoBehaviour
         Credits.SetActive(true);
     }
 
-    IEnumerator PreviewCoroutine(GameObject PreviewOverlay)
+    IEnumerator PreviewCoroutine(GameObject PreviewOverlay) //spamming causes inconsistencies will have to come check in this and refresh
     {
-        PreviewOverlay.SetActive(true);
+        PreviewOverlay.SetActive(!PreviewOverlay.activeInHierarchy);
         yield return new WaitForSeconds(0.1f);
-        PreviewOverlay.SetActive(false);
+        PreviewOverlay.SetActive(!PreviewOverlay.activeInHierarchy);
         yield return new WaitForSeconds(0.1f);
-        PreviewOverlay.SetActive(true);
-    }
-    IEnumerator DisablePreviewCoroutine(GameObject PreviewOverlay)
-    {
-        PreviewOverlay.SetActive(false);
-        yield return new WaitForSeconds(0.1f);
-        PreviewOverlay.SetActive(true);
-        yield return new WaitForSeconds(0.1f);
-        PreviewOverlay.SetActive(false);
+        PreviewOverlay.SetActive(!PreviewOverlay.activeInHierarchy);
     }
 }

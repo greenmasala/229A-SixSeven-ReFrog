@@ -24,12 +24,11 @@ public class PauseMenu : MonoBehaviour
 
     IEnumerator BackToMenu()
     {
-        Time.timeScale = 1f;
-        GameManager.Instance.StopDeath = true;
         PersistentOverlay.Instance.TransitionRef.GetComponent<LevelTransition>().TitleText = "LOADING...";
         PersistentOverlay.Instance.RunTransition(true);
         Refresh.Instance.RefreshCountText.GetComponent<Flicker>().TextDisappear();
-        yield return new WaitForSeconds(1.15f);
+        yield return new WaitForSecondsRealtime(1.15f);
+        Time.timeScale = 1f;
         Destroy(DDOL.Instance.gameObject);
         DDOL.Instance = null;
         GameManager.Instance.LoadLevel(0);

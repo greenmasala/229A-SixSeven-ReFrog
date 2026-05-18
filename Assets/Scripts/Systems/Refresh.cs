@@ -58,8 +58,6 @@ public class Refresh : MonoBehaviour
                 PersistentUI.Instance.RefreshUI.ResetControllerState();
             }
             HasRefreshed = false;
-            Debug.Log("Acitve");
-            gameObject.SetActive(true);
             RefreshCount = FindFirstObjectByType<Player>().RefreshCount;
             Layout1 = GameObject.FindGameObjectsWithTag("Layout1");
             Layout2 = GameObject.FindGameObjectsWithTag("Layout2");
@@ -124,7 +122,7 @@ public class Refresh : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!GameManager.Instance.StopDeath & !GameManager.Instance.Paused & SceneManager.GetActiveScene().buildIndex != 0 & !GameManager.Instance.Dead & !GameManager.Instance.Win)
+        if (!GameManager.Instance.Paused & SceneManager.GetActiveScene().buildIndex != 0 & !GameManager.Instance.Dead)
         {
             if (Input.GetKeyDown(KeyCode.E) & RefreshCount > 0)
             {
@@ -217,11 +215,11 @@ public class Refresh : MonoBehaviour
         yield break;
     }
 
-    public void ShowLayout()
+    public void ShowLayout() //again will have to check this
     {
         AudioManager.Instance.PlaySFX(AudioManager.Instance.Flicker);
         StartCoroutine(FadeInUniLayout());
-        PersistentUI.Instance.PreviewActive();
+        PersistentUI.Instance.LayoutPreview();
         if (CoFadeInLayout != null)
         {
             StopCoroutine(CoFadeInLayout);
@@ -259,11 +257,11 @@ public class Refresh : MonoBehaviour
         }
     }
 
-    public void ReplenishRefresh()
-    {
-        RefreshCount++;
-        RefreshCountText.text = RefreshCount.ToString();
-    }
+    //public void ReplenishRefresh()
+    //{
+    //    RefreshCount++;
+    //    RefreshCountText.text = RefreshCount.ToString();
+    //}
 
     IEnumerator FadeInLayout(GameObject[] layout)
     {

@@ -2644,6 +2644,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PersistentUI
   RefreshUI: {fileID: 247980950}
+  PauseMenu: {fileID: 75995476}
   LevelComplete: {fileID: 267724768}
   PreviewOverlay: {fileID: 2013252329}
   PreviewOverlay2: {fileID: 1903087957}
@@ -9426,12 +9427,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6e8a6753ae7c2346bd0801f64cc3c59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
-  PauseMenu: {fileID: 75995476}
-  CreditsMenu: {fileID: 0}
-  LevelCompleteMenu: {fileID: 0}
-  RefreshCount: {fileID: 0}
   Paused: 0
   StopDeath: 0
+  Win: 0
   Dead: 0
   DeathFX: {fileID: 5774705911907906273, guid: 30bcf98668ee16547a1217030e381b25, type: 3}
 --- !u!4 &1869307361

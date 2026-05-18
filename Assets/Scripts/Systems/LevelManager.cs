@@ -34,7 +34,7 @@ public class LevelManager : MonoBehaviour
     IEnumerator LoadLevelCoroutine(int levelID)
     {
         PersistentOverlay.Instance.RunTransition(true);
-        yield return new WaitForSeconds(1.15f);
+        yield return new WaitForSecondsRealtime(1.15f);
         SceneManager.LoadScene("Bootloader");
         yield return null;
         SceneManager.LoadSceneAsync(levelID);

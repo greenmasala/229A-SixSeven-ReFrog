@@ -36,7 +36,7 @@ public class Flicker : MonoBehaviour
         StartCoroutine(UnflickerText());
     }
 
-    IEnumerator FlickerText()
+    IEnumerator FlickerText() //maybe possible to combine into one method
     {
         if (SceneManager.GetActiveScene().buildIndex != SceneManager.sceneCountInBuildSettings - 1)
         {

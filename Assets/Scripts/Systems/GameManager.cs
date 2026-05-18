@@ -36,10 +36,6 @@ public class GameManager : MonoBehaviour
             Refresh.Instance.RefreshCountText.GetComponent<Flicker>().TextAppear();
             PersistentOverlay.Instance.RunTransition(false);
             GameOver = false;
-            //if (Refresh.Instance.Layout1Active || Refresh.Instance.Layout2Active)
-            //{
-            //    PersistentUI.Instance.HideLayout();
-            //}
             levelID = SceneManager.GetActiveScene().buildIndex;
             nextLevelID = levelID + 1;
         }

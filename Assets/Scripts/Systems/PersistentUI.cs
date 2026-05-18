@@ -55,7 +55,7 @@ public class PersistentUI : MonoBehaviour
         PreviewOverlay2.SetActive(false);
     }
 
-    public void LayoutPreview(GameObject[] layout, GameObject[] layout2)
+    public void LayoutPreview(GameObject[] layout, GameObject[] layout2, GameObject[] uniLayout)
     {
         if (previewRoutine != null)
         {
@@ -63,7 +63,7 @@ public class PersistentUI : MonoBehaviour
         }
         if (Refresh.Instance.HasRefreshed)
         {
-            previewRoutine = StartCoroutine(PreviewCoroutine(PreviewOverlay, layout));
+            previewRoutine = StartCoroutine(PreviewCoroutine(PreviewOverlay, layout, uniLayout));
             Refresh.Instance.Layout1Active = true;
             foreach (GameObject go in layout2)
             {
@@ -73,7 +73,7 @@ public class PersistentUI : MonoBehaviour
         }
         else
         {
-            previewRoutine = StartCoroutine(PreviewCoroutine(PreviewOverlay2, layout2));
+            previewRoutine = StartCoroutine(PreviewCoroutine(PreviewOverlay2, layout2, uniLayout));
             Refresh.Instance.Layout2Active = true;
             foreach (GameObject go in layout)
             {
@@ -83,7 +83,7 @@ public class PersistentUI : MonoBehaviour
         }
     }
 
-    public void PreviewDisable(GameObject[] layout, GameObject[] layout2)
+    public void PreviewDisable(GameObject[] layout, GameObject[] layout2, GameObject[] uniLayout)
     {
         if (disablePreviewRoutine != null)
         {
@@ -91,7 +91,7 @@ public class PersistentUI : MonoBehaviour
         }
         if (Refresh.Instance.Layout1Active)
         {
-            disablePreviewRoutine = StartCoroutine(DisablePreviewCoroutine(PreviewOverlay, layout));
+            disablePreviewRoutine = StartCoroutine(DisablePreviewCoroutine(PreviewOverlay, layout, uniLayout));
             Refresh.Instance.Layout1Active = false;
             foreach (GameObject go in layout2)
             {
@@ -101,7 +101,7 @@ public class PersistentUI : MonoBehaviour
         }
         else if (Refresh.Instance.Layout2Active)
         {
-            disablePreviewRoutine = StartCoroutine(DisablePreviewCoroutine(PreviewOverlay2, layout2));
+            disablePreviewRoutine = StartCoroutine(DisablePreviewCoroutine(PreviewOverlay2, layout2, uniLayout));
             Refresh.Instance.Layout2Active = false;
             foreach (GameObject go in layout)
             {
@@ -127,13 +127,20 @@ public class PersistentUI : MonoBehaviour
         Credits.SetActive(true);
     }
 
-    IEnumerator PreviewCoroutine(GameObject PreviewOverlay, GameObject[] layout) 
+    IEnumerator PreviewCoroutine(GameObject PreviewOverlay, GameObject[] layout, GameObject[] uniLayout) 
     {
         foreach (GameObject obj in layout)
         {
             if (obj != null)
             {
                 obj.SetActive(true);
+            }
+        }
+        foreach (var uni in uniLayout)
+        {
+            if (uni != null)
+            {
+                uni.SetActive(true);
             }
         }
         PreviewOverlay.SetActive(true);
@@ -147,6 +154,13 @@ public class PersistentUI : MonoBehaviour
                 obj.SetActive(false);
             }
         }
+        foreach (var uni in uniLayout)
+        {
+            if (uni != null)
+            {
+                uni.SetActive(false);
+            }
+        }
         PreviewOverlay.SetActive(false);
 
         yield return new WaitForSeconds(0.1f);
@@ -156,18 +170,32 @@ public class PersistentUI : MonoBehaviour
             if (obj != null)
             {
                 obj.SetActive(true);
+            }
+        }
+        foreach (var uni in uniLayout)
+        {
+            if (uni != null)
+            {
+                uni.SetActive(true);
             }
         }
         PreviewOverlay.SetActive(true);
     }
 
-    IEnumerator DisablePreviewCoroutine(GameObject PreviewOverlay, GameObject[] layout)
+    IEnumerator DisablePreviewCoroutine(GameObject PreviewOverlay, GameObject[] layout, GameObject[] uniLayout)
     {
         foreach (GameObject obj in layout)
         {
             if (obj != null)
             {
                 obj.SetActive(false);
+            }
+        }
+        foreach (var uni in uniLayout)
+        {
+            if (uni != null)
+            {
+                uni.SetActive(false);
             }
         }
         PreviewOverlay.SetActive(false);
@@ -181,6 +209,13 @@ public class PersistentUI : MonoBehaviour
                 obj.SetActive(true);
             }
         }
+        foreach (var uni in uniLayout)
+        {
+            if (uni != null)
+            {
+                uni.SetActive(true);
+            }
+        }
         PreviewOverlay.SetActive(true);
 
         yield return new WaitForSeconds(0.1f);
@@ -190,6 +225,13 @@ public class PersistentUI : MonoBehaviour
             if (obj != null)
             {
                 obj.SetActive(false);
+            }
+        }
+        foreach (var uni in uniLayout)
+        {
+            if (uni != null)
+            {
+                uni.SetActive(false);
             }
         }
         PreviewOverlay.SetActive(false);

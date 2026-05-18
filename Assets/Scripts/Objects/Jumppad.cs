@@ -16,8 +16,7 @@ public class Jumppad : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             JumpPadAnim.SetBool("IsJumping", true);
-            collision.gameObject.GetComponent<Player>().JumpFX();
-            collision.gameObject.GetComponent<Player>().JumpCount = 1;
+            collision.gameObject.GetComponent<Player>().Jumppad();
             AudioManager.Instance.PlaySFX(AudioManager.Instance.Jumppad);
             var force = collision.rigidbody.mass * JumpForce; //this part is for physics assignment!
             collision.rigidbody.linearVelocity = new Vector2(collision.rigidbody.linearVelocity.x, 0f);

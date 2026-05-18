@@ -58,8 +58,6 @@ public class Refresh : MonoBehaviour
                 PersistentUI.Instance.RefreshUI.ResetControllerState();
             }
             HasRefreshed = false;
-            Debug.Log("Acitve");
-            gameObject.SetActive(true);
             RefreshCount = FindFirstObjectByType<Player>().RefreshCount;
             Layout1 = GameObject.FindGameObjectsWithTag("Layout1");
             Layout2 = GameObject.FindGameObjectsWithTag("Layout2");
@@ -77,6 +75,12 @@ public class Refresh : MonoBehaviour
                 uni.gameObject.SetActive(false);
             }
 
+            if (Layout1Active || Layout2Active)
+            {
+                PersistentUI.Instance.HideLayout(Layout1, Layout2);
+                Layout1Active = false;
+                Layout2Active = false;
+            }
             Columns = GameObject.FindGameObjectsWithTag("Column").OrderByDescending(o =>
             {
                 var numberPart = new string(o.name.Where(char.IsDigit).ToArray());
@@ -89,11 +93,6 @@ public class Refresh : MonoBehaviour
                 return int.Parse(numberPart);
             }).ToArray();
 
-            if (RefreshCountText != null)
-            {
-                RefreshCountText.text = RefreshCount.ToString();
-            }
-
             foreach (GameObject column in Columns)
             {
                 column.SetActive(true);
@@ -103,6 +102,10 @@ public class Refresh : MonoBehaviour
             {
                 column2.SetActive(false);
             }
+        }
+        if (RefreshCountText != null)
+        {
+            RefreshCountText.text = RefreshCount.ToString();
         }
     }
     private void Awake()
@@ -124,7 +127,7 @@ public class Refresh : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!GameManager.Instance.StopDeath & !GameManager.Instance.Paused & SceneManager.GetActiveScene().buildIndex != 0 & !GameManager.Instance.Dead)
+        if (!GameManager.Instance.Paused & SceneManager.GetActiveScene().buildIndex != 0 & !GameManager.Instance.GameOver)
         {
             if (Input.GetKeyDown(KeyCode.E) & RefreshCount > 0)
             {
@@ -220,155 +223,18 @@ public class Refresh : MonoBehaviour
     public void ShowLayout()
     {
         AudioManager.Instance.PlaySFX(AudioManager.Instance.Flicker);
-        StartCoroutine(FadeInUniLayout());
-        PersistentUI.Instance.PreviewActive();
-        if (CoFadeInLayout != null)
-        {
-            StopCoroutine(CoFadeInLayout);
-        }
-        if (HasRefreshed)
-        {
-            CoFadeInLayout = StartCoroutine(FadeInLayout(Layout1));
-            Layout1Active = true;
-        }
-        else
-        {
-            CoFadeInLayout = StartCoroutine(FadeInLayout(Layout2));
-            Layout2Active = true;
-        }
+        PersistentUI.Instance.LayoutPreview(Layout1, Layout2, UniversalLayout);
     }
 
     public void HideLayout()
     {
         AudioManager.Instance.PlaySFX(AudioManager.Instance.Flicker);
-        StartCoroutine(FadeOutUniLayout());
-        PersistentUI.Instance.PreviewDisable();
-        if (CoFadeOutLayout != null)
-        {
-            StopCoroutine(CoFadeOutLayout);
-        }
-        if (Layout1Active)
-        {
-            CoFadeOutLayout = StartCoroutine(FadeOutLayout(Layout1));
-            Layout1Active = false;
-        }
-        else if (Layout2Active)
-        {
-            CoFadeOutLayout = StartCoroutine(FadeOutLayout(Layout2));
-            Layout2Active = false;
-        }
+        PersistentUI.Instance.PreviewDisable(Layout1, Layout2, UniversalLayout);
     }
 
-    public void ReplenishRefresh()
-    {
-        RefreshCount++;
-        RefreshCountText.text = RefreshCount.ToString();
-    }
-
-    IEnumerator FadeInLayout(GameObject[] layout)
-    {
-        foreach (GameObject obj in layout)
-        {
-            if (obj != null)
-            {
-                obj.SetActive(true);
-            }
-        }
-        yield return new WaitForSeconds(0.1f);
-        foreach (GameObject obj in layout)
-        {
-            if (obj != null)
-            {
-                obj.SetActive(false);
-            }
-        }
-        yield return new WaitForSeconds(0.1f);
-        foreach (GameObject obj in layout)
-        {
-            if (obj != null)
-            {
-                obj.SetActive(true);
-            }
-        }
-    }
-    IEnumerator FadeOutLayout(GameObject[] layout)
-    {
-        foreach (GameObject obj in layout)
-        {
-            if (obj != null)
-            {
-                obj.SetActive(false);
-            }
-        }
-        yield return new WaitForSeconds(0.1f);
-        foreach (GameObject obj in layout)
-        {
-            if (obj != null)
-            {
-                obj.SetActive(true);
-            }
-        }
-        yield return new WaitForSeconds(0.1f);
-        foreach (GameObject obj in layout)
-        {
-            if (obj != null)
-            {
-                obj.SetActive(false);
-            }
-        }
-    }
-
-    IEnumerator FadeInUniLayout()
-    {
-        foreach (var uni in UniversalLayout)
-        {
-            if (uni != null)
-            {
-                uni.SetActive(true);
-            }
-        }
-        yield return new WaitForSeconds(0.1f);
-        foreach (var uni in UniversalLayout)
-        {
-            if (uni != null)
-            {
-                uni.SetActive(false);
-            }
-        }
-        yield return new WaitForSeconds(0.1f);
-        foreach (var uni in UniversalLayout)
-        {
-            if (uni != null)
-            {
-                uni.SetActive(true);
-            }
-        }
-    }
-
-    IEnumerator FadeOutUniLayout()
-    {
-        foreach (var uni in UniversalLayout)
-        {
-            if (uni != null)
-            {
-                uni.SetActive(false);
-            }
-        }
-        yield return new WaitForSeconds(0.1f);
-        foreach (var uni in UniversalLayout)
-        {
-            if (uni != null)
-            {
-                uni.SetActive(true);
-            }
-        }
-        yield return new WaitForSeconds(0.1f);
-        foreach (var uni in UniversalLayout)
-        {
-            if (uni != null)
-            {
-                uni.SetActive(false);
-            }
-        }
-    }
+    //public void ReplenishRefresh()
+    //{
+    //    RefreshCount++;
+    //    RefreshCountText.text = RefreshCount.ToString();
+    //}
 }

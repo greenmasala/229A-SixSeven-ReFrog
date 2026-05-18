@@ -16,8 +16,6 @@ public class Player : MonoBehaviour
     public float jumpBufferCounter;
     public ParticleSystem DustFX;
 
-    //public SpriteRenderer spriteRenderer;
-
     public bool isJumping;
     public Transform GroundCheckPos;
     public Vector2 GroundCheckSize = new Vector2(0.5f, 0.05f);
@@ -25,7 +23,6 @@ public class Player : MonoBehaviour
     bool facingRight;
     Animator playerAnim;
 
-    Sequence jumpSequence;
     public int RefreshCount = 5;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -39,12 +36,11 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!GameManager.Instance.StopDeath)
+        if (!GameManager.Instance.Paused)
         {
             if (isGrounded())
             {
                 coyoteTimeCounter = coyoteTime;
-                //isJumping = false;
             }
             else if (!isGrounded())
             {
@@ -54,8 +50,6 @@ public class Player : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 jumpBufferCounter = jumpBufferTime;
-                //isJumping = true;
-                //jumpCount--;
                 if (coyoteTimeCounter < 0 & JumpCount > 0)
                 {
                     rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
@@ -74,29 +68,7 @@ public class Player : MonoBehaviour
             else
             {
                 jumpBufferCounter -= Time.deltaTime;
-                //isJumping = false;
             }
-
-            //if (jumpBufferCounter > 0f & coyoteTimeCounter > 0f & !isJumping)
-
-            //if (jumpBufferCounter > 0f & coyoteTimeCounter > 0f & !isJumping)
-            //{
-            //    if (isJumping)
-            //    //isJumping = true;
-            //    Debug.Log("jump");
-            //    rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
-            //    isJumping = true;
-
-            //    jumpBufferCounter = 0f;
-            //    coyoteTimeCounter = 0f;
-            //}
-            //else if (jumpBufferCounter > 0f & coyoteTimeCounter > 0f & isJumping & jumpCount > 0)
-            //{
-            //    Debug.Log("double jump");
-            //    jumpCount--;
-            //    isJumping = false;
-            //    rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
-            //}
 
             if (isJumping)
             {
@@ -107,7 +79,7 @@ public class Player : MonoBehaviour
                 playerAnim.SetBool("IsJumping", false);
             }
 
-            if (jumpBufferCounter > 0f) //could be better, if you have time come revisit //moving while jumping increases jumpheight
+            if (jumpBufferCounter > 0f) 
             {
                 if (coyoteTimeCounter > 0f && !isJumping)
                 {
@@ -135,12 +107,11 @@ public class Player : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        if (!GameManager.Instance.StopDeath)
+        if (!GameManager.Instance.Paused)
         {
             var horizontalInput = Input.GetAxisRaw("Horizontal");
 
             rb.linearVelocity = new Vector2(horizontalInput * speed, rb.linearVelocity.y);
-            //transform.Translate(Vector2.right * horizontalInput * speed * Time.deltaTime);
 
             if (horizontalInput != 0)
             {
@@ -183,21 +154,13 @@ public class Player : MonoBehaviour
 
     private bool isGrounded()
     {
-        if (Physics2D.OverlapBox(GroundCheckPos.position, GroundCheckSize, 0, GroundLayer) & rb.linearVelocity.y <= 0) //kinda ducttape rn
+        if (Physics2D.OverlapBox(GroundCheckPos.position, GroundCheckSize, 0, GroundLayer) & rb.linearVelocity.y <= 0) 
         {
             JumpCount = maxJumpCount;
             isJumping = false;
             return true;
         }
         return false;
-    }
-
-    private void OnCollisionExit2D(Collision2D collision)
-    {
-        if (!isGrounded()) //stopping effector from applying force when jumping
-        {
-            rb.linearVelocity = new Vector2(0f, rb.linearVelocity.y);
-        }
     }
 
     void Flip()
@@ -211,9 +174,6 @@ public class Player : MonoBehaviour
         {
             gameObject.GetComponent<SpriteRenderer>().flipX = false;
         }
-        //Vector3 theScale = transform.localScale;
-        //theScale.x *= -1;
-        //transform.localScale = theScale;
     }
     private void OnDrawGizmosSelected()
     {
@@ -223,22 +183,20 @@ public class Player : MonoBehaviour
 
     public void Death()
     {
-        if (!GameManager.Instance.StopDeath)
-        {
-            AudioManager.Instance.PlaySFX(AudioManager.Instance.Death);
-            GameManager.Instance.Death(transform);
-            Destroy(gameObject);
-        }
+        AudioManager.Instance.PlaySFX(AudioManager.Instance.Death);
+        GameManager.Instance.Death(transform);
+        Destroy(gameObject);
     }
-    void WalkSFX()
+    void WalkSFX() //used in player walk animation clip
     {
         AudioManager.Instance.PlaySFX(AudioManager.Instance.Walk);
     }
 
-    public void JumpFX()
+    public void Jumppad()
     {
         isJumping = true;
         DustFX.Play();
+        JumpCount = 1;
     }
 
     void JumpSFX()

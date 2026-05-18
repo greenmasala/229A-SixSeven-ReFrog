@@ -7,16 +7,11 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    public GameObject PauseMenu;
-    public GameObject CreditsMenu;
-    public GameObject LevelCompleteMenu;
-    public GameObject RefreshCount;
-
     int levelID;
     int nextLevelID;
     public bool Paused;
-    public bool StopDeath;
-    public bool Dead;
+    public bool GameOver;
+
     public ParticleSystem DeathFX;
     Coroutine restartRoutine;
     public static GameManager Instance { get; private set; }
@@ -37,14 +32,12 @@ public class GameManager : MonoBehaviour
         }
         else
         {
+            Time.timeScale = 1f;
             Refresh.Instance.RefreshCountText.GetComponent<Flicker>().TextAppear();
             PersistentOverlay.Instance.RunTransition(false);
-            StopDeath = false;
-            Dead = false;
-            Debug.Log(PauseMenu);
+            GameOver = false;
             levelID = SceneManager.GetActiveScene().buildIndex;
             nextLevelID = levelID + 1;
-            Debug.Log("LevelID" + levelID);
         }
     }
     private void Awake()
@@ -62,18 +55,12 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private void Start()
-    {
-        levelID = SceneManager.GetActiveScene().buildIndex;
-        nextLevelID = levelID + 1;
-    }
-
     // Update is called once per frame
     void Update()
     {
         if (SceneManager.GetActiveScene().buildIndex != 0)
         {
-            if (Input.GetKeyDown(KeyCode.Escape) & !StopDeath & !Dead)
+            if (Input.GetKeyDown(KeyCode.Escape) & !GameOver)
             {
                 if (Paused == true)
                 {
@@ -84,27 +71,21 @@ public class GameManager : MonoBehaviour
                     Pause();
                 }
             }
-
-            //if (Input.GetKeyDown(KeyCode.R) & SceneManager.GetActiveScene().buildIndex != 0)
-            //{
-            //    Restart();
-            //    //NextLevel();
-            //}
         }
     }
 
     public void Pause()
     {
+        PersistentUI.Instance.Pause();
         Time.timeScale = 0f;
-        PauseMenu.gameObject.SetActive(true);
         Paused = true;
         Debug.Log("paused");
     }
 
     public void Unpause()
     {
+        PersistentUI.Instance.Pause();
         Time.timeScale = 1f;
-        PauseMenu.gameObject.SetActive(false);
         Paused = false;
         if (Refresh.Instance.Layout1Active || Refresh.Instance.Layout2Active)
         {
@@ -113,18 +94,11 @@ public class GameManager : MonoBehaviour
     }
     public void Restart()
     {
-        if (restartRoutine != null || StopDeath)
+        if (restartRoutine != null)
         {
             return;
         }
-        Time.timeScale = 1f;
         restartRoutine = StartCoroutine(RestartRoutine());
-       
-        //Refresh.Instance.RefreshCountText.GetComponent<Flicker>().TextDisappear();
-        //Destroy(DDOL.Instance.gameObject);
-        //DDOL.Instance = null;
-        //PersistentOverlay.Instance.TransitionRef.GetComponent<LevelTransition>().TitleText = "RESTARTING...";
-        //LevelManager.Instance.LoadLevel(SceneManager.GetActiveScene().buildIndex);
     }
 
     public void NextLevel()
@@ -149,16 +123,6 @@ public class GameManager : MonoBehaviour
     {
         StartCoroutine(DeathRoutine(transform));
     }
-
-    IEnumerator DeathRoutine(Transform transform)
-    {
-        Dead = true;
-        Refresh.Instance.RefreshCountText.GetComponent<Flicker>().TextDisappear();
-        Instantiate(DeathFX, transform.position, Quaternion.identity);
-        yield return new WaitForSeconds(0.3f);
-        StartCoroutine(TransitionRoutine("RESTARTING...", true));
-    }
-
     IEnumerator TransitionRoutine(string text, bool restart)
     {
         PersistentOverlay.Instance.TransitionRef.GetComponent<LevelTransition>().TitleText = text;
@@ -168,7 +132,6 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            StopDeath = true;
             Refresh.Instance.RefreshCountText.GetComponent<Flicker>().TextDisappear();
             PersistentOverlay.Instance.RunTransition(true);
             yield return new WaitForSeconds(1.15f);
@@ -176,19 +139,23 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    IEnumerator DeathRoutine(Transform transform)
+    {
+        GameOver = true;
+        Refresh.Instance.RefreshCountText.GetComponent<Flicker>().TextDisappear();
+        Instantiate(DeathFX, transform.position, Quaternion.identity);
+        yield return new WaitForSeconds(0.3f);
+        StartCoroutine(TransitionRoutine("RESTARTING...", true));
+    }
+
     IEnumerator RestartRoutine()
     {
         Refresh.Instance.RefreshCountText.GetComponent<Flicker>().TextDisappear();
         PersistentOverlay.Instance.TransitionRef.GetComponent<LevelTransition>().TitleText = "RESTARTING...";
         LevelManager.Instance.LoadLevel(SceneManager.GetActiveScene().buildIndex);
-        yield return new WaitForSeconds(0.7f);
+        yield return new WaitForSecondsRealtime(0.7f);
         Destroy(DDOL.Instance.gameObject);
         DDOL.Instance = null;
+        yield return null;
     }
-    //public void Credits()
-    //{
-    //    CreditsMenu.gameObject.SetActive(!CreditsMenu.activeInHierarchy);
-    //    LevelCompleteMenu.SetActive(!LevelCompleteMenu.activeInHierarchy);
-    //    RefreshCount.SetActive(!RefreshCount.activeInHierarchy);
-    //}
 }

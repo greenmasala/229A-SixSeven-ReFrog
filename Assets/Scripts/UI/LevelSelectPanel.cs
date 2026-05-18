@@ -1,12 +1,8 @@
 using DG.Tweening;
-using Mono.Cecil.Cil;
 using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using static System.Net.Mime.MediaTypeNames;
-
-//using UnityEngine.UIElements;
 
 public class LevelSelectPanel : MonoBehaviour
 {

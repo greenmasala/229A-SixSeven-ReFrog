@@ -1,8 +1,6 @@
 using DG.Tweening;
-using System.Collections;
 using TMPro;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class LevelTransition : MonoBehaviour
 {

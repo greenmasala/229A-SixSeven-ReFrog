@@ -1,12 +1,8 @@
-using DG.Tweening;
 using System.Collections;
-using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.Serialization;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.Tilemaps;
 
 public class Refresh : MonoBehaviour
 {
@@ -25,9 +21,6 @@ public class Refresh : MonoBehaviour
     public float InitialRefreshDelay = 0.35f;
     int currentColumn;
     int currentColumn2;
-
-    Coroutine CoFadeInLayout;
-    Coroutine CoFadeOutLayout;
 
     [SerializeField] AudioClip refreshSFX;
 

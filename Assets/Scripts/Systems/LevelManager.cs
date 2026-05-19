@@ -35,6 +35,12 @@ public class LevelManager : MonoBehaviour
     {
         PersistentOverlay.Instance.RunTransition(true);
         yield return new WaitForSecondsRealtime(1.15f);
+        if (DDOL.Instance != null)
+        {
+            Destroy(DDOL.Instance.gameObject);
+            DDOL.Instance = null;
+        }
+        yield return null;
         SceneManager.LoadScene("Bootloader");
         yield return null;
         SceneManager.LoadSceneAsync(levelID);

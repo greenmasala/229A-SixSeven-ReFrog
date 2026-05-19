@@ -150,9 +150,6 @@ public class GameManager : MonoBehaviour
         Refresh.Instance.RefreshCountText.GetComponent<Flicker>().TextDisappear();
         PersistentOverlay.Instance.TransitionRef.GetComponent<LevelTransition>().TitleText = "RESTARTING...";
         LevelManager.Instance.LoadLevel(SceneManager.GetActiveScene().buildIndex);
-        yield return new WaitForSecondsRealtime(0.7f);
-        Destroy(DDOL.Instance.gameObject);
-        DDOL.Instance = null;
-        yield return null;
+        return null;
     }
 }

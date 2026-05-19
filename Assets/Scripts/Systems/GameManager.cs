@@ -30,11 +30,9 @@ public class GameManager : MonoBehaviour
         else
         {
             Time.timeScale = 1f;
-            //StopCoroutine(restartRoutine);
             Refresh.Instance.RefreshCountText.GetComponent<Flicker>().TextAppear();
             PersistentOverlay.Instance.RunTransition(false);
             GameOver = false;
-            Paused = false;
             levelID = SceneManager.GetActiveScene().buildIndex;
             nextLevelID = levelID + 1;
         }
@@ -95,9 +93,9 @@ public class GameManager : MonoBehaviour
     {
         if (restartRoutine != null)
         {
-            StopCoroutine(restartRoutine);
+            return;
         }
-        restartRoutine = StartCoroutine(TransitionRoutine(true));
+        restartRoutine = StartCoroutine(RestartRoutine());
     }
 
     public void NextLevel()
@@ -109,7 +107,7 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            StartCoroutine(TransitionRoutine(false));
+            StartCoroutine(TransitionRoutine("LOADING...", false));
         }
     }
 
@@ -122,21 +120,18 @@ public class GameManager : MonoBehaviour
     {
         StartCoroutine(DeathRoutine(transform));
     }
-    IEnumerator TransitionRoutine(bool restart)
+    IEnumerator TransitionRoutine(string text, bool restart)
     {
-        Refresh.Instance.RefreshCountText.GetComponent<Flicker>().TextDisappear();
+        PersistentOverlay.Instance.TransitionRef.GetComponent<LevelTransition>().TitleText = text;
         if (restart)
         {
-            PersistentOverlay.Instance.TransitionRef.GetComponent<LevelTransition>().TitleText = "RESTARTING...";
-            PersistentOverlay.Instance.RunTransition(true);
-            yield return new WaitForSecondsRealtime(1.15f);
-            LoadLevel(levelID);
+            Restart();
         }
         else
         {
-            PersistentOverlay.Instance.TransitionRef.GetComponent<LevelTransition>().TitleText = "lOADING...";
+            Refresh.Instance.RefreshCountText.GetComponent<Flicker>().TextDisappear();
             PersistentOverlay.Instance.RunTransition(true);
-            yield return new WaitForSecondsRealtime(1.15f);
+            yield return new WaitForSeconds(1.15f);
             LoadLevel(nextLevelID);
         }
     }
@@ -146,16 +141,15 @@ public class GameManager : MonoBehaviour
         GameOver = true;
         Refresh.Instance.RefreshCountText.GetComponent<Flicker>().TextDisappear();
         Instantiate(DeathFX, transform.position, Quaternion.identity);
-        yield return new WaitForSecondsRealtime(0.3f);
-        restartRoutine = StartCoroutine(TransitionRoutine(true));
+        yield return new WaitForSeconds(0.3f);
+        StartCoroutine(TransitionRoutine("RESTARTING...", true));
     }
 
-    //IEnumerator RestartRoutine()
-    //{
-    //    Refresh.Instance.RefreshCountText.GetComponent<Flicker>().TextDisappear();
-    //    LoadLevel(levelID);
-    //    StartCoroutine(TransitionRoutine(true));
-    //    yield return new WaitForSeconds(1.15f);
-    //    return null;
-    //}
+    IEnumerator RestartRoutine()
+    {
+        Refresh.Instance.RefreshCountText.GetComponent<Flicker>().TextDisappear();
+        PersistentOverlay.Instance.TransitionRef.GetComponent<LevelTransition>().TitleText = "RESTARTING...";
+        LevelManager.Instance.LoadLevel(SceneManager.GetActiveScene().buildIndex);
+        return null;
+    }
 }

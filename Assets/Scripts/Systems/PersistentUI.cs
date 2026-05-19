@@ -1,7 +1,5 @@
 using System.Collections;
-using Unity.VisualScripting.Antlr3.Runtime;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class PersistentUI : MonoBehaviour
 {
@@ -15,29 +13,6 @@ public class PersistentUI : MonoBehaviour
     Coroutine previewRoutine;
     Coroutine disablePreviewRoutine;
 
-    private void OnEnable()
-    {
-        SceneManager.sceneLoaded += SceneChanged;
-    }
-    private void OnDisable()
-    {
-        SceneManager.sceneLoaded -= SceneChanged;
-    }
-    private void SceneChanged(Scene scene, LoadSceneMode mode)
-    {
-        if (scene.buildIndex == 0)
-        {
-            return;
-        }
-        else
-        {
-            PersistentOverlay.Instance.RunTransition(false);
-            RefreshUI.SetBool("HasRefreshed", false);
-            RefreshUI.ResetControllerState();
-            PauseMenu.SetActive(false);
-            LevelComplete.SetActive(false);
-        }
-    }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private void Awake()
     {
@@ -64,7 +39,7 @@ public class PersistentUI : MonoBehaviour
         StartCoroutine(CreditsCoroutine());
     }
 
-    public void HideLayout(GameObject[] layout, GameObject[] layout2) //called in Refresh
+    public void HideLayout(GameObject[] layout, GameObject[] layout2)
     {
         foreach (GameObject go in layout)
         {

@@ -47,6 +47,8 @@ public class Refresh : MonoBehaviour
                 StopCoroutine(refreshCoroutine);
                 currentColumn = 0;
                 currentColumn2 = 0;
+                PersistentUI.Instance.RefreshUI.SetBool("HasRefreshed", false);
+                PersistentUI.Instance.RefreshUI.ResetControllerState();
             }
             HasRefreshed = false;
             RefreshCount = FindFirstObjectByType<Player>().RefreshCount;

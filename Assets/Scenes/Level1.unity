@@ -13562,8 +13562,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Typewriter
   text: {fileID: 1790704286}
-  typeSFX: {fileID: 8300000, guid: 9c516c7e235574b44a1f58f3a7f264b3, type: 3}
-  PlaySFX: 0
+  typeSFX: {fileID: 0}
+  PlaySFX: 1
   TypeSpeed: 0.01
 --- !u!1 &1843445883
 GameObject:

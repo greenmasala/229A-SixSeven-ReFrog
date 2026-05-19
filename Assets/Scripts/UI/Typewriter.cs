@@ -26,14 +26,15 @@ public class Typewriter : MonoBehaviour
         for (int i = 0; i < currentCharacterCount; i++)
         {
             text.maxVisibleCharacters = i;
-            if (typeSFX != null || PlaySFX)
+            if (typeSFX != null & PlaySFX)
             {
                 AudioManager.Instance.PlaySFX(typeSFX);
             }
-            else
+            else if (typeSFX == null & PlaySFX)
             {
                 AudioManager.Instance.PlaySFX(AudioManager.Instance.Typing);
             }
+          
             yield return new WaitForSecondsRealtime(TypeSpeed);
         }
     }

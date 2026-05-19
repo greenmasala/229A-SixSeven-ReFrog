@@ -93,7 +93,7 @@ public class GameManager : MonoBehaviour
     {
         if (restartRoutine != null)
         {
-            return;
+            StopCoroutine(restartRoutine);
         }
         restartRoutine = StartCoroutine(RestartRoutine());
     }

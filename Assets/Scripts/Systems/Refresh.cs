@@ -51,7 +51,11 @@ public class Refresh : MonoBehaviour
                 PersistentUI.Instance.RefreshUI.ResetControllerState();
             }
             HasRefreshed = false;
-            RefreshCount = FindFirstObjectByType<Player>().RefreshCount;
+            
+            if (scene.buildIndex != SceneManager.sceneCountInBuildSettings - 1)
+            {
+                RefreshCount = FindFirstObjectByType<Player>().RefreshCount;
+            }
             Layout1 = GameObject.FindGameObjectsWithTag("Layout1");
             Layout2 = GameObject.FindGameObjectsWithTag("Layout2");
             UniversalLayout = GameObject.FindGameObjectsWithTag("UniLayout");

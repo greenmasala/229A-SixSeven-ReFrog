@@ -51,7 +51,7 @@ public class Flicker : MonoBehaviour
     }
     IEnumerator UnflickerText()
     {
-        if (text.enabled)
+        if (text != null & text.enabled)
         {
             yield return new WaitForSecondsRealtime(0.1f);
             AudioManager.Instance.PlaySFX(AudioManager.Instance.Flicker);

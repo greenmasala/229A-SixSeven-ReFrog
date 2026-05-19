@@ -7038,7 +7038,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Typewriter
   text: {fileID: 0}
   typeSFX: {fileID: 0}
-  PlaySFX: 0
+  PlaySFX: 1
   TypeSpeed: 0.02
 --- !u!114 &1479684792
 MonoBehaviour:
@@ -9149,7 +9149,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Typewriter
   text: {fileID: 0}
   typeSFX: {fileID: 0}
-  PlaySFX: 1
+  PlaySFX: 0
   TypeSpeed: 0.0001
 --- !u!114 &1815180112
 MonoBehaviour:

@@ -32,15 +32,16 @@ public class Transition : MonoBehaviour
             LevelText.rectTransform.localScale = new Vector3(1, 1, 1);
             LevelText.text = $"LEVEL_{SceneManager.GetActiveScene().buildIndex}";
             LevelText.maxVisibleCharacters = 0;
+            sequence.Restart();
             RunTransition();
         }
     }
 
     void RunTransition()
     {
-        //sequence.Restart();
         if (SceneManager.GetActiveScene().name != "Bootloader")
         {
+            sequence.Kill();
             sequence = DOTween.Sequence();
             Debug.Log(SceneManager.GetActiveScene().name);
             AudioManager.Instance.PlaySFX(AudioManager.Instance.Loading);
